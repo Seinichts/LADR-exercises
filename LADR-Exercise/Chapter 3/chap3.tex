@@ -69,7 +69,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DOCUMENT START              																			           %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{\vspace{-2em}Chapter 3:Linear maps}
+\title{\vspace{-2em}Chapter 2: Finite dimensional vector space}
 \author{\emph{Linear Algebra Done Right}, by Sheldon Axler}
 \date{}
 
@@ -82,6 +82,23 @@
 
 \section{The vector space of linear maps}
 
+\begin{problem}
+Suppose \(b,c \in \R\). Define \(T : \R^3 \to \R^2\) by \[
+T(x,y,z) = ( 2x - 4y + 3z + b, 6x + cxyz).\]
+Show that $T$ is a linear map if and only if \(b = 0\) and \(c = 0\).
+\end{problem}
 
-% End
+
+\begin{proof}
+Consider \(T(1,1,1) = T(1,0,0) + T(0,1,1)\)
+\begin{align}
+  T(1,1,1) &= (1 + b, 6 + c) \\
+  T(1,0,0) &= (2 + b, 6) \\
+  T(0,1,1) &= (-1 + b, 0)
+\end{align}
+Therefore, \(b=0, c=0\)
+\end{proof}
+
+
+%End
 \end{document}

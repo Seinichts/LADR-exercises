@@ -29,7 +29,7 @@
   fonttitle=\bfseries,
   separator sign none
   }%
-  {} 
+  {}
 \newenvironment{problem}[1]{\begin{prob*}{#1}{}}{\end{prob*}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -138,6 +138,82 @@ is a basis of $U$, and it spans U.
   It is easy to verify that they are linearly independent, and span $\mathcal{P}_3(\F)$
 \end{proof}
 
+\begin{problem}{6}
+  Suppose \(v_{1}, v_{2}, v_{3}, v_{4}\) is a basis of $V$. Prove that \[
+    v_{1} + v_{2}, v_{2} + v_{3}, v_{3} + v_{4}, v_{4}\]
+  is also a basis of $V$.
+\end{problem}
+\begin{proof}
+We could obtain \(v_{1}, v_{2}, v_{3}\) with the following operation
+\begin{align}
+v_{3} + v_{4} - v_{4} &= v_{3} \\
+v_{2} + v_{3} - (v_{3} + v_{4} - v_{4}) &= v_{2} \\
+v_{1} + v_{2} - (v_{2} + v_{3} - (v_{3} + v_{4} - v_{4})) &= v_{1}
+\end{align}
+Which suggests that \(v_{1} + v_{2}, v_{2} + v_{3}, v_{3} + v_{4}, v_{4}\)
+also spans $V$. \\
+Next, we prove that they are linearly independent.
 
+\begin{align}
+& a(v_{1} + v_{2} + b ( v_{2} + v_{3} ) + c (v_{3} + v_{4}) + d v_{4} \\
+= & a v_{1} + (a + b) v_{2} + (b + c) v_{3} + (c + d) v_{4}
+\end{align}
+Since \(v_{1}, v_{2}, v_{3}, v_{4}\) is a basis, we have \(a = b = c = d = 0\).
+This implies that \(v_{1} + v_{2}, v_{2} + v_{3}, v_{3} + v_{4}, v_{4}\)
+is also linearly independent.
+\end{proof}
+
+\begin{problem}{8}
+  Suppose $U$ and $W$ are subspaces of $V$ such that \(V = U \oplus W\).
+  Suppose also that \(u_{1},\dots,u_{m}\) is a basis of $U$ and \(w_{1},\dots,w_{n}\)
+  is a basis of $W$. Prove that \[u_{1},\dots,u_{m}, w_{1},\dots,w_{n}\]
+  is a basis of $V$.
+\end{problem}
+\begin{proof}
+  The linear independency of \(u_{1},\dots,u_{m}, w_{1},\dots,w_{n}\) is directly come from the definition of direct sum since \(U \cap W = {0}\).
+  Since \(u_{1}, \dots, u_{m}\) is a basis of U. We can write any \(u \in U\) as a linear combination of \(u_{1}, \dots, u_{m}\). Similarly, we can write any \(w \in W\) as a linear combination of \(w_{1}, \dots, w_{n}\).
+  Therefore, we can write any \(v \in V\) as a linear combination of \(u_{1}, \dots, u_{m}, w_{1}, \dots, w_{n}\).
+\end{proof}
 % End
+
+\section{Dimension}
+
+\begin{problem}{1}
+Suppose $V$ is finite-dimensional and $U$ is a subspace of $V$ such that $ \dim U = \dim V$. Prove that $U = V$.
+\end{problem}
+
+\begin{proof}
+Let \(u_1, \dots, u_n\) be a basis of $U$. Since $U$ is a subspace of $V$, we can extend the basis of $U$ to a basis of $V$.
+Since \( \dim U = \dim V\), every independent list of right length is also a base suggests that \(u_{1}, \dots, u_{n}\) also spans $V$. Therefore, \(U = V\).
+\end{proof}
+
+\begin{problem}{2}
+Show that the subspaces of $\R^2$ are precisely the zero subspace, all lines in $R^{2}$ through the origin, and $\R^2$ itself.
+\end{problem}
+\begin{proof}
+\( \dim R^{2} = 2 \implies \dim \text{subspaces of } R^{2} \leq 2\)
+
+\begin{align}
+  \text{When} \hspace{10pt} &\dim U = 0,& U  = \set{0}.  \\
+  &\dim U = 1,& U \text{ is a line passing through origin.}  \\
+  &\dim U = 2,& U = R^{2}.
+\end{align}
+
+
+
+\end{proof}
+
+% \begin{problem}{4}
+% \begin{enumerate}[(a)]
+%   \item Let $U = {p \in P_{4}(\R) : p(6) = 0}$. Find a basis of $U$.
+%   \item Extend the basis in part (a) to a basis of $P_{4}(\R)$.
+%   \item Find a subspace $W$ of $P_{4}(\R)$ such that \(P_{4}(\R) = U \oplus W\).
+% \end{enumerate}
+% \end{problem}
+
+% \begin{proof}
+% Proof
+% \end{proof}
+
+
 \end{document}
