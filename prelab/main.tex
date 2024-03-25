@@ -1,0 +1,107 @@
+\documentclass{article}
+\sloppy
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PACKAGES            																						  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[10pt]{extsizes}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+\usepackage{microtype} 
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{commath}
+\usepackage{hyperref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PROBLEM ENVIRONMENT         																			           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems, breakable, skins}
+\newtcbtheorem{prob}% environment name
+              {Problem}% Title text
+  {enhanced, % tcolorbox styles
+  attach boxed title to top left={xshift = 4mm, yshift=-2mm},
+  colback=blue!5, colframe=black, colbacktitle=blue!3, coltitle=black,
+  boxed title style={size=small,colframe=gray},
+  fonttitle=\bfseries,
+  separator sign none
+  }%
+  {} 
+\newenvironment{problem}[1]{\begin{prob*}{#1}{}}{\end{prob*}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% THEOREMS/LEMMAS/ETC.         																			  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheorem{thm}{Theorem}
+\newtheorem*{thm-non}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{corollary}[thm]{Corollary}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MY COMMANDS   																						  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\bigO}{\mathcal{O}}
+\newcommand{\Real}{\mathcal{Re}}
+\newcommand{\poly}{\mathcal{P}}
+\newcommand{\mat}{\mathcal{M}}
+\DeclareMathOperator{\Span}{span}
+\newcommand{\Hom}{\mathcal{L}}
+\DeclareMathOperator{\Null}{null}
+\DeclareMathOperator{\Range}{range}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\restr}[1]{|_{#1}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SECTION NUMBERING																				           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand\thesection{\Alph{section}:}
+
+
+\begin{document}
+
+
+\begin{problem}{1}
+Write down an equation for the centripetal force acting on the mass $m$, in terms of the tension force $F$ in the string and the angle $\theta$ that the string makes with the vertical. Write down a second equation relating the tension $F$ and the angle $\theta$ to the weight of the mass.
+\end{problem}
+\begin{align}
+F_{net} &= F - F_g \\
+        &= F - F \cos \theta
+\end{align}
+\begin{align}
+F_g = mg &= F \cos \theta \\
+m &= \frac{F \cos \theta}{g}
+\end{align}
+
+\begin{problem}{2}
+Usin your equations from Question 1, derive an expression for the speed, $v$
+in terms of the radius r and the angle $\theta$.
+\end{problem}
+
+\begin{align}
+F_{net} = \frac{m v^2}{r} &= F(1 - \cos \theta) \\
+v^2 &= \frac{r F (1 - \cos \theta)}{m} \\
+v^2 &= \frac{r F (1 - \cos \theta)}{(F \cos \theta) / g} \\
+v^2 &= \frac{r g (1 - \cos \theta)}{\cos \theta} \\
+v &= \sqrt{\frac{r g (1 - \cos \theta)}{\cos \theta}}
+\end{align}
+
+\begin{problem}{3}
+Find an expression for the radius in terms of the angle $\theta$ and the length of the string, $l$, and hence write an expression for v in terms of $l$ and $\theta$.
+\end{problem}
+
+\begin{align}
+r &= l \sin \theta \\
+\text{Hence} \quad v &= \sqrt{\frac{l \sin \theta g (1 - \cos \theta)}{\cos \theta}} \\
+&= l \tan (\theta) g (1 - \cos \theta)
+\end{align}
+
+% End
+\end{document}
