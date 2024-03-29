@@ -47,6 +47,7 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\F}{\mathbb{F}}
+\newcommand{\oo}{\infty}
 \newcommand{\bigO}{\mathcal{O}}
 \newcommand{\Real}{\mathcal{Re}}
 \newcommand{\poly}{\mathcal{P}}
@@ -69,7 +70,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DOCUMENT START              																			           %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{\vspace{-2em}Chapter 2: Finite dimensional vector space}
+\title{\vspace{-2em}Chapter 3: Linear maps}
 \author{\emph{Linear Algebra Done Right}, by Sheldon Axler}
 \date{}
 
@@ -99,6 +100,220 @@ Consider \(T(1,1,1) = T(1,0,0) + T(0,1,1)\)
 Therefore, \(b=0, c=0\)
 \end{proof}
 
+\section{Null space and Range}
+
+\begin{problem}{1}
+Give an example of a linear map $T$ such that \(\dim \Null T = 3\) and \(\dim \Range T = 2\).
+\end{problem}
+
+\begin{proof}
+Consider \(T : \poly (4) \mapsto \poly (1)\), \(T(a z^4 +b z^3 + c z^2 + d z + e) = (d z + e)\). Then \(\dim \Null T = 3\) and \(\dim \Range T = 2\).
+\end{proof}
+
+\begin{problem}{3}
+Suppose \(v_1 , \dots, v_m\) is a list of vectors in $V$. Define \(T \in \Hom(\F^m, V)\) by \[
+  T(z_1, \dots, z_m) = z_1v_1 + \dots + z_mv_m.\]
+\begin{enumerate}[(a)]
+  \item What property of $T$ corresponds to \(v_1, \dots, v_m\) spanning $V$.
+  \item What property of $T$ corresponds to \(v_1, \dots, v_m\) being linearly independent.
+\end{enumerate}
+\end{problem}
+
+\begin{proof}
+\begin{enumerate}[(a)]
+  \item \(\forall v \in V\), we have \(T(z_1, \dots, z_m) = v\), which means \(v_1, \dots, v_m\) span $V$. This suggests that $\Range T$ is equal to $V$. Hence, $T$ is surjective.
+  \item If \(v_1, \dots, v_m\) are linearly independent, then \(T(z_1, \dots, z_m) = 0\) implies \(z_1 = \dots = z_m = 0\). This suggests that $\Null T = \{0\}$, hence $T$ is injective.
+\end{enumerate}
+\end{proof}
+
+\begin{problem}{4}
+Show that \[
+  {T \in \Hom(\R^5, \R^4) : \dim \Null T > 2}\]
+is not a subspace of \(\Hom (\R^5,\R^4)\)
+\end{problem}
+
+\begin{proof}
+Suppose \(\dim \Null T > 2\), by F.T. of linear maps,
+\begin{align}
+\dim T = 5 &= \dim \Null T + \dim \Range T \\
+&> 2 + \dim \Range T \\
+\dim \Range T &< 3
+\end{align}
+
+Hence, $T \notin \Hom(\R^5, \R^4)$, and thus not a subspace of \(\Hom (R^5, R^4)\).
+\end{proof}
+
+\begin{problem}{5}
+Give an example of a linear map \(T : \R^4 \mapsto \R^4\) such that \[
+  \Range T = \Null T.\]
+\end{problem}
+
+\begin{proof}
+Consider \(T : R^4 \mapsto R^4\), \(T(x_1, x_2, x_3, x_4) = (x_3, x_4, 0, 0)\). Then \(\Range T = \Null T\).
+\end{proof}
+
+\begin{problem}{6}
+Prove that there does not exist a linear map \(T : \R^5 \mapsto \R^5 \) such that \(\Range T = \Null T\).
+\end{problem}
+
+\begin{proof}
+Suppose there exists a linear map \(T: \R^5 \mapsto \R^5\) such that \(\Range T = \Null T\). Then by F.T. of linear maps, we have \(\dim \Range T = \dim \Null T\), which implies \(\dim \Range T = 5 - \dim \Range T\), or \(\dim \Range T = 2.5\), which is not an integer. Hence, such a linear map does not exist.
+\end{proof}
+
+\begin{problem}{7}
+Suppose $V$ and $W$ are finite-dimensional with \(2 \leq \dim V \leq \dim W.\) Show that \(\{T \in \Hom(V,W) : T \text{ is not injective }\}\)  is not a subspace of \(\Hom(V,W)\).
+\end{problem}
+
+\begin{proof}
+$T$ is not injective suggests that \(\dim \Null V >0\).
+Then By the F.T. of linear maps, we have
+\begin{align}
+\dim V &= \dim \Null V + \dim W \\
+& \geq 1 + \dim W \geq 1 + \dim V
+\end{align}
+Contradicts! Hence, \(T \notin \Hom(V,W)\) $\implies$ not a subspace.
+\end{proof}
+
+% \begin{problem}{8}
+% Suppose $V$ and $W$ are finite-dimensional with \(\dim V \geq \dim W \geq 2.\) Show that \(\{T \in \Hom(V,W) : T \text{ is not surjective }\}\) is not a subspace of \(\Hom(V,W)\).
+% \end{problem}
+
+% \begin{proof}
+
+% \end{proof}
+
+\begin{problem}{9}
+Suppose \(T \in \Hom (V,W)\) is injective and \(v_1, \dots, v_n\) is linearly independent in $V$. Prove that \(Tv_1, \dots, Tv_n\) is linearly independent in $W$.
+\end{problem}
+
+\begin{proof}
+$T$ is injective $\implies \Null T = \{0\}$.
+Therefore, we have \[
+  T(\lambda_1 v_1 + \dots + \lambda_nv_n) \iff \lambda_j = 0\]
+where $j \in \{1, \dots, n\}$. Since \(v_1, \dots, v_n\) are linearly independent. It follows that \(Tv_1, \dots, Tv_n\) are linearly independent.
+\end{proof}
+
+\begin{problem}{10}
+Suppose \(v_1, \dots, v_n\) spans $V$ and \(T \in \Hom(V,W)\). Prove that the list \(Tv_1, \dots, Tv_n\) spans $\Range T$.
+\end{problem}
+
+\begin{proof}
+Suppose \(v_1, \dots, v_n\) spans $V$. Then \(\forall v \in V\), we have \(v = \lambda_1 v_1 + \dots + \lambda_n v_n\). Then \[
+  T(v) = T(\lambda_1 v_1 + \dots + \lambda_n v_n) = \lambda_1 Tv_1 + \dots + \lambda_n Tv_n.\]
+This suggests that \(\Range(T) \subset \Span (Tv_1, \dots, Tv_n)\). Also, $\Span (Tv_1, \dots, Tv_n)$ is the smallest containing subspace of $W$ implying that it is a subset of $\Range W$, hence \(\Range T = \Span (Tv_1, \dots, Tv_n)\).
+\end{proof}
+
+\begin{problem}{11}
+Suppose $S_1, \dots, S_n$ are injective linear maps such that $S_1 S_2 \dots S_n$ makes sense. Prove that \(S_1 S_2 \dots S_n\) is injective.
+\end{problem}
+
+\begin{proof}
+By F.T. of linear maps, we have
+\begin{align}
+  \dim S_1 &= \dim \Null S_1 + \dim \Range S_1 \\
+  &= 0 + \dim \Range S_1 = \dim \Range S_1
+\end{align}
+It follows that \[
+  \dim S_1 = \dim \Range S_1 = \dim S_2 = \dots = \dim S_n = \dim \Range S_n\]
+Hence, $\dim \Null S_1 S_2 \dots S_n = 0 \iff S_1 S_2 \dots S_n$ is injective.
+\end{proof}
+
+\begin{problem}{12}
+Suppose that $V$ is finite-dimensional and that \(T \in \Hom(V,W)\). Prove that there exists a subspace $U$ of $V$ such that \(\Null T = U\) and \\ \(U \cap \Range T = \{0\}\).
+\end{problem}
+
+\begin{proof}
+Let $u_1, \dots, u_n$ be a basis for $\Null T$. Then $\Span(u_1, \dots, u_n)$ is a subspace of $V$. Since it is linear independent, it can be extended to a basis of V, say \(u_1, \dots, u_n, v_1, \dots, v_m \). Then $V$ is the direct sum of the spanning of \(u_1, \dots, u_n\) and \(v_1, \dots, v_m\). Take \(U = \Span(v_1, \dots, v_m)\)
+\end{proof}
+
+\begin{problem}{13}
+Suppose $T$ is a linear map from $\F^4$ to $\F^2$ such that\[
+  \Null T = \{(x_1, x_2, x_3, x_4) \in \F^4 : x_1 = 5x_2 \text{ and } x_3 = 7 x_4\}\]
+Prove that $T$ is surjective.
+\end{problem}
+
+\begin{proof}
+A basis of $\Null T$ is \[
+  \{(5, 1, 0, 0), (0, 0, 7, 1)\}\]
+Then by F.T. of linear maps, we have \[
+  \dim \Range T = 4 - \dim \Null T = 4 - 2 = 2\]
+Therefore, \(\Range T = \R^2 \implies T\) is surjective.
+\end{proof}
+
+\begin{problem}{14}
+Suppose $U$ is a 3-dimensional subspace of $\R^8$ and that $T$ is a linear map from $\R^8$ to $\R^5$ such that \(\Null T = U \). Prove that T is surjective.
+\end{problem}
+
+\begin{proof}
+By F.T. of linear maps, we have \[
+  \dim \Range T = 8 - \dim \Null T = 8 - 3 = 5\]
+This suggests that \(\Range T = \R^5 \implies T\) is surjective.
+\end{proof}
+
+\begin{problem}{15}
+Prove that there does not exist a linear map from $\F^5$ to $\F^2$ whose null space equals \[
+  \{ (x_1, x_2, x_3, x_4, x_5) \in \F^5 : x_1 = 3 x_2 \text{ and } x_3 = x_4 = x_5\}.\]
+\end{problem}
+
+\begin{proof}
+Suppose there exists such a linear map, then, by F.T. of linear maps, we have \[
+  \dim \Range T = 5 - \dim \Null T = 5 - 2 = 2\]
+Contradicts!
+\end{proof}
+
+\begin{problem}{16}
+Suppose there exists a linear map on $V$ whose null space and range are both finite-dimensional. Prove that $V$ is finite dimensional.
+\end{problem}
+
+\begin{proof}
+WLOG, let $\dim \Null T = m$ and $\dim \Range T = n$. Then by F.T. of linear maps, we have \[
+  \dim V = \dim \Null T + \dim \Range T = m + n < \oo\]
+\end{proof}
+
+\begin{problem}{17}
+Suppose $V$ and $W$ are both finite-dimensional. Prove that there exists an injective linear map from $V$ to $W$ if and only if \(\dim V \leq \dim W\).
+\end{problem}
+
+\begin{proof}
+($\implies$) Suppose there is an injective linear map $T: V \mapsto W$. By F.T. of linear maps, we have
+\begin{align}
+  \dim V &= \dim \Null T + \dim \Range T \\
+  &= 0 + \dim \Range T = \dim \Range T
+\end{align}
+
+($\impliedby$) Suppose \(\dim V \leq \dim W\). Then there exists a basis of $V$ that can be extended to a basis of $W$. Let $v_1, \dots, v_n$ be a basis of $V$ and $w_1, \dots, w_n$ be a basis of $W$. Define $T: V \mapsto W$ by \(T(v_i) = w_i\). Then $T$ is injective.
+\end{proof}
+
+\begin{problem}{19}
+Suppose $V$ and $W$ are finite-dimensional and that $U$ is a subspace of $V$. Prove that there exists \[T \in \Hom(V,W)\] such that \(\Null T = U\) if and only if \(\dim U \geq \dim V - \dim W\).
+\end{problem}
+
+\begin{proof}
+($\implies$) Suppose there exists \(T \in \Hom(V,W)\) such that \(\Null T = U\). Since \(\Range T\) is a subspace of $W$, we have \(\dim Range \leq \dim W\). The rest of the proof follows by the F.T. of linear maps.
+
+($\impliedby$) Suppose \(\dim U \geq \dim V - \dim W\), we have
+\begin{align}
+  \dim U + \dim W \geq \dim V = \dim \Null T + \dim \Range T
+\end{align}
+Of course we could find such a $T$.
+\end{proof}
+
+\begin{problem}{20}
+Suppose $W$ is finite-dimensional and \(T \in \Hom(V,W)\). Prove that $T$ is injective if and only if there exists \(S \in \Hom (W,V)\) such that $ST$ is the identity map on $V$.
+\end{problem}
+
+\begin{proof}
+($\implies$) T is injective $\iff$ \(\dim \Null T = 0\). Then there exists a basis of $V$ that can be extended to a basis of $W$. Let $v_1, \dots, v_n$ be a basis of $V$ and $w_1, \dots, w_n$ be a basis of $W$. Define $S: W \mapsto V$ by \(S(w_i) = v_i\) and \(T: V \mapsto W\) by \(T(v_k) = w_k\) Then
+
+\begin{align}
+  ST(v) &= ST(a_1 v_1 + \dots + a_n v_n) \\
+  &= S(a_1 w_1 + \dots + a_n w_n) \\
+  &= a_1 v_1 + \dots + a_n v_n \\
+  &= v
+\end{align}
+
+($\impliedby$) Since $v_k$ is a basis, \(\Null T = \{0\}\). This suggests that $T$ is injective.
+\end{proof}
 
 %End
 \end{document}
