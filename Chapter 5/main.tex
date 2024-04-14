@@ -85,17 +85,77 @@
 
 \section{Invariant Subspaces}
 
+\begin{problem}{1}
+Suppose $T \in \mathcal{L}(V)$ and $U$ is a subspace of $V$.
+\begin{enumerate}[(a)]
+  \item Prove that if $U \subset \Null T$, then $U$ is invariant under $T$.
+  \item Prove that if $\Range T \subset U$, then $U$ is invariant under $T$.
+\end{enumerate}
+\end{problem}
+\begin{proof}
+  \begin{enumerate}[(a)]
+    \item Let $u \in U$. Then $T(u) \in \Null T$ because $u \in \Null T$. Therefore, $T(u) \in U$.
+    \item Let $u \in U$. Then $T(u) \in U$ because $T(u) \in \Range T \subset U$.
+  \end{enumerate}
+\end{proof}
+
+\begin{problem}{2}
+Suppose $S,T \in \mathcal{L}(V)$ are such that $ST = TS$. Prove that $\Null S$ is invariant under $T$.
+\end{problem}
+
+\begin{proof}
+We have $ST(\Null S) = T(S(\Null S)) = T(0) = 0$. This implies that $T(\Null S) \subset \Null S$.
+\end{proof}
+
+\begin{problem}{3}
+Suppose $S,T \in \mathcal{L}(V)$ are such that $ST = TS$. Prove that $\Range S$ is invariant under $T$.
+\end{problem}
+
+\begin{proof}
+Pending.
+% From $ST = TS$, we have $S(T(\Range S)) = T(S(\Range S))$.
+\end{proof}
+
+\begin{problem}{4}
+Suppose that $T \in \mathcal{L}(V)$ and $U_1, \ldots U_m$ are subspaces of $V$ invariant under $T$. Prove that $U_1 + \cdots + U_m$ is invariant under $T$.
+\end{problem}
+
+\begin{proof}
+\begin{align*}
+T(U_1 + \cdots+ U_m) =& T(U_1) + \cdots + T(U_m) \\
+T(U_1) \subset U_1 \subset& U_1 + \cdots + U_m\\
+\cdots \\
+T(U_m) \subset U_m \subset& U_1 + \cdots + U_m
+\end{align*}
+Since $U_1 + \cdots + U_m$ is still a subspace, $T(U_1 + \cdots + U_m) \subset U_1 + \cdots + U_m$.
+\end{proof}
+
+\newpage
+
+\begin{problem}{5}
+Suppose $T \in \mathcal{L}(V)$. Prove that the intersection of every collection of subspaces of $V$ that are invariant under $T$ is invariant under $T$.
+\end{problem}
+
+\begin{proof}
+Every invariant subspace contains $\{0\}$, and also which is the smallest one. Hence, the intersection is $\{0\}$ and is trivially invariant under $T$.
+\end{proof}
+
 \begin{problem}{6}
 Prove or give a counterexample: if $V$ is a finite-dimensional vector space and $U$ is a subspace of $V$ that is invariant under every operator on $V$, then $U = \{0\}$ or $U = V$.
 \end{problem}
 
 \begin{proof}
-Because every operator on $V$ leaves $\{0\}$ invariant, the question turns to prove the existence of an operator under which only $\{0\}$ and $V$ is invariant.
+  Because every operator on $V$ leaves $\{0\}$ invariant, the question turns to prove the existence of an operator under which only $\{0\}$ and $V$ is invariant.
 
-The case where $\operatorname{dim} V \le 1$ is trivial.
-Suppose $\operatorname{dim} V \ge 2$. We could always construct such an operator $U$. Suppose there exists an invariant subspace $U_1$ of $V$ under an operator $T$ that is neither $\{0\}$ nor $V$ for which $\operatorname{dim} U_1 < \operatorname{dim} V$. Define $T$ which rotates $U_1$ to $W$, where $W \oplus U_1 = V$. $\forall u \in U_1, T(u)$ have some component in $W$, which is not in $U_1$. Thus, $U$ is not invariant under $U$, which is a contradiction. Therefore, $U = \{0\}$ or $U = V$.
+  The case where $\operatorname{dim} V \le 1$ is trivial.
+  Suppose $\operatorname{dim} V \ge 2$. We could always construct such an operator $U$. Suppose there exists an invariant subspace $U_1$ of $V$ under an operator $T$ that is neither $\{0\}$ nor $V$ for which $\operatorname{dim} U_1 < \operatorname{dim} V$. Define $T$ which rotates $U_1$ to $W$, where $W \oplus U_1 = V$. $\forall u \in U_1, T(u)$ have some component in $W$, which is not in $U_1$. Thus, $U$ is not invariant under $U$, which is a contradiction. Therefore, $U = \{0\}$ or $U = V$.
 \end{proof}
 
+\begin{problem}{8}
+Define $T in \mathcal{L}(\mathbb{F}^2)$ by \[
+  T(w,z) = (z,w).\]
+Find all eigenvalues and eigenvectors of $T$.
+\end{problem}
 
 % End
 \end{document}
