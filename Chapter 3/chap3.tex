@@ -9,7 +9,7 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage[shortlabels]{enumitem}
-\usepackage{microtype} 
+\usepackage{microtype}
 \usepackage{amsmath}
 \usepackage{mathtools}
 \usepackage{commath}
@@ -219,7 +219,7 @@ Hence, $\dim \Null S_1 S_2 \dots S_n = 0 \iff S_1 S_2 \dots S_n$ is injective.
 \end{proof}
 
 \begin{problem}{12}
-Suppose that $V$ is finite-dimensional and that \(T \in \Hom(V,W)\). Prove that there exists a subspace $U$ of $V$ such that \(\Null T = U\) and \\ \(U \cap \Range T = \{0\}\).
+Suppose that $V$ is finite-dimensional and that \(T \in \Hom(V,W)\). Prove that there existGs a subspace $U$ of $V$ such that \(\Null T = U\) and \\ \(U \cap \Range T = \{0\}\).
 \end{problem}
 
 \begin{proof}
@@ -315,6 +315,50 @@ Suppose $W$ is finite-dimensional and \(T \in \Hom(V,W)\). Prove that $T$ is inj
 ($\impliedby$) Since $v_k$ is a basis, \(\Null T = \{0\}\). This suggests that $T$ is injective.
 \end{proof}
 
+\section{Matrix}
+
+\begin{problem}{1}
+Suppose $V$ and $W$ are finite-dimensional and $T \in \mathcal{L}(V,W)$. Show that
+with respect to each choice of bases of $V$ and $W$, the matrix of $T$ has at least $\operatorname{dim} \Range T$ nonzero entries.
+\end{problem}
+
+\begin{proof}
+Follows from the F.T. of linear maps, we have \(\dim \Range T = \dim W - \dim \Null T\).
+Since $\Null T$ becomes all the zero entries, therefore
+the matrix of $T$ has at least $\dim \Range T$ nonzero entries.
+\end{proof}
+
+\begin{problem}{2}
+Suppose $D \in \mathcal{L}(\mathcal{P}_3(\mathbb{R}), \mathcal{P}_2(\mathbb{R}))$ is the differentiation map defined by $Dp = p\prime$. Find a basis of $\mathcal{P}_3(\mathbb{R})$
+and a basis of $\mathcal{P}_2(\mathbb{R})$ such that the matrix of $D$ with respect to these bases is
+\[
+  \begin{pmatrix} 1 & 0 & 0 & 1 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\\end{pmatrix}\]
+\end{problem}
+\begin{proof}
+Easy to verify that $\frac{1}{3}x^3, \frac{1}{2}x^2, x, 1$ is a list of basis
+of $\mathcal{P}_3(\mathbb{R})$, and its derivative is $x^2, x, 1$ which is a basis of $\mathcal{P}_2(\mathbb{R})$.
+\end{proof}
+
+\begin{problem}{3}
+Suppose $V$ and $W$ are finite-dimensional and $T \in \mathcal{L}(V,W)$. Prove that there exists a basis of $V$ and a basis of $W$ such that with respect to these bases, all entries of $\mathcal{M}(T)$ are zero except for the entries in row $j$, column $j$, equal 1 for $1 \le j \le \operatorname{dim}\Range T$.
+\end{problem}
+
+\begin{proof}
+Let $v_1, \ldots , v_n$ be a basis of $V$ such that $\forall i \in {1, \ldots, k}, Tv_i = 1$,
+where $k = \operatorname{dim}\Range T$.
+Of course, it is a basis of $\Range T$. Expressing this as a matrix gives the desired result.
+\end{proof}
+
+\begin{problem}{4}
+Suppose $v_1, \ldots ,v_m$ is a basis of $V$ and $W$ is finite-dimensional.
+Suppose $T \in \mathcal{L}(V,W)$. Prove that there exists a basis $w_1, \ldots ,w_n$
+of $W$ such that all entries in the first column of $\mathcal{M}(T)$ (with respect to
+the bases $v_1, \ldots ,v_m$ and $w_1, \ldots ,w_n$) are 0 except for possibly a 1 in
+the first column.
+\end{problem}
+\begin{proof}
+
+\end{proof}
 
 %End
 \end{document}
