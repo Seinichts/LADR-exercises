@@ -29,7 +29,8 @@
   fonttitle=\bfseries,
   separator sign none
   }%
-  {} 
+  {}
+
 \newenvironment{problem}[1]{\begin{prob*}{#1}{}}{\end{prob*}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -355,6 +356,175 @@ Suppose $T \in \mathcal{L}(V,W)$. Prove that there exists a basis $w_1, \ldots ,
 of $W$ such that all entries in the first column of $\mathcal{M}(T)$ (with respect to
 the bases $v_1, \ldots ,v_m$ and $w_1, \ldots ,w_n$) are 0 except for possibly a 1 in
 the first column.
+\end{problem}
+\begin{proof}
+Let $v_1 , \ldots , v_m$ be the trivial basis of $V$. Then $Tv_1, \ldots , Tv_m$ spans $\Range T$. After finite steps of procedure, we can obtain a list, $Tv_1, \ldots ,Tv_m$ which is a basis of $W$, say $w_1, \ldots , w_m$. Then the first column of $\mathcal{M}(T)$ is the desired result.
+\end{proof}
+
+\begin{problem}{5}
+Suppose $w_1, \ldots ,w_n$ is a basis of $W$ and $V$ is finite-dimensional. Suppose $T \in \mathcal{L}(V,W)$. Prove that there exists a basis $v_1, \ldots ,v_m$ of $V$ such that all entries in the first row of $\mathcal{M}(T)$ (with respect to the bases $v_1, \ldots ,v_m$ and $w_1, \ldots ,w_n$) are 0 except for possibly a 1 in the first row.
+\end{problem}
+\begin{proof}
+We could always find a basis of $V$ such that $\exists i \in \{1, \ldots ,n\}, v_i = (1, \ldots ,0)$
+For list $v_1, \ldots ,v_m$, if $m \le n$, we obtain the desired result. Otherwise, we could let the $v_{m+1}, \ldots , v_n$ be the basis of $\Null T$.
+\end{proof}
+
+\begin{problem}{6}
+Suppose $V$ and $W$ are finite-dimensional and $T \in \mathcal{L}(V,W)$. Prove that $\operatorname{dim}\Range T = 1$ if and only if there exists a basis of $V$ and a basis of $W$ such that with respect to these bases, all entries of $\mathcal{M}(T)$ equal 1.
+\end{problem}
+\begin{proof}
+($\implies$) Suppose $\operatorname{dim}\Range T = 1$, then for $v_1, \ldots ,v_n$, a basis of $V$, $Tv_1, \ldots ,Tv_n \in \Range T$ suggests that they are linearly dependent to each other. Hence, we could obtain the desire by letting $Tv_1, \ldots ,Tv_n = (1, \ldots ,1)$
+
+$(\impliedby)$ Suppose there exists a basis of $V$ and a basis of $W$ such that with respect to these bases, all entries of $\mathcal{M}(T)$ equal 1. Then, $\operatorname{dim}\Range T = 1$.
+\end{proof}
+
+\begin{problem}{10}
+Suppose $A$ is an m-by-n matrix and $C $ is an n by p matrix. Prove that \[
+  (AC)_{j,\cdot} = A_{j, \cdot }C\]
+for $1 \le j \le m$. In other words, show that row $j$ of $AC$ equals (row $j$ of $A$) times $C$.
+\end{problem}
+\begin{proof}
+\begin{align}
+(AC)_{j,i} = \sum_{k=1}^n A_{j,k}C_{k,i} = (A_{j, \cdot}C)_{i}
+\end{align}
+\end{proof}
+
+\newpage
+
+\section{Invertibility and Isomorphic Vector spaces}
+
+\begin{problem}{1}
+Suppose $T \in \mathcal{L}(U,V)$ and $S \in \mathcal{L}(V,W)$ are both invertible linear maps. Prove that $ST$ is invertible and that \((ST)^{-1} = T^{-1}S^{-1}\).
+\end{problem}
+\begin{proof}
+The proof for the invertibility is trivial, since $U, V, W$ are bijective to each other. Then we only have to prove the equation.
+It follows from the fact that $ST T^{-1}S^{-1} = I = T^{-1}S^{-1} ST$
+\end{proof}
+
+\begin{problem}{2}
+Suppose $V$ is finite-dimensional and $\operatorname{dim}V > 1$. Prove that the set of non-invertible operators on $V$ is not a subspace of $\mathcal{L}(V)$.
+\end{problem}
+\begin{proof}
+Suppose $T, S$ are non-invertible operators on $V$. Then $\Null T \neq \{0\}$ and $\Null S \neq \{0\}$. Then $\Null T + \Null S \neq \{0\}$, which suggests that $T + S$ is not invertible.
+\end{proof}
+
+\begin{problem}{3}
+Suppose $V$ is finite-dimensional, $U $ is a subspace of $V$, and $S \in \mathcal{L}(U,V)$. Prove there exists an invertible operator $T \in \mathcal{L}(V)$ such that $Tu = Su$ for ever $u \in U$ if and only if $S$ is injective.
+\end{problem}
+\begin{proof}
+($\implies$) This is obvious since T is bijective.
+
+($\impliedby$) Suppose $S$ is injective. Then we could extend $u_1, \ldots , u_n$ to a basis of $V$. Then we could define $T$ by $Tu_i = Su_i$ for $i = 1, \ldots , n$.
+\end{proof}
+
+\begin{problem}{4}
+Suppose $W$ is finite-dimensional and $T_1,T_2 \in \mathcal{L}(V,W)$. Prove that $\Null T_1 = \Null T_2$ if and only if there exists an invertible operator $S \in \mathcal{L}(W)$ such that $T_1 = ST_2$
+\end{problem}
+\begin{proof}
+($\implies$) Suppose $\Null T_1 = \Null T_2$, this implies that $\Range T_1 = \Range T_2$. Let $w_1, \ldots w_m$ be a basis of $\Range T_1$ and $\Range T_2$. Then we could define $S$ by $Sw_i = T_1v_i$ for $i = 1, \ldots , m$.
+
+($\impliedby$) Suppose there exists an invertible operator $S \in \mathcal{L}(W)$ such that $T_1 = ST_2$. Since $S$ is invertible, this suggests that it has to be injective such that $\Null S = \{0\}$. Then $\Null T_1 = \Null T_2$.
+\end{proof}
+
+\newpage
+
+\begin{problem}{5}
+Suppose $V$ is finite-dimensional and $T_1, T_2 \in \mathcal{L}(V,W)$. Prove that $\Range T_1 = \Range T_2$ if and only if there exists an invertible operator $S \in \mathcal{L}(V)$ such that $T_1 = T_2S$
+\end{problem}
+\begin{proof}
+$(\implies)$ Suppose $\Range T_1 = \Range T_2$. This suggests that there exists a basis $w_1, \ldots ,w_n$of $\Range T_1$ and $\Range T_2$. For such a basis, we could always find a corresponding list $v_1, \ldots ,v_m$ with which $T_2$ maps onto $w_1, \ldots ,w_n$we could define $S$ by $Su_i = v_i$ for $i = 1, \ldots, m$.
+
+$(\impliedby)$ Suppose there exists an invertible operator $S \in \mathcal{L}(V)$ such that $T_1 = T_2S$. Since $S$ is bijective, this implies that $\Range T_1 = \Range T_2$.
+\end{proof}
+
+\begin{problem}{6}
+Suppose $V$ and $W$ are finite-dimensional and $T_1, T_2 \in \mathcal{L}(V,W)$. Prove that there exist invertible operators $R \in \mathcal{L}(V)$ and $S \in \mathcal{L}(W)$ such that $T_1 = ST_2R $ if and only if $\operatorname{dim}\Null T_1 = \operatorname{dim}\Null T_2$.
+\end{problem}
+\begin{proof}
+The same with question 4.
+\end{proof}
+
+\begin{problem}{7}
+Suppose $V$ and $W$ are finite-dimensional. Let $v \in V$. Let \[
+  E = \{T \in \mathcal{L}(V,W) : Tv = 0\}.\]
+\begin{enumerate}[(a)]
+  \item Show that $E$ is a subspace of $\mathcal{L}(V,W)$.
+  \item Suppose $v \neq 0.$ What is $\operatorname{dim} E$
+\end{enumerate}
+\end{problem}
+\begin{proof}
+\begin{enumerate}[(a)]
+  \item $0(v) \in E$ therefore $E$ is not empty, and $T_1v = T_2v = 0$ implies $(T_1 + T_2)v = 0$. $Tv = 0$ implies $\lambda Tv = 0$ for all $\lambda \in \F$. Hence, $E$ is a subspace of $\mathcal{L}(V,W)$.
+  \item Suppose $v \neq 0$. Then there is a basis $v_1, \ldots ,v_n$ of $V$ extended from $v$, and we can choose a basis $w_1, \ldots, w_m$ of $W$. Since $\mathcal{L}(V,W)$ is isomorphic to $\mathbb{F}^{m,n}$ and $Tv = 0$ implies that the first column of $\mathcal{M}(T)$ is zero. Hence, $\operatorname{dim} E = m(n-1)$.
+\end{enumerate}
+\end{proof}
+
+\newpage
+
+\begin{problem}{8}
+Suppose $V$ is finite-dimensional and $T: V \to W$ is a surjective linear map of $V$ onto $W$. Prove that there is a subspace $U $ of $V $ such that $T|_U$ is an isomorphism of $U$ onto $W$.
+\end{problem}
+\begin{proof}
+Since $T$ is surjective, any $w \in W$ we could find a $v \in V$ such that $Tv = w$. Define $x_1 \sim  x_2 :\iff T(x_1) = T(x_2)$. We could define $U = \{[v]: \forall v \in $V$\}$. As such $T|_U$ is bijective, henceforth an isomorphism.
+\end{proof}
+
+\begin{problem}{9}
+Suppose $V$ is finite-dimensional and $S,T \in \mathcal{L}(V).$ Prove that $ST $ is invertible if and only if both S and T are invertible.
+\end{problem}
+\begin{proof}
+($\implies$) Suppose ST is invertible. Then $(ST)^{-1} = T^{-1}S^{-1}$, this suggests that $S$ and $T$ are invertible.
+
+($\impliedby$) Suppose $S$ and $T$ are invertible. Then $S^{-1}T^{-1} = (ST)^{-1}$, this suggests that $ST$ is invertible.
+\end{proof}
+
+\begin{problem}{10}
+Suppose $V$ is finite-dimensional and $S,T \in \mathcal{L}(V)$. Prove that $ST = I$ if and only if $TS = I$
+\end{problem}
+\begin{proof}
+Directly from the definition of inverse.
+\end{proof}
+
+\begin{problem}{11}
+Suppose $V$ is finite-dimensional and $S,T,U \in \mathcal{L}(V)$ and $STU = I.$ Show that $T $ is invertible and that $T^{-1} = US$.
+\end{problem}
+\begin{proof}
+The associativity implies that both S and U are invertible. Then $T = S^{-1}I U^{-1} = S^{-1} U^{-1}$. Hence, $T^{-1} = US$.
+\end{proof}
+
+\begin{problem}{12}
+Show that the result in the previous exercise can fail without the hypothesis that $V$ is finite-dimensional.
+\end{problem}
+\begin{proof}
+Pending.
+\end{proof}
+
+\begin{problem}{13}
+Suppose $V$ is a finite-dimensional vector space and $R,S,T \in \mathcal{L}(V)$ are such that $RST$ is surjective. Prove that $S$ is injective.
+\end{problem}
+\begin{proof}
+Since $RST$ is surjective, this suggests that $R$ is surjective. Then $R$ is injective, hence $S$ is injective.
+\end{proof}
+
+\begin{problem}{14}
+Suppose $v_1, \ldots ,v_n$ is a basis of $V$. Prove that the map $T: V \to \mathbb{F}^{n,1}$ defined by \[
+  Tv = \mathcal{M}(V)\]
+is an isomorphism of $V$ onto $\mathbb{F}^{n,1}$; here $\mathcal{M}(v)$ is the matrix of $v \in V$ with respect to the basis $v_1, \ldots, v_n.$
+\end{problem}
+\begin{proof}
+T is injective: $\forall v_i \in  V$, $Tv = 0 \iff v = 0 \iff v = (0, \ldots ,0)$ \\
+T is surjective: $\forall (w_1, \ldots ,w_n) \in \mathbb{F}^{n,1}$, $T(a_1v_1 + \ldots + a_nv_n) = (a_1, \ldots ,a_n)$ since $v_1, \ldots ,v_n$ is a basis of $V$. \\
+Henceforth, T is an isomorphism.
+\end{proof}
+
+\begin{problem}{15}
+Prove that every linear map from $\mathbb{F}^{n,1}$ to $\mathbb{F}^{m,1}$ is given by a matrix multiplication. In other words, prove that if $T \in \mathcal{L}(\mathbb{F}^{n,1}, \mathbb{F}^{m,1})$, then there exists an m-by-n matrix $A$ such that $Tx = Ax$ for every $x \in \mathbb{F}^{n,1}$
+\end{problem}
+\begin{proof}
+Let $e_1, \ldots ,e_n$ be the standard basis of $\mathbb{F}^{n,1}$ and $w_1, \ldots ,w_m$ be the standard basis of $\mathbb{F}^{m,1}$. Then $T(e_i) = a_{1i}w_1 + \ldots + a_{mi}w_m$. Then $T(x) = Ax$.
+\end{proof}
+
+\begin{problem}{16}
+Suppose $V$ is finite-dimensional and $\mathcal{E}$ is a subspace of $\mathcal{L}(V)$ such that $ST \in \mathcal{E}$ for all $S \in \mathcal{L}(V)$ and all $T \in \mathcal{E}$. Prove that $\mathcal{E} = \{0\}$ or $\mathcal{E} = \mathcal{L}(V)$
 \end{problem}
 \begin{proof}
 
