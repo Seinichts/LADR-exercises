@@ -1,9 +1,11 @@
-\documentclass{extarticle}
+\documentclass{article}
 \sloppy
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PACKAGES            																						  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{xeCJK}
+\usepackage[dvipsnames]{xcolor}
 \usepackage[10pt]{extsizes}
 \usepackage{amsfonts}
 \usepackage{amsthm}
@@ -15,6 +17,8 @@
 \usepackage{commath}
 \usepackage{hyperref}
 
+\setCJKmainfont{Noto Sans CJK SC}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PROBLEM ENVIRONMENT         																			           %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -22,28 +26,25 @@
 \tcbuselibrary{theorems, breakable, skins}
 \newtcbtheorem{prob}% environment name
               {Problem}% Title text
-  {enhanced, % tcolorbox styles
-  attach boxed title to top left={xshift = 4mm, yshift=-2mm},
-  colback=blue!5, colframe=black, colbacktitle=blue!3, coltitle=black,
-  boxed title style={size=small,colframe=gray},
-  fonttitle=\bfseries,
-  separator sign none
+	{% tcolorbox styles
+	enhanced,
+	colback=Emerald!10,colframe=cyan!40!black,
+	fonttitle=\bfseries,
   }%
   {}
+
 \newenvironment{problem}[1]{\begin{prob*}{#1}{}}{\end{prob*}}
-
-\newtheorem{solution}{Solution}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % THEOREMS/LEMMAS/ETC.         																			  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newtheorem{innerproblem}{Problem}
+% \newenvironment{problem}[1]{\itshape\renewcommand\theinnerproblem{#1}\innerproblem}{\endinnerproblem}
 \newtheorem{thm}{Theorem}
 \newtheorem*{thm-non}{Theorem}
 \newtheorem{lemma}[thm]{Lemma}
 \newtheorem{corollary}[thm]{Corollary}
-\newtheorem{prop}[thm]{Proposition}
-
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % MY COMMANDS   																						  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -51,6 +52,7 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\F}{\mathbb{F}}
+\newcommand{\oo}{\infty}
 \newcommand{\bigO}{\mathcal{O}}
 \newcommand{\Real}{\mathcal{Re}}
 \newcommand{\poly}{\mathcal{P}}
@@ -66,7 +68,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SECTION NUMBERING																				           %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\renewcommand\thesection{\Alph{section}:}
+\renewcommand{\thesection}{\Alph{section}:}
 
 
 
@@ -74,7 +76,7 @@
 % DOCUMENT START              																			           %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title{\vspace{-2em}Chapter 5: Eigenvalues, Eigenvectors, and invariant subspaces}
-% \author{Zelong Kuang}
+\author{Zelong Kuang}
 
 \begin{document}
 \maketitle
@@ -112,7 +114,7 @@ Suppose $S,T \in \mathcal{L}(V)$ are such that $ST = TS$. Prove that $\Range S$ 
 \end{problem}
 
 \begin{proof}
-Pending.
+TODO: 5.A.12 Pending.
 % From $ST = TS$, we have $S(T(\Range S)) = T(S(\Range S))$.
 \end{proof}
 

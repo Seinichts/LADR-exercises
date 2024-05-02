@@ -1,19 +1,23 @@
-\documentclass{extarticle}
+\documentclass{article}
 \sloppy
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PACKAGES            																						  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{xeCJK}
+\usepackage[dvipsnames]{xcolor}
 \usepackage[10pt]{extsizes}
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage[shortlabels]{enumitem}
-\usepackage{microtype} 
+\usepackage{microtype}
 \usepackage{amsmath}
 \usepackage{mathtools}
 \usepackage{commath}
 \usepackage{hyperref}
+
+\setCJKmainfont{Noto Sans CJK SC}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PROBLEM ENVIRONMENT         																			           %
@@ -22,24 +26,25 @@
 \tcbuselibrary{theorems, breakable, skins}
 \newtcbtheorem{prob}% environment name
               {Problem}% Title text
-  {enhanced, % tcolorbox styles
-  attach boxed title to top left={xshift = 4mm, yshift=-2mm},
-  colback=blue!5, colframe=black, colbacktitle=blue!3, coltitle=black,
-  boxed title style={size=small,colframe=gray},
-  fonttitle=\bfseries,
-  separator sign none
+	{% tcolorbox styles
+	enhanced,
+	colback=Emerald!10,colframe=cyan!40!black,
+	fonttitle=\bfseries,
   }%
   {}
+
 \newenvironment{problem}[1]{\begin{prob*}{#1}{}}{\end{prob*}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % THEOREMS/LEMMAS/ETC.         																			  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newtheorem{innerproblem}{Problem}
+% \newenvironment{problem}[1]{\itshape\renewcommand\theinnerproblem{#1}\innerproblem}{\endinnerproblem}
 \newtheorem{thm}{Theorem}
 \newtheorem*{thm-non}{Theorem}
 \newtheorem{lemma}[thm]{Lemma}
 \newtheorem{corollary}[thm]{Corollary}
-
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % MY COMMANDS   																						  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -47,6 +52,7 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\F}{\mathbb{F}}
+\newcommand{\oo}{\infty}
 \newcommand{\bigO}{\mathcal{O}}
 \newcommand{\Real}{\mathcal{Re}}
 \newcommand{\poly}{\mathcal{P}}
@@ -62,7 +68,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SECTION NUMBERING																				           %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\renewcommand\thesection{\Alph{section}:}
+\renewcommand{\thesection}{\Alph{section}:}
 
 
 
@@ -92,87 +98,87 @@
 % Problem 1
 
 \begin{problem}{1}
-  Find all vector spaces that have exactly one basis.
+Find all vector spaces that have exactly one basis.
 \end{problem}
 
 \begin{proof}
-\par Consider all lines passing through origin.
+	\par Consider all lines passing through origin.
 \end{proof}
 
 \begin{problem}{3}
 \begin{enumerate}[(a)]
-\item Let $U$ be the subspace of $\mathbb{R}^5$ defined by
-\[ U = {(x_1, x_2, x_3, x_4, x_5) \in \mathbb{R}^5 : x_1  = 3 x_2 \text{ and } x_3 = 7 x_4}\]
-Find a basis of $U$.
-\item Extend the basis in part (a) to a basis of $\R^5$.
-\item Find a subspace $W$ of $\R^5$ such that \( \R^5 = U \oplus W\).
+	\item Let $U$ be the subspace of $\mathbb{R}^5$ defined by
+	      \[ U = {(x_1, x_2, x_3, x_4, x_5) \in \mathbb{R}^5 : x_1  = 3 x_2 \text{ and } x_3 = 7 x_4}\]
+	      Find a basis of $U$.
+	\item Extend the basis in part (a) to a basis of $\R^5$.
+	\item Find a subspace $W$ of $\R^5$ such that \( \R^5 = U \oplus W\).
 \end{enumerate}
 \end{problem}
 
 \begin{proof}
-\begin{enumerate}[(a)]
-\item We can verify that \((3, 1, 0, 0, 0), ~ (0, 0, 7, 1, 0), ~ (0, 0, 0, 0, 1)\)
-is a basis of $U$, and it spans U.
-\\ Idea: We start from the basis of $\R^5$ and try to fit it into the given condition.
+	\begin{enumerate}[(a)]
+		\item We can verify that \((3, 1, 0, 0, 0), ~ (0, 0, 7, 1, 0), ~ (0, 0, 0, 0, 1)\)
+		      is a basis of $U$, and it spans U.
+		      \\ Idea: We start from the basis of $\R^5$ and try to fit it into the given condition.
 
-\item \((3, 1, 0, 0, 0), ~ (0, 0, 7, 1, 0), ~ (0, 0, 0, 0, 1), ~ (0, 1, 0, 0, 0), ~ (0, 0, 1, 0, 0)\)
-\\ Idea: Downgrade all vector to one dimensional (to obtain the basis of $\R^5$).
+		\item \((3, 1, 0, 0, 0), ~ (0, 0, 7, 1, 0), ~ (0, 0, 0, 0, 1), ~ (0, 1, 0, 0, 0), ~ (0, 0, 1, 0, 0)\)
+		      \\ Idea: Downgrade all vector to one dimensional (to obtain the basis of $\R^5$).
 
-\item \( \Span\{(0, 0, 0, 0, 1), ~ (0, 1, 0, 0, 0)\} \)
-\\ Idea: Refer to the definition of direct sum.
-\end{enumerate}
+		\item \( \Span\{(0, 0, 0, 0, 1), ~ (0, 1, 0, 0, 0)\} \)
+		      \\ Idea: Refer to the definition of direct sum.
+	\end{enumerate}
 \end{proof}
 
 \begin{problem}{5}
-  Prove or disprove: there exists a basis \(p_0, p_1, p_2, p_3\) of \(\mathcal{P}_3 (\F)\)
-  such that none of the polynomials \(p_0, p_1, p_2, p_3\) has a degree 2.
+Prove or disprove: there exists a basis \(p_0, p_1, p_2, p_3\) of \(\mathcal{P}_3 (\F)\)
+such that none of the polynomials \(p_0, p_1, p_2, p_3\) has a degree 2.
 \end{problem}
 \begin{proof}
-  Consider
-  \begin{align*}
-    p_0 &= a_1 \\
-    p_1 &= a_2 x \\
-    p_2 &= a_3 x^3 \\
-    p_3 &= a_4 x^2 + a_5 x^3
-  \end{align*}
-  It is easy to verify that they are linearly independent, and span $\mathcal{P}_3(\F)$
+	Consider
+	\begin{align*}
+		p_0 & = a_1               \\
+		p_1 & = a_2 x             \\
+		p_2 & = a_3 x^3           \\
+		p_3 & = a_4 x^2 + a_5 x^3
+	\end{align*}
+	It is easy to verify that they are linearly independent, and span $\mathcal{P}_3(\F)$
 \end{proof}
 
 \begin{problem}{6}
-  Suppose \(v_{1}, v_{2}, v_{3}, v_{4}\) is a basis of $V$. Prove that \[
-    v_{1} + v_{2}, v_{2} + v_{3}, v_{3} + v_{4}, v_{4}\]
-  is also a basis of $V$.
+Suppose \(v_{1}, v_{2}, v_{3}, v_{4}\) is a basis of $V$. Prove that \[
+	v_{1} + v_{2}, v_{2} + v_{3}, v_{3} + v_{4}, v_{4}\]
+is also a basis of $V$.
 \end{problem}
 \begin{proof}
-We could obtain \(v_{1}, v_{2}, v_{3}\) with the following operation
-\begin{align}
-v_{3} + v_{4} - v_{4} &= v_{3} \\
-v_{2} + v_{3} - (v_{3} + v_{4} - v_{4}) &= v_{2} \\
-v_{1} + v_{2} - (v_{2} + v_{3} - (v_{3} + v_{4} - v_{4})) &= v_{1}
-\end{align}
-Which suggests that \(v_{1} + v_{2}, v_{2} + v_{3}, v_{3} + v_{4}, v_{4}\)
-also spans $V$. \\
-Next, we prove that they are linearly independent.
+	We could obtain \(v_{1}, v_{2}, v_{3}\) with the following operation
+	\begin{align}
+		v_{3} + v_{4} - v_{4}                                     & = v_{3} \\
+		v_{2} + v_{3} - (v_{3} + v_{4} - v_{4})                   & = v_{2} \\
+		v_{1} + v_{2} - (v_{2} + v_{3} - (v_{3} + v_{4} - v_{4})) & = v_{1}
+	\end{align}
+	Which suggests that \(v_{1} + v_{2}, v_{2} + v_{3}, v_{3} + v_{4}, v_{4}\)
+	also spans $V$. \\
+	Next, we prove that they are linearly independent.
 
-\begin{align}
-& a(v_{1} + v_{2} + b ( v_{2} + v_{3} ) + c (v_{3} + v_{4}) + d v_{4} \\
-= & a v_{1} + (a + b) v_{2} + (b + c) v_{3} + (c + d) v_{4}
-\end{align}
-Since \(v_{1}, v_{2}, v_{3}, v_{4}\) is a basis, we have \(a = b = c = d = 0\).
-This implies that \(v_{1} + v_{2}, v_{2} + v_{3}, v_{3} + v_{4}, v_{4}\)
-is also linearly independent.
+	\begin{align}
+		  & a(v_{1} + v_{2} + b ( v_{2} + v_{3} ) + c (v_{3} + v_{4}) + d v_{4} \\
+		= & a v_{1} + (a + b) v_{2} + (b + c) v_{3} + (c + d) v_{4}
+	\end{align}
+	Since \(v_{1}, v_{2}, v_{3}, v_{4}\) is a basis, we have \(a = b = c = d = 0\).
+	This implies that \(v_{1} + v_{2}, v_{2} + v_{3}, v_{3} + v_{4}, v_{4}\)
+	is also linearly independent.
 \end{proof}
 
 \begin{problem}{8}
-  Suppose $U$ and $W$ are subspaces of $V$ such that \(V = U \oplus W\).
-  Suppose also that \(u_{1},\dots,u_{m}\) is a basis of $U$ and \(w_{1},\dots,w_{n}\)
-  is a basis of $W$. Prove that \[u_{1},\dots,u_{m}, w_{1},\dots,w_{n}\]
-  is a basis of $V$.
+Suppose $U$ and $W$ are subspaces of $V$ such that \(V = U \oplus W\).
+Suppose also that \(u_{1},\dots,u_{m}\) is a basis of $U$ and \(w_{1},\dots,w_{n}\)
+is a basis of $W$. Prove that \[u_{1},\dots,u_{m}, w_{1},\dots,w_{n}\]
+is a basis of $V$.
 \end{problem}
 \begin{proof}
-  The linear independency of \(u_{1},\dots,u_{m}, w_{1},\dots,w_{n}\) is directly come from the definition of direct sum since \(U \cap W = {0}\).
-  Since \(u_{1}, \dots, u_{m}\) is a basis of U. We can write any \(u \in U\) as a linear combination of \(u_{1}, \dots, u_{m}\). Similarly, we can write any \(w \in W\) as a linear combination of \(w_{1}, \dots, w_{n}\).
-  Therefore, we can write any \(v \in V\) as a linear combination of \(u_{1}, \dots, u_{m}, w_{1}, \dots, w_{n}\).
+	The linear independency of \(u_{1},\dots,u_{m}, w_{1},\dots,w_{n}\) is directly come from the definition of direct sum since \(U \cap W = {0}\).
+	Since \(u_{1}, \dots, u_{m}\) is a basis of U. We can write any \(u \in U\) as a linear combination of \(u_{1}, \dots, u_{m}\). Similarly, we can write any \(w \in W\) as a linear combination of \(w_{1}, \dots, w_{n}\).
+	Therefore, we can write any \(v \in V\) as a linear combination of \(u_{1}, \dots, u_{m}, w_{1}, \dots, w_{n}\).
 \end{proof}
 % End
 
@@ -183,21 +189,21 @@ Suppose $V$ is finite-dimensional and $U$ is a subspace of $V$ such that $ \dim 
 \end{problem}
 
 \begin{proof}
-Let \(u_1, \dots, u_n\) be a basis of $U$. Since $U$ is a subspace of $V$, we can extend the basis of $U$ to a basis of $V$.
-Since \( \dim U = \dim V\), every independent list of right length is also a base suggests that \(u_{1}, \dots, u_{n}\) also spans $V$. Therefore, \(U = V\).
+	Let \(u_1, \dots, u_n\) be a basis of $U$. Since $U$ is a subspace of $V$, we can extend the basis of $U$ to a basis of $V$.
+	Since \( \dim U = \dim V\), every independent list of right length is also a base suggests that \(u_{1}, \dots, u_{n}\) also spans $V$. Therefore, \(U = V\).
 \end{proof}
 
 \begin{problem}{2}
-Show that the subspaces of $\R^2$ are precisely the zero subspace, all lines in $R^{2}$ through the origin, and $\R^2$ itself.
+Show that the subspaces of $\mathbb{R}^2$ are precisely the zero subspace, all lines in $\mathbb{R}^{2}$ through the origin, and $\R^2$ itself.
 \end{problem}
 \begin{proof}
-\( \dim R^{2} = 2 \implies \dim \text{subspaces of } R^{2} \leq 2\)
+	\( \dim \mathbb{R}^{2} = 2 \implies \dim \text{subspaces of } \mathbb{R}^{2} \leq 2\)
 
-\begin{align}
-  \text{When} \hspace{10pt} &\dim U = 0,& U  = \set{0}.  \\
-  &\dim U = 1,& U \text{ is a line passing through origin.}  \\
-  &\dim U = 2,& U = R^{2}.
-\end{align}
+	\begin{align}
+		\text{When} \hspace{10pt} & \dim U = 0, & U  = \set{0}.                               \\
+		                          & \dim U = 1, & U \text{ is a line passing through origin.} \\
+		                          & \dim U = 2, & U = \mathbb{R}^{2}.
+	\end{align}
 
 
 
@@ -205,15 +211,14 @@ Show that the subspaces of $\R^2$ are precisely the zero subspace, all lines in 
 
 % \begin{problem}{4}
 % \begin{enumerate}[(a)]
-%   \item Let $U = {p \in P_{4}(\R) : p(6) = 0}$. Find a basis of $U$.
-%   \item Extend the basis in part (a) to a basis of $P_{4}(\R)$.
-%   \item Find a subspace $W$ of $P_{4}(\R)$ such that \(P_{4}(\R) = U \oplus W\).
+% 	\item Let $U = {p \in P_{4}(\R) : p(6) = 0}$. Find a basis of $U$.
+% 	\item Extend the basis in part (a) to a basis of $P_{4}(\R)$.
+% 	\item Find a subspace $W$ of $P_{4}(\R)$ such that \(P_{4}(\R) = U \oplus W\).
 % \end{enumerate}
 % \end{problem}
-
+%
 % \begin{proof}
-% Proof
+% 	Proof
 % \end{proof}
-
 
 \end{document}
