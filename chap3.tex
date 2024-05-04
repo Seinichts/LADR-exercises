@@ -579,14 +579,80 @@ Suppose $\exists \operatorname{dim} V_i = \infty (i \in \{1, \ldots , m\})$. The
 Give an example of a vector space $V$ and subspaces $U_1, U_2$ of $V$ such that $U_1 \times U_2$ is isomorphic to $U_1 + U_2$ but $U_1 + U_2$ is not a direct sum.
 \end{problem}
 \begin{proof}
-TODO: 3.E.3 Pending.
+TODO: 3.E.3 Give an example Pending.
 \end{proof}
 
 \begin{problem}{4}
 Suppose $V_1, \ldots , V_m$ are vector spaces. Prove that $\mathcal{L}(V_1 \times \cdots\times V_m, W)$ and $\mathcal{L}(V_1, W) \times \cdots \times \mathcal{L}(V_m, W)$ are isomorphic.
 \end{problem}
 \begin{proof}
+Clearly, for all $T(v_1, \ldots ,v_m) = w (w\in W)$, $T \in \mathcal{L}(V_1 \times \cdots \times V_m, W)$. Then we could define a map $S: \mathcal{L}(V_1 \times \cdots \times V_m, W) \to \mathcal{L}(V_1, W) \times \cdots \times \mathcal{L}(V_m, W)$ by $S(T) = (T_1, \ldots ,T_m)$ where $T_i(v_i) = T(0, \ldots ,v_i , \ldots , 0)$. We will verify that $S$ is an isomorphism. \par
+First we show that $S$ is injective: Suppose $S(T) = 0$, then $T_i = 0$ for all $i \in \{1, \ldots ,m\}$. Then $T = 0$. \par
+Then we show that $S$ is surjective: This is obvious since for every $(T_1, \ldots , T_m) \in \mathcal{L}(V_1, W) \times \cdots \times \mathcal{L}(V_m, W)$, we could define $T(v_1, \ldots ,v_m) = (T_1v_1, \ldots ,T_mv_m)$, where $S(T) = (T_1, \ldots , T_m)$. \par
+Hence, $S$ is an isomorphism and $\mathcal{L}(V_1 \times \cdots\times V_m, W)$ is isomorphic to $\mathcal{L}(V_1, W) \times \cdots\times \mathcal{L}(V_m, W)$.
+\end{proof}
 
+\begin{problem}{5}
+Suppose $W_1, \ldots , W_m$ are vector spaces. Prove that $\mathcal{L}(V, W_1 \times \cdots \times W_m)$ is isomorphic to $\mathcal{L}(V, W_1) \times \cdots \times \mathcal{L}(V, W_m)$.
+\end{problem}
+\begin{proof}
+Define $S: \mathcal{L}(V, W_1\times \cdots\times W_m) \mapsto \mathcal{L}(V,W_m)$ by $S(T) = (T_1, \ldots ,T_m)$ where $T_i(v) = (0, \ldots ,T(v), \ldots ,0)$. We will verify that $S$ is an isomorphism by constructing an inverse function of $S$: define
+$S^{-1} (T_1(v), \ldots , T_m(v)) = T_1(v) + \cdots + T_m(v)$. $S \circ S^{-1} = \operatorname{id}(T)$
+\end{proof}
+
+\begin{problem}{6}
+For $n $ a positive integer, define $V_n $ by \[
+	V^n = \underbrace{ V \times \cdots \times V }_{n}\]
+Prove that $V^n$ and $\mathcal{L}(\mathbb{F}^n, V)$ are isomorphic vector spaces.
+\end{problem}
+\begin{proof}
+Define $S(v_1, \ldots ,v_n) = T(\lambda_1, \ldots , \lambda_n)$ where $T \in \mathcal{L}(\mathbb{F}^n, V)$, we will show that $S$ is an isomorphism by constructing an inverse function of $S$. Let $S^{-1} (T(\lambda_1, \ldots ,\lambda_n)) = (T_1(\lambda), \ldots , T_n(\lambda))$ where $T_i(\lambda) = (0, \ldots, T(\lambda), \ldots , 0)$. $S \circ S^{-1} = \operatorname{id}$. Hence, They are isomorphic.
+\end{proof}
+
+\begin{problem}{7}
+Suppose $v,x$ are vectors in $V$ and $U, W$ are subspaces of $V$ such that $v + U = x + W$. Prove that $U = W$
+\end{problem}
+\begin{proof}
+Rearrange the equation,
+\begin{align}
+v + U = x + W \\
+v - x + U = W
+\end{align}
+This implies that $U = W$.
+\end{proof}
+
+\begin{problem}{8}
+Prove that a nonempty subset $A $ of $V$ is an affine subset of $V$ if and only if
+$\lambda v + (1 - \lambda)w \in A$ for all $v, w \in A$ and all $\lambda \in \mathbb{F}$
+\end{problem}
+\begin{proof}
+$(\implies)$ For all affine subset in the form $t + S$, every element can be expressed as $t + s$. Then for all $t + s_1, t + s_2 \in t + S$, $\lambda (t + s_1) + (1 - \lambda)(t + s_2) = t + \lambda s_1 + (1 - \lambda)s_2 \in t + S$ for all $t, s_1, s_2 \in t + S$ and all $\lambda \in \mathbb{F}$ since $S $ is a subspace. \par
+$(\impliedby$) If $\lambda v + (1 - \lambda)w \in A$ holds for all $v, w \in A$ and all $\lambda \in \mathbb{F}$. Rearrange the formula we get $\lambda v + (1 - \lambda)w = v + (1 - \lambda)(v+w)$. This implies that $A$ is an affine subset.
+\end{proof}
+
+\section{Duality}
+
+\begin{problem}{1}
+Explain why every linear functional is either surjective or the zero map.
+\end{problem}
+\begin{proof}
+Suppose $f$ is not surjective, the $\operatorname{dim} \Range f < \operatorname{dim} \mathbb{F}$ which could only be 0. Therefore, $f$ is the zero map. \par
+Suppose $f$ is not the zero map, then $\operatorname{dim} \Range f = \operatorname{dim} \mathbb{F}$, which implies that $f$ is surjective.
+\end{proof}
+
+\begin{problem}{2}
+Give three distinct examples of linear functional on $\mathbb{R}^{[0,1]}$.
+\end{problem}
+\begin{proof}
+TODO: 3.F.2 Give three distinct examples Pending.
+\end{proof}
+
+\newpage
+\begin{problem}{3}
+Suppose $V $ is finite-dimensional and $v \in V$ with $v \neq 0.$ Prove that there exists $\varphi \in V'$ such that $\varphi(v) = 1$.
+\end{problem}
+\begin{proof}
+Since $v \neq 0$, we could extend $v$ to a basis $v_1, \ldots ,v_n$ of $V$. Define $\varphi(v) = 1$ and $\varphi(v_i) = 0$ for $i \neq 1$. Then $\varphi$ is a linear functional.
 \end{proof}
 
 %End
