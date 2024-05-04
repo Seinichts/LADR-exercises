@@ -96,11 +96,11 @@ Show that $T$ is a linear map if and only if \(b = 0\) and \(c = 0\).
 
 \begin{proof}
 	Consider \(T(1,1,1) = T(1,0,0) + T(0,1,1)\)
-	\begin{align}
+	\begin{align*}
 		T(1,1,1) & = (1 + b, 6 + c) \\
 		T(1,0,0) & = (2 + b, 6)     \\
 		T(0,1,1) & = (-1 + b, 0)
-	\end{align}
+	\end{align*}
 	Therefore, \(b=0, c=0\)
 \end{proof}
 
@@ -138,11 +138,11 @@ is not a subspace of \(\Hom (\R^5,\R^4)\)
 
 \begin{proof}
 	Suppose \(\dim \Null T > 2\), by F.T. of linear maps,
-	\begin{align}
+	\begin{align*}
 		\dim T = 5    & = \dim \Null T + \dim \Range T \\
 		              & > 2 + \dim \Range T            \\
 		\dim \Range T & < 3
-	\end{align}
+	\end{align*}
 
 	Hence, $T \notin \Hom(\R^5, \R^4)$, and thus not a subspace of \(\Hom (R^5, R^4)\).
 \end{proof}
@@ -171,10 +171,10 @@ Suppose $V$ and $W$ are finite-dimensional with \(2 \leq \dim V \leq \dim W.\) S
 \begin{proof}
 	$T$ is not injective suggests that \(\dim \Null V >0\).
 	Then By the F.T. of linear maps, we have
-	\begin{align}
+	\begin{align*}
 		\dim V & = \dim \Null V + \dim W         \\
 		       & \geq 1 + \dim W \geq 1 + \dim V
-	\end{align}
+	\end{align*}
 	Contradicts! Hence, \(T \notin \Hom(V,W)\) $\implies$ not a subspace.
 \end{proof}
 
@@ -213,10 +213,10 @@ Suppose $S_1, \dots, S_n$ are injective linear maps such that $S_1 S_2 \dots S_n
 
 \begin{proof}
 	By F.T. of linear maps, we have
-	\begin{align}
+	\begin{align*}
 		\dim S_1 & = \dim \Null S_1 + \dim \Range S_1      \\
 		         & = 0 + \dim \Range S_1 = \dim \Range S_1
-	\end{align}
+	\end{align*}
 	It follows that \[
 		\dim S_1 = \dim \Range S_1 = \dim S_2 = \dots = \dim S_n = \dim \Range S_n\]
 	Hence, $\dim \Null S_1 S_2 \dots S_n = 0 \iff S_1 S_2 \dots S_n$ is injective.
@@ -280,10 +280,10 @@ Suppose $V$ and $W$ are both finite-dimensional. Prove that there exists an inje
 
 \begin{proof}
 	($\implies$) Suppose there is an injective linear map $T: V \mapsto W$. By F.T. of linear maps, we have
-	\begin{align}
+	\begin{align*}
 		\dim V & = \dim \Null T + \dim \Range T      \\
 		       & = 0 + \dim \Range T = \dim \Range T
-	\end{align}
+	\end{align*}
 
 	($\impliedby$) Suppose \(\dim V \leq \dim W\). Then there exists a basis of $V$ that can be extended to a basis of $W$. Let $v_1, \dots, v_n$ be a basis of $V$ and $w_1, \dots, w_n$ be a basis of $W$. Define $T: V \mapsto W$ by \(T(v_i) = w_i\). Then $T$ is injective.
 \end{proof}
@@ -296,9 +296,9 @@ Suppose $V$ and $W$ are finite-dimensional and that $U$ is a subspace of $V$. Pr
 	($\implies$) Suppose there exists \(T \in \Hom(V,W)\) such that \(\Null T = U\). Since \(\Range T\) is a subspace of $W$, we have \(\dim Range \leq \dim W\). The rest of the proof follows by the F.T. of linear maps.
 
 	($\impliedby$) Suppose \(\dim U \geq \dim V - \dim W\), we have
-	\begin{align}
+	\begin{align*}
 		\dim U + \dim W \geq \dim V = \dim \Null T + \dim \Range T
-	\end{align}
+	\end{align*}
 	Of course we could find such a $T$.
 \end{proof}
 
@@ -309,12 +309,12 @@ Suppose $W$ is finite-dimensional and \(T \in \Hom(V,W)\). Prove that $T$ is inj
 \begin{proof}
 	($\implies$) T is injective $\iff$ \(\dim \Null T = 0\). Then there exists a basis of $V$ that can be extended to a basis of $W$. Let $v_1, \dots, v_n$ be a basis of $V$ and $w_1, \dots, w_n$ be a basis of $W$. Define $S: W \mapsto V$ by \(S(w_i) = v_i\) and \(T: V \mapsto W\) by \(T(v_k) = w_k\) Then
 
-	\begin{align}
+	\begin{align*}
 		ST(v) & = ST(a_1 v_1 + \dots + a_n v_n) \\
 		      & = S(a_1 w_1 + \dots + a_n w_n)  \\
 		      & = a_1 v_1 + \dots + a_n v_n     \\
 		      & = v
-	\end{align}
+	\end{align*}
 
 	($\impliedby$) Since $v_k$ is a basis, \(\Null T = \{0\}\). This suggests that $T$ is injective.
 \end{proof}
@@ -387,9 +387,9 @@ Suppose $A$ is an m-by-n matrix and $C $ is an n by p matrix. Prove that \[
 for $1 \le j \le m$. In other words, show that row $j$ of $AC$ equals (row $j$ of $A$) times $C$.
 \end{problem}
 \begin{proof}
-	\begin{align}
+	\begin{align*}
 		(AC)_{j,i} = \sum_{k=1}^n A_{j,k}C_{k,i} = (A_{j, \cdot}C)_{i}
-	\end{align}
+	\end{align*}
 \end{proof}
 
 \newpage
@@ -614,10 +614,10 @@ Suppose $v,x$ are vectors in $V$ and $U, W$ are subspaces of $V$ such that $v + 
 \end{problem}
 \begin{proof}
 Rearrange the equation,
-\begin{align}
+\begin{align*}
 v + U = x + W \\
 v - x + U = W
-\end{align}
+\end{align*}
 This implies that $U = W$.
 \end{proof}
 
@@ -653,6 +653,37 @@ Suppose $V $ is finite-dimensional and $v \in V$ with $v \neq 0.$ Prove that the
 \end{problem}
 \begin{proof}
 Since $v \neq 0$, we could extend $v$ to a basis $v_1, \ldots ,v_n$ of $V$. Define $\varphi(v) = 1$ and $\varphi(v_i) = 0$ for $i \neq 1$. Then $\varphi$ is a linear functional.
+\end{proof}
+
+\begin{problem}{4}
+Suppose $V $ is finite-dimensional and $U$ is a subspace of $V$ such that $U \neq V$. Prove that there exists $\varphi \in V'$ such that $\varphi(u) = 0$ for every $u \in U$ but $\varphi \neq 0$.
+\end{problem}
+\begin{proof}
+Let $u_1, \ldots , u_m$ be a basis of $U$ and extend to $u_1, \ldots, u_m, v_1, \ldots , v_n$ a basis of $V$. Define $\varphi(u_i) = 0$ for $i = 1, \ldots , m$ and $\varphi(v_i) = 1$ for $i = 1, \ldots , n$. Then $\varphi$ is a linear functional.
+\end{proof}
+
+\begin{problem}{5}
+Suppose $V_1 , \ldots , V_m$ are vector spaces. Prove that $(V_1 \times \cdots\times V_m)'$ and $V_1' \times  \cdots \times V_m'$ are isomorphic vector spaces.
+\end{problem}
+\begin{proof}
+Define $S(f) = (f_1, \ldots , f_m)$ where $f_i(v_1, \ldots ,v_m) = (0, \ldots , f_i, \ldots ,0)$. And let $S^{-1} (f_1, \ldots ,f_m)= f_1 + \cdots + f_m$. Then $S$ is an isomorphism.
+\end{proof}
+
+\begin{problem}{6}
+Suppose $V$ is finite-dimensional and $v_1, \ldots , v_m \in V$. Define a linear map $\Gamma : V' \mapsto \mathbb{F}^{m}$ by \[
+	\Gamma(\varphi) = (\varphi(v_1), \ldots , \varphi(v_m)).\]
+\begin{enumerate}[(a)]
+\item Prove that $v_1, \ldots , v_m$ spans $V$ if and only if $\Gamma$ is injective.
+\item Prove that $v_1, \ldots , v_m$ is linearly independent if and only if $\Gamma$ is surjective.
+\end{enumerate}
+\end{problem}
+\begin{proof}
+\begin{enumerate}[(a)]
+\item $(\implies)$ Suppose $v_1, \ldots, v_m$ spans $V$, then for all $\varphi \in V'$, $\Gamma(\varphi) = 0$ implies that $\varphi(v_1) = \cdots = \varphi(v_m) = 0$, that is, $\varphi = 0$. Hence, $\Gamma$ is injective. \par
+$(\impliedby)$ Suppose $\Gamma$ is injective, then $\varphi(v_1) = \cdots = \varphi(v_m) = 0$ implies that $\varphi = 0$. Hence, $v_1, \ldots , v_m$ is surjective, that is, spanning $V$.
+\item $(\implies)$ Suppose $v_1, \ldots , v_m$ is linearly independent. Then for all $(\lambda_1, \ldots , \lambda_m) \in \mathbb{F}^m$, $\lambda_1\varphi(v_1) + \cdots + \lambda_m\varphi(v_m) = 0$ implies that $\lambda_1 = \cdots = \lambda_m = 0$ or $\forall v_i = 0$. Therefore, for each $\varphi(v_i)$, $\varphi$ spans $\mathbb{F}$. Hence, $\Gamma$ is surjective. \par
+$(\impliedby)$ Suppose $\Gamma$ is surjective, then for all $v_i$, $\varphi \neq 0.$ That is, $v_1, \ldots , v_m$ is linearly independent. Otherwise, suppose $v_1, \ldots ,v_m$ is linearly dependent. Let $v_k$ be the one can be expressed by all other $v$'s. Then $\operatorname{dim}\Gamma(\varphi) < m = \operatorname{dim} \mathbb{F}^m$, suggesting that $\Gamma$ is not surjective, contradiction! Therefore, $v_1, \ldots ,v_m$ is linearly independent.
+\end{enumerate}
 \end{proof}
 
 %End
