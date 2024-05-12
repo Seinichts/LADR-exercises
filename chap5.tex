@@ -4,9 +4,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PACKAGES            																						  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{xeCJK}
 \usepackage[dvipsnames]{xcolor}
-\usepackage[10pt]{extsizes}
+% \usepackage[10pt]{extsizes}
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage{amssymb}
@@ -16,8 +15,6 @@
 \usepackage{mathtools}
 \usepackage{commath}
 \usepackage{hyperref}
-
-\setCJKmainfont{Noto Sans CJK SC}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PROBLEM ENVIRONMENT         																			           %
@@ -90,15 +87,15 @@
 \begin{problem}{1}
 Suppose $T \in \mathcal{L}(V)$ and $U$ is a subspace of $V$.
 \begin{enumerate}[(a)]
-  \item Prove that if $U \subset \Null T$, then $U$ is invariant under $T$.
-  \item Prove that if $\Range T \subset U$, then $U$ is invariant under $T$.
+	\item Prove that if $U \subset \Null T$, then $U$ is invariant under $T$.
+	\item Prove that if $\Range T \subset U$, then $U$ is invariant under $T$.
 \end{enumerate}
 \end{problem}
 \begin{proof}
-  \begin{enumerate}[(a)]
-    \item Let $u \in U$. Then $T(u) \in \Null T$ because $u \in \Null T$. Therefore, $T(u) \in U$.
-    \item Let $u \in U$. Then $T(u) \in U$ because $T(u) \in \Range T \subset U$.
-  \end{enumerate}
+	\begin{enumerate}[(a)]
+		\item Let $u \in U$. Then $T(u) \in \Null T$ because $u \in \Null T$. Therefore, $T(u) \in U$.
+		\item Let $u \in U$. Then $T(u) \in U$ because $T(u) \in \Range T \subset U$.
+	\end{enumerate}
 \end{proof}
 
 \begin{problem}{2}
@@ -106,7 +103,7 @@ Suppose $S,T \in \mathcal{L}(V)$ are such that $ST = TS$. Prove that $\Null S$ i
 \end{problem}
 
 \begin{proof}
-We have $ST(\Null S) = T(S(\Null S)) = T(0) = 0$. This implies that $T(\Null S) \subset \Null S$.
+	We have $ST(\Null S) = T(S(\Null S)) = T(0) = 0$. This implies that $T(\Null S) \subset \Null S$.
 \end{proof}
 
 \begin{problem}{3}
@@ -114,8 +111,8 @@ Suppose $S,T \in \mathcal{L}(V)$ are such that $ST = TS$. Prove that $\Range S$ 
 \end{problem}
 
 \begin{proof}
-TODO: 5.A.12 Pending.
-% From $ST = TS$, we have $S(T(\Range S)) = T(S(\Range S))$.
+	TODO: 5.A.12 Pending.
+	% From $ST = TS$, we have $S(T(\Range S)) = T(S(\Range S))$.
 \end{proof}
 
 \begin{problem}{4}
@@ -123,13 +120,13 @@ Suppose that $T \in \mathcal{L}(V)$ and $U_1, \ldots U_m$ are subspaces of $V$ i
 \end{problem}
 
 \begin{proof}
-\begin{align*}
-T(U_1 + \cdots+ U_m) =& T(U_1) + \cdots + T(U_m) \\
-T(U_1) \subset U_1 \subset& U_1 + \cdots + U_m\\
-\cdots \\
-T(U_m) \subset U_m \subset& U_1 + \cdots + U_m
-\end{align*}
-Since $U_1 + \cdots + U_m$ is still a subspace, $T(U_1 + \cdots + U_m) \subset U_1 + \cdots + U_m$.
+	\begin{align*}
+		T(U_1 + \cdots+ U_m) =     & T(U_1) + \cdots + T(U_m) \\
+		T(U_1) \subset U_1 \subset & U_1 + \cdots + U_m       \\
+		\cdots                                                \\
+		T(U_m) \subset U_m \subset & U_1 + \cdots + U_m
+	\end{align*}
+	Since $U_1 + \cdots + U_m$ is still a subspace, $T(U_1 + \cdots + U_m) \subset U_1 + \cdots + U_m$.
 \end{proof}
 
 \newpage
@@ -139,7 +136,7 @@ Suppose $T \in \mathcal{L}(V)$. Prove that the intersection of every collection 
 \end{problem}
 
 \begin{proof}
-Every invariant subspace contains $\{0\}$, and also which is the smallest one. Hence, the intersection is $\{0\}$ and is trivially invariant under $T$.
+	Every invariant subspace contains $\{0\}$, and also which is the smallest one. Hence, the intersection is $\{0\}$ and is trivially invariant under $T$.
 \end{proof}
 
 \begin{problem}{6}
@@ -147,17 +144,284 @@ Prove or give a counterexample: if $V$ is a finite-dimensional vector space and 
 \end{problem}
 
 \begin{proof}
-  Because every operator on $V$ leaves $\{0\}$ invariant, the question turns to prove the existence of an operator under which only $\{0\}$ and $V$ is invariant.
+	Because every operator on $V$ leaves $\{0\}$ invariant, the question turns to prove the existence of an operator under which only $\{0\}$ and $V$ is invariant.
 
-  The case where $\operatorname{dim} V \le 1$ is trivial.
-  Suppose $\operatorname{dim} V \ge 2$. We could always construct such an operator $U$. Suppose there exists an invariant subspace $U_1$ of $V$ under an operator $T$ that is neither $\{0\}$ nor $V$ for which $\operatorname{dim} U_1 < \operatorname{dim} V$. Define $T$ which rotates $U_1$ to $W$, where $W \oplus U_1 = V$. $\forall u \in U_1, T(u)$ have some component in $W$, which is not in $U_1$. Thus, $U$ is not invariant under $U$, which is a contradiction. Therefore, $U = \{0\}$ or $U = V$.
+	The case where $\operatorname{dim} V \le 1$ is trivial.
+	Suppose $\operatorname{dim} V \ge 2$. We could always construct such an operator $U$. Suppose there exists an invariant subspace $U_1$ of $V$ under an operator $T$ that is neither $\{0\}$ nor $V$ for which $\operatorname{dim} U_1 < \operatorname{dim} V$. Define $T$ which rotates $U_1$ to $W$, where $W \oplus U_1 = V$. $\forall u \in U_1, T(u)$ have some component in $W$, which is not in $U_1$. Thus, $U$ is not invariant under $U$, which is a contradiction. Therefore, $U = \{0\}$ or $U = V$.
+\end{proof}
+
+\begin{problem}{10}
+Define $T \in \mathcal{L}(\mathbb{F}^n)$ by \[
+	T(x_1,x_2,x_3, \ldots ,x_n) = (x_1,2x_2,3x_3, \ldots ,n x_n)\]
+\begin{enumerate}[(a)]
+	\item Find all Eigenvalues and eigenvectors of $T$.
+	\item Find all invariant subspaces of $T$.
+\end{enumerate}
+\end{problem}
+\begin{proof}
+	\begin{enumerate}[(a)]
+		\item
+		      \begin{proof}
+			      the eigenvalues and the corresponding eigenvectors are i and $(0, \ldots ,x_i, \ldots ,0)$
+		      \end{proof}
+		\item \begin{proof}
+			      The invariant subspaces are $\{0\}$, $\mathbb{F}^n$, and the subspaces spanned by the eigenvectors.
+		      \end{proof}
+	\end{enumerate}
+\end{proof}
+
+\newpage
+\begin{problem}{12}
+Define $T \in \mathcal{L}(\mathcal{P}_4(\mathbb{R}))$ by \[
+	(Tp)(x) = x p'(x)\]
+for all $x \in \mathbb{R}$. Find all eigenvalues and eigenvectors of $T$.
+\end{problem}
+\begin{proof}
+	\begin{align*}
+		\lambda p(x) & = Tp(x)                            \\
+		\lambda a_4x^4 + \lambda a_3x^{3} + \lambda a_2x^{2} + \lambda a_1 x + \lambda a_0
+		             & = x (4a_4  x^3+3a_3x^2+2a_2 x+a_1) \\
+		             & = 4a_4 x^4+3a_3x^3+2a_2 x^2+a_1 x
+	\end{align*}
+	The eigenvalues and eigenvectors are $i$ and $ix^i$ respectively.
+\end{proof}
+
+\begin{problem}{13}
+Suppose $V$ is finite-dimensional, $T \in \mathcal{L}(V)$, and $\lambda \in F$. Prove that there exists $\alpha \in \mathbb{F}$ such that $\left\vert \alpha - \lambda \right\vert < \frac{1}{1000}$ and $T - \alpha I$ is invertible.
+\end{problem}
+\begin{proof}
+	We only need to make $\alpha$ not be an eigenvalue of $T$. We could achieve this by the following procedure:
+	suppose $\lambda$ is an eigenvalue of $T$, then $T - \lambda I$ is not invertible. We could then choose $\alpha = \lambda + \frac{1}{1000 + i}$, where $i \in \left\{1, \ldots ,\operatorname{dim}V + 1\right\}$, which is not an eigenvalue of $T$.
+\end{proof}
+
+\begin{problem}{14}
+Suppose $V = U \oplus W$, where $U$ and $W$ are nonzero subspaces of $V$. Define $P \in \mathcal{L}(V)$ by $P(u + w) = u$ for $u \in U$ and $w \in W$. Find all eigenvalues and eigenvectors of $P$.
+\end{problem}
+\begin{proof}
+	The eigenvalues are 1 and 0, and the eigenvectors are $u$ and $w$ respectively.
+\end{proof}
+
+\begin{problem}{15}
+Suppose $T \in \mathcal{L}(V)$. Suppose $S \in \mathcal{L}(V)$ is invertible.
+\begin{enumerate}[(a)]
+	\item Prove that $T$ and $S^{-1}TS$ have the same eigenvalues.
+	\item What is the relationship between the eigenvectors of $T$ and those of $S^{-1}TS$?
+\end{enumerate}
+\end{problem}
+\begin{enumerate}[(a)]
+	\item \begin{proof}
+		      Let $\lambda$ be a eigenvalue of $T$ and $v$ be the corresponding eigenvector. Then $T(v) = \lambda v$. Now we will verify that $\lambda$ is also an eigenvalue of $S^{-1}TS$. \par
+		      $S^{-1}(T)S(S^{-1}(v)) = S^{-1}(\lambda v) = \lambda S^{-1}(v)$ since $S$ is invertible. Therefore, eigenvalue for $T$ is also an eigenvalue of $S^{-1}TS$. Similarly, let $\lambda$ be an eigenvalue of $S^{-1}TS$ and $v$ be the corresponding eigenvector such that $S^{-1}TS(v) = \lambda v$. Notice that $S(S^{-1}TS)S^{-1} = T$. Hence, an eigenvalue for $S^{-1}TS$ is also an eigen value for $T$. Therefore, the eigenvalues are the same.
+	      \end{proof}
+	\item
+	      \begin{proof}
+		      The eigenvectors of $S^{-1}TS$ are $S^{-1}v$.
+	      \end{proof}
+\end{enumerate}
+
+\begin{problem}{16}
+Suppose $V$ is a complex vector space, $T \in \mathcal{L}(V)$, and the matrix of $T$ with respect to some basis of $V$ contains only real entries. Show that if $\lambda$ is an eigenvalue of $T$, then so is $\bar{\lambda}$.
+\end{problem}
+\begin{proof}
+	Suppose $\lambda$ is an eigenvalue of $T$,
+\end{proof}
+
+\begin{problem}{18}
+Show that the operator $T \in \mathcal{L}(\mathbb{C}^\infty)$ defined by \[
+	T(z_1,z_2, \ldots ) = (0, z_1, z_2, \ldots )\]
+has no eigenvalues.
+\end{problem}
+\begin{proof}
+	Suppose $\lambda$ is an eigenvalue of $T$, and $(0, z_1, z_2, \ldots )$ be the corresponding eigenvector. Then $T(z_1,z_2, \ldots ) = \lambda (0, z_1, z_2, \ldots )$. This implies that $z_1 = 0$, and $z_2 = \lambda z_1 = 0$, and so on. Therefore, the eigenvector is $(0,0,0, \ldots )$, which is not an eigenvector.
+\end{proof}
+
+\begin{problem}{19}
+Suppose $n$ is a positive integer and $T \in \mathcal{L}(\mathbb{F}^n)$ is defined by \[
+	T(x_1, \ldots ,x_n) = (x_1 + \cdots + x_n, \ldots , x_1 + \cdots + x_n)\]
+in other words, $T$ is the operator whose matrix (with respect to the standard basis) consists of all 1's. Find all eigenvalues and eigenvectors of $T$.
+\end{problem}
+\begin{proof}
+	The eigenvalues are $n$ and $0$, and the eigenvectors are $(1, \ldots ,1)$, and $\left\{(x_1, \ldots ,x_n) \in \mathbb{F}^n / \left\{0\right\} : x_1 + \cdots +x_n = 0 \right\} $ respectively.
+\end{proof}
+
+TODO: Sec.A 20 and beyond
+
+\section{Eigenvectors and Upper-Triangular Matrices}
+
+\begin{problem}{1}
+Suppose $T \in \mathcal{L}(V)$ and there exists a positive integer $n$ such that $T^{n} = 0$
+\begin{enumerate}[(a)]
+	\item Prove that $I - T$ is invertible and that \[
+		      (I - T)^{-1} = I + T + \cdots + T^{n-1}.\]
+	\item Explain how you would guess the formula above.
+\end{enumerate}
+\end{problem}
+\begin{enumerate}[(a)]
+	\item \begin{proof}
+		      Notice that \[
+			      (I - T)(I + T + \cdots + T^{n - 1}) = (I + T + \cdots + T^{n - 1})(I - T) = I - T^n = I\]
+	      \end{proof}
+	\item \begin{proof}
+	      \end{proof}
+\end{enumerate}
+
+\begin{problem}{2}
+Suppose $T \in \mathcal{L}(V)$ and $(T-2I)(T-3I)(T-4I) = 0$. Suppose $\lambda$ is an eigenvalue of $T$. Prove that $\lambda = 2$ or $\lambda = 3$ or $\lambda = 4$
+\end{problem}
+\begin{proof}
+	Suppose $(T-2I)(T-3I)(T-4I) = 0$, this implies that $T$ is upper triangular. Therefore, the eigenvalues are either 2, 3, or 4.
+\end{proof}
+
+\begin{problem}{3}
+Suppose $T \in \mathcal{L}(V)$ and $T^{2} = I$ and -1 is not an eigenvalue of $T$. Prove that $T = I$.
+\end{problem}
+\begin{proof}
+	Suppose $T^{2} = I$. Following from $T^{2}* T = T$, we have $T^{2n} = I$. Now if $T \neq I$, then a matrix of $T$ with respect to some basis which is upper triangular has eigenvalues 1 and -1. This is a contradiction.
+\end{proof}
+
+\begin{problem}{4}
+Suppose $P \in \mathcal{L}(V)$ and $P^{2} = P$. Prove that $V = \Null P \oplus \operatorname{Range} P$.
+\end{problem}
+\begin{proof}
+	$P^{2} = P$ implies that $P$ is invariant under $V$. Therefore, $V = \Null P \oplus \operatorname{Range} P$.
+\end{proof}
+
+\begin{problem}{5}
+Suppose $S,T \in \mathcal{L}(V)$ and $S$ is
+invertible. Suppose $p \in \mathcal{P}(\mathbb{F})$
+is a polynomial. Prove that\[
+	p(STS^{-1}) = Sp(T)S^{-1}\]
+\end{problem}
+\begin{proof}
+	From the properties of polynomials, we have
+	\begin{equation*}
+		\begin{aligned}
+			p(STS^{-1}) & = a_0I + a_1STS^{-1} + \cdots + a_n(STS^{-1})^{n}                   \\
+			            & = a_0I + a_1STS^{-1} + \cdots + a_nSTS^{-1}STS^{-1} \cdots STS^{-1} \\
+			            & = a_0I + a_1STS^{-1} + \cdots + a_nST^{n}S^{-1}                     \\
+			            & = Sp(T)S^{-1}
+		\end{aligned}
+	\end{equation*}
+\end{proof}
+
+\begin{problem}{6}
+Suppose $T \in \mathcal{L}(V)$ and $U$ is a subspace of $V$ invariant under $T$. Prove that $U$ is invariant under $p(T)$ for every polynomial $p \in \mathcal{P}(\mathbb{F})$
+\end{problem}
+\begin{proof}
+	From the properties of polynomials, we have
+	\begin{equation*}
+		\begin{aligned}
+			p(T)(U) & = a_0I + a_1T + \cdots + a_nT^{n}(U)       \\
+			        & = a_0I(U) + a_1T(U) + \cdots + a_nT^{n}(U) \\
+			        & = U
+		\end{aligned}
+	\end{equation*}
+\end{proof}
+
+\begin{problem}{7}
+Suppose $T \in \mathcal{L}(V)$. Prove that 9 is an eigenvalue of $T^{2}$ if and only if 3 or -3 is an
+eigenvalue of $T$.
+\end{problem}
+\begin{proof}
+	The upper triangle matrix of $T^{2}$ with respect to
+	some basis has $9$ on the diagonal, namely eigenvalue,
+	therefore, the eigenvalues of $T$ are $\sqrt{9} = \pm 3$
 \end{proof}
 
 \begin{problem}{8}
-Define $T in \mathcal{L}(\mathbb{F}^2)$ by \[
-  T(w,z) = (z,w).\]
-Find all eigenvalues and eigenvectors of $T$.
+Give an example of $T \in \mathcal{L}(\mathbb{R}^{2})$
+such that $T^{4} = -1$.
 \end{problem}
+\begin{proof}
+	\begin{comment}
+	TODO: 5.B.8 Pending. Give an example.
+	\end{comment}
+\end{proof}
+
+\newpage
+\begin{problem}{9}
+Suppose $V$ is finite-dimensional, $T \in \mathcal{L}(V)$, and $v \in V$ with $v \neq  0$. Let $p$ be a nonzero polynomial of smallest degree such that $p(T)v = 0$. Prove that every zero of $p$ is an eigenvalue of $T$.
+\end{problem}
+\begin{proof}
+	Suppose $\lambda \in \mathbb{F}$ is a zero of $p$. Then by the fundamental theorem of algebra, we have $p(x) = (x - \lambda)q(x)$, where $q(x)$ is a polynomial of degree $n - 1$. Therefore, $p(T)v = (T - \lambda I)q(T)v = 0$. Since $p$ is of smallest degree, $q(T)v \neq 0$. Hence, $\lambda$ is an eigenvalue of $T$.
+\end{proof}
+
+\begin{problem}{10}
+Suppose $T \in \mathcal{L}(V)$ and $v$ is an eigenvetor of $T$ with eigenvalue $\lambda$. Suppose $p \in \mathcal{P}(\mathbb{F})$. Prove that $p(T)v = p(\lambda)v$
+\end{problem}
+\begin{proof}
+	\begin{equation*}
+		\begin{aligned}
+			p(T)v & = a_0v + a_1Tv + \cdots + a_nT^{n}v              \\
+			      & = a_0v + a_1\lambda v + \cdots + a_n\lambda^{n}v \\
+			      & = p(\lambda)v
+		\end{aligned}
+	\end{equation*}
+\end{proof}
+
+\begin{problem}{11}
+Suppose $\mathbb{F} = \mathbb{C}$, $T \in \mathcal{L}(V)$, $p \in \mathcal{P}(\mathbb{C})$ is a polynomial, and $\alpha \in \mathbb{C}$. Prove that $\alpha$ is an eigenvalue of $p(T)$ if and only if $\alpha = p(\lambda)$ for some eigenvalue $\lambda$ of $T$.
+\end{problem}
+\begin{proof}
+	Suppose $\alpha$ is an eigenvalue of $p(T)$,
+	we have $p(T) = (T-\lambda I)q(T)$.
+\end{proof}
+
+\section{Eigenspaces and Diagonal Matrices}
+
+\begin{problem}{1}
+Suppose $T \in \mathcal{L}(V)$ is diagonalizable. Prove that $V = \Null T \oplus \operatorname{Range} T$.
+\end{problem}
+\begin{proof}
+	Since $T$ is diagonalizable, $V$ has a basis of eigenvectors of $T$.
+	Therefore, $V = \Null T \oplus \operatorname{Range} T$.
+\end{proof}
+
+\begin{problem}{2}
+Prove the converse of the statement in the exercise above
+or give a counterexample to the converse.
+\end{problem}
+\begin{proof}
+	% TODO: 5.C.2 Pending. Give a counterexample.
+\end{proof}
+
+\begin{problem}{3}
+Suppose $V$ is finite-dimensional and $T \in \mathcal{L}(V)$.
+Prove that the following are equivalent:
+\begin{enumerate}[(a)]
+	\item $V = \Null T \oplus \Range T$
+	\item $V = \Null T + \Range T$
+	\item $\Null T \cap \Range T = \{0\}$
+\end{enumerate}
+\end{problem}
+\begin{proof}
+	(a) $\iff$ (b): This is trivial. \\
+	(b) $\to$ (c): Suppose $V = \Null T + \Range T$. By Theorem, we have
+	\begin{align*}
+		\dim V & = \dim (\Null T + \Range T)                                     \\
+		       & = \dim \Null T + \dim \Range T + \dim ( \Null T \cap \Range T )
+	\end{align*}
+\end{proof}
+
+\begin{problem}{4}
+Give an example to show that the exercise above is false without
+the hypothesis that $V$ is finite-dimensional.
+\end{problem}
+
+\begin{proof}
+	% TODO  5.C.4 Pending. Give an example.
+\end{proof}
+
+\begin{problem}{5}
+Suppose $V$ is a 1finite-dimensional complex vector space and
+$T \in \mathcal{L}(V)$. Prove that $T$ is diagonalizable if and only if \[
+	V = \Null (T - \lambda I) \oplus \Range (T - \lambda I)\]
+for every $\lambda \in \mathbb{C}$
+\end{problem}
+\begin{proof}
+	Suppose $T$ is diagonalizable, the eigenvectors of
+	$T$ form a basis of $V$.
+\end{proof}
 
 % End
 \end{document}

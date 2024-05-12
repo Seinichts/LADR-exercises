@@ -125,12 +125,14 @@ Suppose \(v_1 , \dots, v_m\) is a list of vectors in $V$. Define \(T \in \Hom(\F
 \end{enumerate}
 \end{problem}
 
-\begin{proof}
-	\begin{enumerate}[(a)]
-		\item \(\forall v \in V\), we have \(T(z_1, \dots, z_m) = v\), which means \(v_1, \dots, v_m\) span $V$. This suggests that $\Range T$ is equal to $V$. Hence, $T$ is surjective.
-		\item If \(v_1, \dots, v_m\) are linearly independent, then \(T(z_1, \dots, z_m) = 0\) implies \(z_1 = \dots = z_m = 0\). This suggests that $\Null T = \{0\}$, hence $T$ is injective.
-	\end{enumerate}
-\end{proof}
+\begin{enumerate}[(a)]
+	\item \begin{proof}
+		      \(\forall v \in V\), we have \(T(z_1, \dots, z_m) = v\), which means \(v_1, \dots, v_m\) span $V$. This suggests that $\Range T$ is equal to $V$. Hence, $T$ is surjective.
+	      \end{proof}
+	\item \begin{proof}
+		      If \(v_1, \dots, v_m\) are linearly independent, then \(T(z_1, \dots, z_m) = 0\) implies \(z_1 = \dots = z_m = 0\). This suggests that $\Null T = \{0\}$, hence $T$ is injective.
+	      \end{proof}
+\end{enumerate}
 
 \begin{problem}{4}
 Show that \[
@@ -457,12 +459,14 @@ Suppose $V$ and $W$ are finite-dimensional. Let $v \in V$. Let \[
 	\item Suppose $v \neq 0.$ What is $\operatorname{dim} E$
 \end{enumerate}
 \end{problem}
-\begin{proof}
-	\begin{enumerate}[(a)]
-		\item $0(v) \in E$ therefore $E$ is not empty, and $T_1v = T_2v = 0$ implies $(T_1 + T_2)v = 0$. $Tv = 0$ implies $\lambda Tv = 0$ for all $\lambda \in \F$. Hence, $E$ is a subspace of $\mathcal{L}(V,W)$.
-		\item Suppose $v \neq 0$. Then there is a basis $v_1, \ldots ,v_n$ of $V$ extended from $v$, and we can choose a basis $w_1, \ldots, w_m$ of $W$. Since $\mathcal{L}(V,W)$ is isomorphic to $\mathbb{F}^{m,n}$ and $Tv = 0$ implies that the first column of $\mathcal{M}(T)$ is zero. Hence, $\operatorname{dim} E = m(n-1)$.
-	\end{enumerate}
-\end{proof}
+\begin{enumerate}[(a)]
+	\item \begin{proof}
+		      $0(v) \in E$ therefore $E$ is not empty, and $T_1v = T_2v = 0$ implies $(T_1 + T_2)v = 0$. $Tv = 0$ implies $\lambda Tv = 0$ for all $\lambda \in \F$. Hence, $E$ is a subspace of $\mathcal{L}(V,W)$.
+	      \end{proof}
+	\item \begin{proof}
+		      Suppose $v \neq 0$. Then there is a basis $v_1, \ldots ,v_n$ of $V$ extended from $v$, and we can choose a basis $w_1, \ldots, w_m$ of $W$. Since $\mathcal{L}(V,W)$ is isomorphic to $\mathbb{F}^{m,n}$ and $Tv = 0$ implies that the first column of $\mathcal{M}(T)$ is zero. Hence, $\operatorname{dim} E = m(n-1)$.
+	      \end{proof}
+\end{enumerate}
 
 \newpage
 
@@ -560,13 +564,14 @@ Suppose $T \in \mathcal{L}(\mathcal{P}(\mathbb{R}))$ is such that $T$ is injecti
 	\item Prove that $\operatorname{deg}Tp = \operatorname{deg}p$ for every nonzero $p \in \mathcal{P}(\mathbb{R})$
 \end{enumerate}
 \end{problem}
-\begin{proof}
-	\begin{enumerate}[(a)]
-		\item $\operatorname{deg}Tp = \operatorname{deg}p$ implies that $\operatorname{dim} T = \operatorname{dim} \mathcal{P}(\mathbb{R})$
-		      Hence, $T$ is surjective.
-		\item We prove it by induction: $\operatorname{deg}Tp = \operatorname{deg}p$ for $\operatorname{dim}p = 1$ (T is injective). Suppose it holds for $\operatorname{dim} p = n$, then, due to $T$ is surjective, every  $p \in \mathcal{P}(\mathbb{R})$ can be expressed as $T(p)$ uniquely. For p = n + 1, suppose that $\operatorname{deg}Tp < \operatorname{deg}p$, then this implies that $T$ is not injective, which is a contradiction. Hence, $\operatorname{deg}Tp = \operatorname{deg}p$ for all $n \in \mathbb{N}$.
-	\end{enumerate}
-\end{proof}
+\begin{enumerate}[(a)]
+	\item \begin{proof}
+		      $\operatorname{deg}Tp = \operatorname{deg}p$ implies that $\operatorname{dim} T = \operatorname{dim} \mathcal{P}(\mathbb{R})$. Hence, $T$ is surjective.
+	      \end{proof}
+	\item \begin{proof}
+		      We prove it by induction: $\operatorname{deg}Tp = \operatorname{deg}p$ for $\operatorname{dim}p = 1$ (T is injective). Suppose it holds for $\operatorname{dim} p = n$, then, due to $T$ is surjective, every  $p \in \mathcal{P}(\mathbb{R})$ can be expressed as $T(p)$ uniquely. For p = n + 1, suppose that $\operatorname{deg}Tp < \operatorname{deg}p$, then this implies that $T$ is not injective, which is a contradiction. Hence, $\operatorname{deg}Tp = \operatorname{deg}p$ for all $n \in \mathbb{N}$.
+	      \end{proof}
+\end{enumerate}
 
 \section{Products and Quotients of Vector Spaces}
 
@@ -688,14 +693,16 @@ Suppose $V$ is finite-dimensional and $v_1, \ldots , v_m \in V$. Define a linear
 	\item Prove that $v_1, \ldots , v_m$ is linearly independent if and only if $\Gamma$ is surjective.
 \end{enumerate}
 \end{problem}
-\begin{proof}
-	\begin{enumerate}[(a)]
-		\item $(\implies)$ Suppose $v_1, \ldots, v_m$ spans $V$, then for all $\varphi \in V'$, $\Gamma(\varphi) = 0$ implies that $\varphi(v_1) = \cdots = \varphi(v_m) = 0$, that is, $\varphi = 0$. Hence, $\Gamma$ is injective. \par
+\begin{enumerate}[(a)]
+	\item \begin{proof}
+		      $(\implies)$ Suppose $v_1, \ldots, v_m$ spans $V$, then for all $\varphi \in V'$, $\Gamma(\varphi) = 0$ implies that $\varphi(v_1) = \cdots = \varphi(v_m) = 0$, that is, $\varphi = 0$. Hence, $\Gamma$ is injective. \par
 		      $(\impliedby)$ Suppose $\Gamma$ is injective, then $\varphi(v_1) = \cdots = \varphi(v_m) = 0$ implies that $\varphi = 0$. Hence, $v_1, \ldots , v_m$ is surjective, that is, spanning $V$.
-		\item $(\implies)$ Suppose $v_1, \ldots , v_m$ is linearly independent. Then for all $(\lambda_1, \ldots , \lambda_m) \in \mathbb{F}^m$, $\lambda_1\varphi(v_1) + \cdots + \lambda_m\varphi(v_m) = 0$ implies that $\lambda_1 = \cdots = \lambda_m = 0$ or $\forall v_i = 0$. Therefore, for each $\varphi(v_i)$, $\varphi$ spans $\mathbb{F}$. Hence, $\Gamma$ is surjective. \par
+	      \end{proof}
+	\item \begin{proof}
+		      $(\implies)$ Suppose $v_1, \ldots , v_m$ is linearly independent. Then for all $(\lambda_1, \ldots , \lambda_m) \in \mathbb{F}^m$, $\lambda_1\varphi(v_1) + \cdots + \lambda_m\varphi(v_m) = 0$ implies that $\lambda_1 = \cdots = \lambda_m = 0$ or $\forall v_i = 0$. Therefore, for each $\varphi(v_i)$, $\varphi$ spans $\mathbb{F}$. Hence, $\Gamma$ is surjective. \par
 		      $(\impliedby)$ Suppose $\Gamma$ is surjective, then for all $v_i$, $\varphi \neq 0.$ That is, $v_1, \ldots , v_m$ is linearly independent. Otherwise, suppose $v_1, \ldots ,v_m$ is linearly dependent. Let $v_k$ be the one can be expressed by all other $v$'s. Then $\operatorname{dim}\Gamma(\varphi) < m = \operatorname{dim} \mathbb{F}^m$, suggesting that $\Gamma$ is not surjective, contradiction! Therefore, $v_1, \ldots ,v_m$ is linearly independent.
-	\end{enumerate}
-\end{proof}
+	      \end{proof}
+\end{enumerate}
 
 \begin{problem}{7}
 Suppose $m$ is a positive integer. Show that the dual basis of the basis $1, x, \ldots,x^m$ of $\mathcal{P}_m(\R)$ is $\varphi_0, \varphi_1,\ldots, \varphi_{m}$, where $\varphi_j(p)$ = $\frac{p^{(j)}(0)}{j!}$. Here $p^{(j)}$ denotes the $j^{\text{th}}$ derivative of $p$, with the understanding that the $0^{\mathit{th}}$ derivative of $p$ is $p$.
@@ -710,12 +717,14 @@ Suppose $m$ is a positive integer.
 	\item What is the dual basis of the basis in part(a)?
 \end{enumerate}
 \end{problem}
-\begin{proof}
-	\begin{enumerate}[(a)]
-		\item This is obvious since we can generate an upper-triangle matrix with $1, x-5, \ldots , (x-5)^m$
-		\item The dual basis is $\varphi_0, \varphi_1, \ldots, \varphi_m$ where $\varphi_j(p) = \frac{p^{(j)}(5)}{j!}$
-	\end{enumerate}
-\end{proof}
+\begin{enumerate}[(a)]
+	\item \begin{proof}
+		      This is obvious since we can generate an upper-triangle matrix with $1, x-5, \ldots , (x-5)^m$
+	      \end{proof}
+	\item \begin{proof}
+		      The dual basis is $\varphi_0, \varphi_1, \ldots, \varphi_m$ where $\varphi_j(p) = \frac{p^{(j)}(5)}{j!}$
+	      \end{proof}
+\end{enumerate}
 
 \begin{problem}{9}
 Suppose $v_1, \ldots ,v_n$ is a basis of $V$ and $\varphi_1, \ldots , \varphi_n$ is the corresponding dual basis of $V'$. Suppose $\psi \in V'$. Prove that \[
@@ -804,7 +813,7 @@ Suppose $V$ is finite-dimensional and $U$ and $W$ are subspaces of $V$ with $W^0
 Suppose $U, W$ are subspaces of $V$. Show that $(U+W)^{0}$ = $U^{0} \cap W^{0}$
 \end{problem}
 \begin{proof}
-  Let $u_1, \ldots , u_m$ be a basis of $U$ and $u_1, \ldots ,u_m, w_1, \ldots ,w_n$ be a basis of $W$. Then 
+	Let $u_1, \ldots , u_m$ be a basis of $U$ and $u_1, \ldots ,u_m, w_1, \ldots ,w_n$ be a basis of $W$. Then
 \end{proof}
 
 %End
