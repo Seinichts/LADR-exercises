@@ -381,6 +381,7 @@ Suppose $T \in \mathcal{L}(V)$ is diagonalizable. Prove that $V = \Null T \oplus
 Prove the converse of the statement in the exercise above
 or give a counterexample to the converse.
 \end{problem}
+
 \begin{proof}
 	% TODO: 5.C.2 Pending. Give a counterexample.
 \end{proof}
@@ -420,7 +421,38 @@ for every $\lambda \in \mathbb{C}$
 \end{problem}
 \begin{proof}
 	Suppose $T$ is diagonalizable, the eigenvectors of
-	$T$ form a basis of $V$.
+	$T$ form a basis of $V$. This impiles that $T - \lambda I$
+	has same dimension to $V$. That is, $V = \Null (T - \lambda I) \oplus \Range (T - \lambda I)$.
+\end{proof}
+
+\begin{problem}{6}
+Suppose $V$ is finite-dimensional, $T \in \mathcal{L}(V)$ has $\dim V$ distinct
+eigenvalues, and $S \in \mathcal{L}(V)$ has the same eigenvectors as $T$
+(not necessarily with the same eigenvalues). Prove that $ST = TS$.
+\end{problem}
+\begin{proof}
+	Since $S$ and $T$ have the same eigenvectors.
+	Then $S$ and $T$ are diagonalizable, and this implies that $ST = TS$.
+\end{proof}
+
+\begin{problem}{7}
+Suppose $T \in \mathcal{L}(\mathbb{F}^5)$ and $\dim E(8,T) = 4$.
+Prove that $T - 2I$ or $T - 6I$ is invertible.
+\end{problem}
+\begin{proof}
+	Suppose $\dim E(8,T) = 4$, then we have 4 independent
+	eigenvectors of $T$ with eigenvalue 8. And the diagonal matrix will have 4 8's on the diagonal.
+	Therefore, Suppose $T - 2I$ or $T - 6I$ is not invertible, that is, 2 or 6 is an eigenvalue of $T$.
+	the upper-triangular matrix of $T$ will have 2 or 6 on the diagonal since $\dim T \leq 5$, which is a contradiction.
+\end{proof}
+
+\begin{problem}{9}
+Suppose $T \in \mathcal{L}(V)$ is invertible. Prove that
+$E(\lambda T) = E(\frac{1}{\lambda}, T^{-1})$ for every $\lambda \in \mathbb{F}$
+with $\lambda \neq 0$.
+\end{problem}
+\begin{proof}
+
 \end{proof}
 
 % End
