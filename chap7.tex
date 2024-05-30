@@ -1,0 +1,125 @@
+\documentclass{article}
+\sloppy
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PACKAGES            																						  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[dvipsnames]{xcolor}
+% \usepackage[10pt]{extsizes}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{commath}
+\usepackage{hyperref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PROBLEM ENVIRONMENT         																			           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems, breakable, skins}
+\newtcbtheorem{prob}% environment name
+              {Problem}% Title text
+	{% tcolorbox styles
+	enhanced,
+	colback=Emerald!10,colframe=cyan!40!black,
+	fonttitle=\bfseries,
+  }%
+  {}
+
+\newenvironment{problem}[1]{\begin{prob*}{#1}{}}{\end{prob*}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% THEOREMS/LEMMAS/ETC.         																			  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newtheorem{innerproblem}{Problem}
+% \newenvironment{problem}[1]{\itshape\renewcommand\theinnerproblem{#1}\innerproblem}{\endinnerproblem}
+\newtheorem{thm}{Theorem}
+\newtheorem*{thm-non}{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{corollary}[thm]{Corollary}
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MY COMMANDS   																						  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\oo}{\infty}
+\newcommand{\bigO}{\mathcal{O}}
+\newcommand{\Real}{\mathcal{Re}}
+\newcommand{\poly}{\mathcal{P}}
+\newcommand{\mat}{\mathcal{M}}
+\DeclareMathOperator{\Span}{span}
+\newcommand{\Hom}{\mathcal{L}}
+\DeclareMathOperator{\Null}{null}
+\DeclareMathOperator{\Range}{range}
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\restr}[1]{|_{#1}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SECTION NUMBERING																				           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\thesection}{\Alph{section}:}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DOCUMENT START              																			           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{\vspace{-2em}Enter Title}
+\author{Author}
+\date{dd/mm/yyyy}
+
+\begin{document}
+\maketitle
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{Polar Decomposition and Singular Value Decomposition}
+
+\begin{problem}{1}
+	Fix $u, x \in V$ with $u \neq 0$. Define $T \in \mathcal{L}(V)$ by \[
+		Tv = \left< v, u \right> x
+	\]
+	for every $v \in V$. Prove that \[
+		\sqrt{T^* T}v = \frac{\left\| x \right\|}{\left\| u \right\|} \langle v , u \rangle u
+	\] for every $v \in V$.
+\end{problem}
+\begin{proof}
+  First we need to find the $T^*$. By definition, we have
+	\begin{equation*}
+		\begin{aligned}
+			\langle v , T^*w \rangle &= \langle Tv , w \rangle \\
+			&= \langle \langle v , u \rangle x , w \rangle \\
+			&= \langle v , u \rangle \langle x , w \rangle \\
+			&= \langle v , \langle w , x \rangle u \rangle \\
+			&= \langle v , Tw \rangle \\
+			T^* v = \langle v , x \rangle u
+		\end{aligned}
+	\end{equation*}
+	Then \begin{equation*}
+		\begin{aligned}
+		 T^*T v &= T^* \langle v , u \rangle x \\
+		 &= \langle v , u \rangle T^* x \\
+		 &= \langle v , u \rangle \langle x , x \rangle u \\
+		 &= \langle v , u \rangle \left\| x \right\|^{2} u
+		\end{aligned}
+	\end{equation*}
+	Notice that the first two terms are scalars,
+	the eigenvector could only be $u$ and its eigenvalue
+	is $\langle u , u \rangle \left\| x \right\|^{2} = \left\| u \right\|^{2} \left\| x \right\|^{2}$. \\
+	Thus, $\sqrt{T^*T}v = \frac{T^*T v}{\sqrt{\lambda}} = \frac{\langle v , u \rangle\left\| x \right\|^{2} u}{\left\| u \right\|\left\| x \right\|}
+	= \frac{\left\| x \right\|}{\left\| u \right\|}\langle v , u \rangle u $
+\end{proof}
+
+% End
+\end{document}
