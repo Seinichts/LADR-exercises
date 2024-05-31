@@ -73,9 +73,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DOCUMENT START              																			           %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{\vspace{-2em}Enter Title}
-\author{Author}
-\date{dd/mm/yyyy}
+\title{\vspace{-2em}Chapter 7: Operators on Inner Product Spaces}
+\author{Zelong Kuang}
+\date{31/05/2024}
 
 \begin{document}
 \maketitle
@@ -83,6 +83,51 @@
 \newpage
 \tableofcontents
 \newpage
+
+\section{The spectral theorem}
+
+\begin{problem}{1}
+  True or false (and give a proof of your answer): There exists $T \in \mathcal{L}(R_b^3)$
+  such that $T$ is not self-adjoint (with respect to the usual inner product)
+  and such that there is a basis of $\mathbb{R}^3 $ consisting of eigenvectors of $T$
+\end{problem}
+
+\begin{proof}
+  The statement is false: suppose there is a basis of $\mathbb{R}^3$ consisting
+  of eigenvectors of $T$. Then we could find a diagonal matrix with
+  respect the the basis consisting of eigenvectors of $T$. Clearly
+  a diagonal matrix equals its transpose. Hence, $T = T^*$, that is,
+  $T$ is self-adjoint.
+\end{proof}
+
+\begin{problem}{2}
+  Suppose that $T$ is a self-adjoint operator on a finite-dimensional
+  inner product space and that 2 and 3 are the only eigenvalues of $T$.
+  Prove that $T^2 - 5T + 6I = 0$
+\end{problem}
+
+\begin{proof}
+  Suppose $T$ is self-adjoint, then we could find an eigenvector or $T$
+  with $\left\| u \right\| = 0$. Let $U = \span u$, then $U$ and $U^\perp$ is invariant under $T$,
+  $T|_U \in L(U)$ and $T|_U \in L(U)$ are self-adjoint. We could choose an
+  orthonormal basis in both and the new list created by combining them 
+  is also an orthonormal basis consisting of eigenvectors. For any
+  $v \in V$, we could decompose v onto the orthonormal basis.
+  Then, following from $(T^2 -5T + 6I)v = (T-2I)(T-3I)v$. Since $\lambda \in \{2, 3\}$,
+  one of them must be zero. Therefore, $T^2 - 5T + 6I = 0$ as desired.
+\end{proof}
+
+\begin{problem}{3}
+  Give an example of an operator $T \in \mathcal{L}(\mathbb{C}^3)$ such that 2 and 3
+  are the only eigenvalues of $T$ and $T^2 -5T + 6I \neq 0$.
+\end{problem}
+
+\begin{proof}
+  Consider $T$ such that there doesn't exist an orthonormal basis consisting
+  of eigenvectors of $T$. Then we could find a $v \in V$ such that v cannot expressed
+  as $a_1 \lambda_1 + \dots + a_n \lambda_n$ where $\lambda_n$ are eigenvectors of $T$. Then $T(v)$ does not 
+  equals to 0.
+\end{proof}
 
 \section{Polar Decomposition and Singular Value Decomposition}
 
@@ -120,6 +165,12 @@
 	Thus, $\sqrt{T^*T}v = \frac{T^*T v}{\sqrt{\lambda}} = \frac{\langle v , u \rangle\left\| x \right\|^{2} u}{\left\| u \right\|\left\| x \right\|}
 	= \frac{\left\| x \right\|}{\left\| u \right\|}\langle v , u \rangle u $
 \end{proof}
+
+\begin{problem}{6}
+  Find a singular values of the differentiation operator 
+  $D \in \mathcal{P}(\mathbb{R}^2)$ defined by $Dp = p'$, where the inner product on
+  $\mathcal{P}(\mathbb{R}^2)$ is $\langle p, q \rangle = \int_{-1}^{1} p(x)q(x) dx$
+\end{problem}
 
 % End
 \end{document}
