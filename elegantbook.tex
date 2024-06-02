@@ -1,0 +1,61 @@
+\documentclass[11pt]{elegantbook}
+
+\title{Linear Algebra Done Right Solution}
+\subtitle{by Sheldon Axler}
+
+\date{\today}
+% \version{4.5}
+% \bioinfo{Bio}{Information}
+
+% \extrainfo{\textcolor{red}{\bfseries Caution: This template will no longer be maintained since January 1st, 2023.}}
+
+% \logo{logo-blue.png}
+\cover{cover.jpg}
+
+% modify the color in the middle of titlepage
+\definecolor{customcolor}{RGB}{32,178,170}
+\colorlet{coverlinecolor}{customcolor}
+\usepackage{cprotect}
+
+\newcommand{\Span}{\mathop{\mathrm{span}}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\F}{\mathbb{F}}
+% \newcommand{\dim}{\mathop{\mathrm{dim}}}
+\newcommand{\poly}{\mathcal{P}}
+\newcommand{\Hom}{\mathcal{L}}
+\newcommand{\Null}{\mathop{\mathrm{null}}}
+\newcommand{\Range}{\mathop{\mathrm{range}}}
+\newcommand{\oo}{\infty}
+\newcommand{\id}{\mathop{\mathrm{id}}}
+\renewcommand{\thesection}{\Alph{section}}
+
+% \addbibresource[location=local]{reference.bib} % bib
+
+\begin{document}
+
+\maketitle
+
+\frontmatter
+\tableofcontents
+
+\mainmatter
+
+\setcounter{chapter}{1}
+\chapter{Finite-dimensional vector space}
+\input{Chap2.tex}
+
+\chapter{Linear maps}
+\input{chap3.tex}
+
+\setcounter{chapter}{4}
+
+\chapter{Eigenvalues, eigenvectors, and invariant subspaces}
+\input{chap5.tex}
+
+\chapter{Inner product spaces}
+\input{chap6.tex}
+
+\chapter{Operators on inner product spaces}
+\input{chap7.tex}
+
+\end{document}

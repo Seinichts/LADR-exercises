@@ -1,96 +1,81 @@
-\documentclass{article}
-\sloppy
+\section{Self-adjoint and Normal Operators}
+\begin{exercise}
+  Suppose $n$ is a positive integer. Define $T \in \mathcal{L}(\mathbb{F}^n)$ by \[
+    T(z_1, \dots, z_n) = (0, z_1, \dots, z_{n-1}).
+  \] Find a formula for $T^*(z_1,\dots,z_n)$
+\end{exercise}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PACKAGES            																						  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[dvipsnames]{xcolor}
-% \usepackage[10pt]{extsizes}
-\usepackage{amsfonts}
-\usepackage{amsthm}
-\usepackage{amssymb}
-\usepackage[shortlabels]{enumitem}
-\usepackage{microtype}
-\usepackage{amsmath}
-\usepackage{mathtools}
-\usepackage{commath}
-\usepackage{hyperref}
+\begin{proof}
+  By definition, we have
+  \begin{equation*}
+    \begin{aligned}
+      &\langle T(z_1, \dots, z_n), (x_1, \dots ,x_n) \rangle \\
+      = &\langle (0, z_1, \dots, z_{n-1}), (z_1, \dots, z_n) \rangle \\
+      = &0 \cdot x_1 + z_1 \cdot x_2 + \dots + z_{n-1} \cdot x_n \\
+      = &z_1 \cdot 0 + z_1 \cdot x_2 + \dots + z_{n-1} \cdot x_n + z_n \cdot 0 \\
+      = &\langle (z_1, \dots, z_n), (x_2, x_3, \dots, 0) \rangle
+    \end{aligned}
+  \end{equation*}
+  Therefore, $T^*(z_1, \dots, z_n) = (z_2, \dots, z_n, 0)$.
+\end{proof}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PROBLEM ENVIRONMENT         																			           %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{tcolorbox}
-\tcbuselibrary{theorems, breakable, skins}
-\newtcbtheorem{prob}% environment name
-              {Problem}% Title text
-	{% tcolorbox styles
-	enhanced,
-	colback=Emerald!10,colframe=cyan!40!black,
-	fonttitle=\bfseries,
-  }%
-  {}
+\begin{exercise}
+  Suppose $T \in \mathcal{L}(V)$ and $\lambda \in \mathbb{F}$. Prove that
+  $\lambda$ is an eigenvalue of $T$ if and only if
+  $\overline{\lambda}$ is an eigenvalue of $T^*$.
+\end{exercise}
 
-\newenvironment{problem}[1]{\begin{prob*}{#1}{}}{\end{prob*}}
+\begin{proof}
+  Suppose $\lambda$ is an eigenvalue of $T$, and choose $v \in V$
+  be the eigenvector. Then, we have
+  \begin{equation*}
+    \begin{aligned}
+      \langle T(v), v \rangle &= \langle \lambda v, v \rangle\\
+      &= \lambda \langle v, v \rangle \\
+      &= \langle v, \overline{\lambda} v \rangle \\
+      &= \langle v, T^*(v) \rangle
+    \end{aligned}
+  \end{equation*}
+  Therefore, $\lambda$ is an eigenvalue of $T$ if and only if
+  $\overline{\lambda}$ is an eigenvalue of $T^*$
+\end{proof}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% THEOREMS/LEMMAS/ETC.         																			  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \newtheorem{innerproblem}{Problem}
-% \newenvironment{problem}[1]{\itshape\renewcommand\theinnerproblem{#1}\innerproblem}{\endinnerproblem}
-\newtheorem{thm}{Theorem}
-\newtheorem*{thm-non}{Theorem}
-\newtheorem{lemma}[thm]{Lemma}
-\newtheorem{corollary}[thm]{Corollary}
-\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% MY COMMANDS   																						  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\F}{\mathbb{F}}
-\newcommand{\oo}{\infty}
-\newcommand{\bigO}{\mathcal{O}}
-\newcommand{\Real}{\mathcal{Re}}
-\newcommand{\poly}{\mathcal{P}}
-\newcommand{\mat}{\mathcal{M}}
-\DeclareMathOperator{\Span}{span}
-\newcommand{\Hom}{\mathcal{L}}
-\DeclareMathOperator{\Null}{null}
-\DeclareMathOperator{\Range}{range}
-\newcommand{\defeq}{\vcentcolon=}
-\newcommand{\restr}[1]{|_{#1}}
+\begin{exercise}
+  Suppose $T \in \mathcal{L}(V)$ and $U$ is a subspace of $V$.
+  Prove that $U$ is invariant under $T$ if and only if $U^\perp$
+  is invariant under $T^*$.
+\end{exercise}
 
+\begin{proof}
+  Choose $v \in U$ and $w \in U^\perp$,  suppose $U$ is invariant under $T$.
+  Then, since $T(v) \in U$, we have \[
+    0 = \langle T(v), w \rangle = \langle v, T^*(w) \rangle
+  \]. This implies that $T^*(w) \in U^\perp$.
+  Therefore, $T^*$ is invariant under $U^\perp$.
+\end{proof}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% SECTION NUMBERING																				           %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\renewcommand{\thesection}{\Alph{section}:}
+\begin{exercise}
+  Suppose $T \in \mathcal{L}(V, W)$. Prove that
+  \begin{itemize}[(a)]
+    \item $T$ is injective if and only if $T^*$ is surjective;
+    \item $T$ is surjective if and only if $T^*$ is injective.
+  \end{itemize}
+\end{exercise}
 
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% DOCUMENT START              																			           %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{\vspace{-2em}Chapter 7: Operators on Inner Product Spaces}
-\author{Zelong Kuang}
-\date{31/05/2024}
-
-\begin{document}
-\maketitle
-
-\newpage
-\tableofcontents
-\newpage
+\begin{itemize}[(a)]
+  \item
+    \begin{proof}
+      Suppose $T$ is injective.
+    \end{proof}
+\end{itemize}
 
 \section{The spectral theorem}
 
-\begin{problem}{1}
+\begin{exercise}
   True or false (and give a proof of your answer): There exists $T \in \mathcal{L}(R_b^3)$
   such that $T$ is not self-adjoint (with respect to the usual inner product)
   and such that there is a basis of $\mathbb{R}^3 $ consisting of eigenvectors of $T$
-\end{problem}
+\end{exercise}
 
 \begin{proof}
   The statement is false: suppose there is a basis of $\mathbb{R}^3$ consisting
@@ -100,15 +85,15 @@
   $T$ is self-adjoint.
 \end{proof}
 
-\begin{problem}{2}
+\begin{exercise}
   Suppose that $T$ is a self-adjoint operator on a finite-dimensional
   inner product space and that 2 and 3 are the only eigenvalues of $T$.
   Prove that $T^2 - 5T + 6I = 0$
-\end{problem}
+\end{exercise}
 
 \begin{proof}
   Suppose $T$ is self-adjoint, then we could find an eigenvector or $T$
-  with $\left\| u \right\| = 0$. Let $U = \span u$, then $U$ and $U^\perp$ is invariant under $T$,
+  with $\left\| u \right\| = 0$. Let $U = \Span u$, then $U$ and $U^\perp$ is invariant under $T$,
   $T|_U \in L(U)$ and $T|_U \in L(U)$ are self-adjoint. We could choose an
   orthonormal basis in both and the new list created by combining them 
   is also an orthonormal basis consisting of eigenvectors. For any
@@ -117,10 +102,10 @@
   one of them must be zero. Therefore, $T^2 - 5T + 6I = 0$ as desired.
 \end{proof}
 
-\begin{problem}{3}
+\begin{exercise}
   Give an example of an operator $T \in \mathcal{L}(\mathbb{C}^3)$ such that 2 and 3
   are the only eigenvalues of $T$ and $T^2 -5T + 6I \neq 0$.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
   Consider $T$ such that there doesn't exist an orthonormal basis consisting
@@ -129,23 +114,23 @@
   equals to 0.
 \end{proof}
 
-/section{Positive Operators and Isometries}
+\section{Positive Operators and Isometries}
 
-\begin{problem}{1}
+\begin{exercise}
   Prove or give a counterexaples: If $T \in \mathcal{L}(V)$ is self-adjoint
   and there exists an orthonormal basis $e_1, \dots,e_n $ of $V$ such that 
   $\langle Te_j , e_j \rangle \geq 0$ for each $j$, then $T$ is a positive operator.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
   TODO: Pending
 \end{proof}
 
-\begin{problem}{2}
+\begin{exercise}
   Suppose $T$ is a positive operator on $V$. Suppose $v, w \in V$ are such that \[
     Tv = w \text{and} Tw = v \]
   Prove that $v = w$.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
   Suppose $T$ is a positive operator. Then we have
@@ -164,16 +149,31 @@
   Therefore, $\langle v - w, v - w \rangle = 0$ implies $v = w$.
 \end{proof}
 
+\begin{exercise}
+  Suppose $T$ is a positive operator on $V$ and $U$
+  is a subspace of $V$ invariant under $T$. Prove that $T|_U$
+  is a positive operator on $U$.
+\end{exercise}
+
+\begin{proof}
+  Suppose $T$ is a positive operator on $V$ and $U$ is invariant
+  under $T$. Then, by definition, for any $u \in U$, $T|_U$ defines a 
+  operator in $\mathcal{L}(U)$ and for any $u \in U \subseteq V$, we have \[
+    \langle Tu, u \rangle \geq 0
+  \]. Therefore, $T|_U$ is a positive operator on $U$.
+\end{proof}
+
+
 \section{Polar Decomposition and Singular Value Decomposition}
 
-\begin{problem}{1}
+\begin{exercise}
 	Fix $u, x \in V$ with $u \neq 0$. Define $T \in \mathcal{L}(V)$ by \[
 		Tv = \left< v, u \right> x
 	\]
 	for every $v \in V$. Prove that \[
 		\sqrt{T^* T}v = \frac{\left\| x \right\|}{\left\| u \right\|} \langle v , u \rangle u
 	\] for every $v \in V$.
-\end{problem}
+\end{exercise}
 \begin{proof}
   First we need to find the $T^*$. By definition, we have
 	\begin{equation*}
@@ -196,16 +196,13 @@
 	Notice that the first two terms are scalars,
 	the eigenvector could only be $u$ and its eigenvalue
 	is $\langle u , u \rangle \left\| x \right\|^{2} = \left\| u \right\|^{2} \left\| x \right\|^{2}$. \\
-	Thus, $\sqrt{T^*T}v = \frac{T^*T v}{\sqrt{\lambda}} = \frac{\langle v , u \rangle\left\| x \right\|^{2} u}{\left\| u \right\|\left\| x \right\|}
+  Thus, $\sqrt{T^*T}v = \frac{T^*T v}{\sqrt{\lambda}} = \frac{\langle v , u \rangle\left\| x \right\|^{2} u}{\left\| u \right\|\left\| x \right\|}
 	= \frac{\left\| x \right\|}{\left\| u \right\|}\langle v , u \rangle u $
 \end{proof}
 
-\begin{problem}{6}
+\begin{exercise}
   Find a singular values of the differentiation operator 
   $D \in \mathcal{P}(\mathbb{R}^2)$ defined by $Dp = p'$, where the inner product on
-  $\mathcal{P}(\mathbb{R}^2)$ is $\langle p, q \rangle = \int_{-1}^{1} p(x)q(x) dx$
-\end{problem}
+  $\mathcal{P}(\mathbb{R}^2)$ is $\langle p, q \rangle = \int_{-1}^{1} p(x)q(x) \mathrm{d} x$
+\end{exercise}
 
-
-% End
-\end{document}

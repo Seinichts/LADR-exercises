@@ -1,92 +1,8 @@
-\documentclass{article}
-\sloppy
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PACKAGES            																						  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[dvipsnames]{xcolor}
-% \usepackage[10pt]{extsizes}
-\usepackage{amsfonts}
-\usepackage{amsthm}
-\usepackage{amssymb}
-\usepackage[shortlabels]{enumitem}
-\usepackage{microtype}
-\usepackage{amsmath}
-\usepackage{mathtools}
-\usepackage{commath}
-\usepackage{hyperref}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PROBLEM ENVIRONMENT         																			           %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{tcolorbox}
-\tcbuselibrary{theorems, breakable, skins}
-\newtcbtheorem{prob}% environment name
-              {Problem}% Title text
-	{% tcolorbox styles
-	enhanced,
-	colback=Emerald!10,colframe=cyan!40!black,
-	fonttitle=\bfseries,
-  }%
-  {}
-
-\newenvironment{problem}[1]{\begin{prob*}{#1}{}}{\end{prob*}}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% THEOREMS/LEMMAS/ETC.         																			  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \newtheorem{innerproblem}{Problem}
-% \newenvironment{problem}[1]{\itshape\renewcommand\theinnerproblem{#1}\innerproblem}{\endinnerproblem}
-\newtheorem{thm}{Theorem}
-\newtheorem*{thm-non}{Theorem}
-\newtheorem{lemma}[thm]{Lemma}
-\newtheorem{corollary}[thm]{Corollary}
-\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% MY COMMANDS   																						  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\F}{\mathbb{F}}
-\newcommand{\oo}{\infty}
-\newcommand{\bigO}{\mathcal{O}}
-\newcommand{\Real}{\mathcal{Re}}
-\newcommand{\poly}{\mathcal{P}}
-\newcommand{\mat}{\mathcal{M}}
-\DeclareMathOperator{\Span}{span}
-\newcommand{\Hom}{\mathcal{L}}
-\DeclareMathOperator{\Null}{null}
-\DeclareMathOperator{\Range}{range}
-\newcommand{\defeq}{\vcentcolon=}
-\newcommand{\restr}[1]{|_{#1}}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% SECTION NUMBERING																				           %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\renewcommand{\thesection}{\Alph{section}:}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% DOCUMENT START              																			           %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{\vspace{-2em}Chapter 6: Inner product spaces}
-\author{Zelong Kuang}
-\date{13/05/2024}
-
-\begin{document}
-\maketitle
-
-\newpage
-\tableofcontents
-\newpage
-
 \section{Inner products and Norms}
-\begin{problem}{1}
+\begin{exercise}
 Show that the function that takes $((x_1,x_2),(y_1,y_2)) \in \mathbb{R}^2 \times \mathbb{R}^2$
 to $\left\vert x_1y_1 \right\vert + \left\vert x_2y_2 \right\vert$ is not an inner product on $\mathbb{R}^3$
-\end{problem}
+\end{exercise}
 \begin{proof}
 	For $((1,1), (1,1)), ((-1.-1), (1,1)) \in \mathbb{R}^2 \times \mathbb{R}^2$, we have \[
 		\left\vert 1 \cdot 1 \right\vert + \left\vert 1 \cdot 1 \right\vert = 2 \]
@@ -99,22 +15,22 @@ to $\left\vert x_1y_1 \right\vert + \left\vert x_2y_2 \right\vert$ is not an inn
 This could not be an inner product since it violates
 the additivity property of inner products.
 
-\begin{problem}{2}
+\begin{exercise}
 Show that the function that takes $((x_1,x_2,x_3),(y_1,y_2,y_3)) \in \mathbb{R}^{3} \times \mathbb{R}^3$
 to $x_1y_1 + x_3y_3$ is not an inner product on $\mathbb{R}^3$
-\end{problem}
+\end{exercise}
 \begin{proof}
 	It take $(0,1,0)$ to zero while $(0,1,0) \neq 0$
 \end{proof}
 
-\begin{problem}{3}
+\begin{exercise}
 Suppose $\mathbb{F} = \mathbb{R}$ and $V \neq \{0\}$. Replace the positivity condition
 (which states that $\langle v, v \rangle \geq 0$ for all $v \in V$) in the definition
 of an inner product with the condition that $\langle v, v \rangle > 0$
 for some $v \in V$. Show that this new definition of an inner product
 does not change the set of functions from $V \times V$ to $\mathbb{R}$
 that are inner products on $V$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	We show that the two condition are equivalent on the given space.
 	Suppose the positivity condition is satisfied, then the new condition
@@ -122,9 +38,6 @@ that are inner products on $V$.
 	Now we suppose the new condition is satisfied, then for all $v \in V$, we have \[
 		\langle v, v \rangle = \]
 \end{proof}
-\begin{problem}{8}
-
-\end{problem}
-
-% End
-\end{document}
+\begin{exercise}
+aa
+\end{exercise}

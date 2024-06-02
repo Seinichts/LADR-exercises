@@ -1,100 +1,10 @@
-\documentclass{article}
-\sloppy
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PACKAGES            																						  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{xeCJK}
-\usepackage[dvipsnames]{xcolor}
-\usepackage{comment}
-\usepackage[10pt]{extsizes}
-\usepackage{amsfonts}
-\usepackage{amsthm}
-\usepackage{amssymb}
-\usepackage[shortlabels]{enumitem}
-\usepackage{microtype}
-\usepackage{amsmath}
-\usepackage{mathtools}
-\usepackage{commath}
-\usepackage{hyperref}
-
-\setCJKmainfont{Sarasa Gothic SC}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PROBLEM ENVIRONMENT         																			           %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{tcolorbox}
-\tcbuselibrary{theorems, breakable, skins}
-\newtcbtheorem{prob}% environment name
-              {Problem}% Title text
-	{% tcolorbox styles
-	enhanced,
-	colback=Emerald!10,colframe=cyan!40!black,
-	fonttitle=\bfseries,
-  }%
-  {}
-
-\newenvironment{problem}[1]{\begin{prob*}{#1}{}}{\end{prob*}}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% THEOREMS/LEMMAS/ETC.         																			  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \newtheorem{innerproblem}{Problem}
-% \newenvironment{problem}[1]{\itshape\renewcommand\theinnerproblem{#1}\innerproblem}{\endinnerproblem}
-\newtheorem{thm}{Theorem}
-\newtheorem*{thm-non}{Theorem}
-\newtheorem{lemma}[thm]{Lemma}
-\newtheorem{corollary}[thm]{Corollary}
-\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% MY COMMANDS   																						  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\F}{\mathbb{F}}
-\newcommand{\oo}{\infty}
-\newcommand{\bigO}{\mathcal{O}}
-\newcommand{\Real}{\mathcal{Re}}
-\newcommand{\poly}{\mathcal{P}}
-\newcommand{\mat}{\mathcal{M}}
-\DeclareMathOperator{\Span}{span}
-\DeclareMathOperator{\id}{id}
-\newcommand{\Hom}{\mathcal{L}}
-\DeclareMathOperator{\Null}{null}
-\DeclareMathOperator{\Range}{range}
-\newcommand{\defeq}{\vcentcolon=}
-\newcommand{\restr}[1]{|_{#1}}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% SECTION NUMBERING																				           %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\renewcommand{\thesection}{\Alph{section}:}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% DOCUMENT START              																			           %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{\vspace{-2em}Chapter 3: Linear maps}
-\author{\emph{Linear Algebra Done Right}, by Sheldon Axler}
-\date{}
-
-\begin{document}
-
-\maketitle
-
-\newpage
-\tableofcontents
-\newpage
-
 \section{The vector space of linear maps}
 
-\begin{problem}{1}
+\begin{exercise}
 Suppose \(b,c \in \R\). Define \(T : \R^3 \to \R^2\) by \[
 	T(x,y,z) = ( 2x - 4y + 3z + b, 6x + cxyz).\]
 Show that $T$ is a linear map if and only if \(b = 0\) and \(c = 0\).
-\end{problem}
-
+\end{exercise}
 
 \begin{proof}
 	Consider \(T(1,1,1) = T(1,0,0) + T(0,1,1)\)
@@ -108,22 +18,22 @@ Show that $T$ is a linear map if and only if \(b = 0\) and \(c = 0\).
 
 \section{Null space and Range}
 
-\begin{problem}{1}
+\begin{exercise}
 Give an example of a linear map $T$ such that \(\dim \Null T = 3\) and \(\dim \Range T = 2\).
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	Consider \(T : \poly (4) \mapsto \poly (1)\), \(T(a z^4 +b z^3 + c z^2 + d z + e) = (d z + e)\). Then \(\dim \Null T = 3\) and \(\dim \Range T = 2\).
 \end{proof}
 
-\begin{problem}{3}
+\begin{exercise}
 Suppose \(v_1 , \dots, v_m\) is a list of vectors in $V$. Define \(T \in \Hom(\F^m, V)\) by \[
 	T(z_1, \dots, z_m) = z_1v_1 + \dots + z_mv_m.\]
 \begin{enumerate}[(a)]
 	\item What property of $T$ corresponds to \(v_1, \dots, v_m\) spanning $V$.
 	\item What property of $T$ corresponds to \(v_1, \dots, v_m\) being linearly independent.
 \end{enumerate}
-\end{problem}
+\end{exercise}
 
 \begin{enumerate}[(a)]
 	\item \begin{proof}
@@ -134,11 +44,11 @@ Suppose \(v_1 , \dots, v_m\) is a list of vectors in $V$. Define \(T \in \Hom(\F
 	      \end{proof}
 \end{enumerate}
 
-\begin{problem}{4}
+\begin{exercise}
 Show that \[
 	{T \in \Hom(\R^5, \R^4) : \dim \Null T > 2}\]
 is not a subspace of \(\Hom (\R^5,\R^4)\)
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	Suppose \(\dim \Null T > 2\), by F.T. of linear maps,
@@ -151,26 +61,26 @@ is not a subspace of \(\Hom (\R^5,\R^4)\)
 	Hence, $T \notin \Hom(\R^5, \R^4)$, and thus not a subspace of \(\Hom (R^5, R^4)\).
 \end{proof}
 
-\begin{problem}{5}
+\begin{exercise}
 Give an example of a linear map \(T : \R^4 \mapsto \R^4\) such that \[
 	\Range T = \Null T.\]
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	Consider \(T : R^4 \mapsto R^4\), \(T(x_1, x_2, x_3, x_4) = (x_3, x_4, 0, 0)\). Then \(\Range T = \Null T\).
 \end{proof}
 
-\begin{problem}{6}
+\begin{exercise}
 Prove that there does not exist a linear map \(T : \R^5 \mapsto \R^5 \) such that \(\Range T = \Null T\).
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	Suppose there exists a linear map \(T: \R^5 \mapsto \R^5\) such that \(\Range T = \Null T\). Then by F.T. of linear maps, we have \(\dim \Range T = \dim \Null T\), which implies \(\dim \Range T = 5 - \dim \Range T\), or \(\dim \Range T = 2.5\), which is not an integer. Hence, such a linear map does not exist.
 \end{proof}
 
-\begin{problem}{7}
+\begin{exercise}
 Suppose $V$ and $W$ are finite-dimensional with \(2 \leq \dim V \leq \dim W.\) Show that \(\{T \in \Hom(V,W) : T \text{ is not injective }\}\)  is not a subspace of \(\Hom(V,W)\).
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	$T$ is not injective suggests that \(\dim \Null V >0\).
@@ -182,17 +92,17 @@ Suppose $V$ and $W$ are finite-dimensional with \(2 \leq \dim V \leq \dim W.\) S
 	Contradicts! Hence, \(T \notin \Hom(V,W)\) $\implies$ not a subspace.
 \end{proof}
 
-% \begin{problem}{8}
+% \begin{exercise}
 % Suppose $V$ and $W$ are finite-dimensional with \(\dim V \geq \dim W \geq 2.\) Show that \(\{T \in \Hom(V,W) : T \text{ is not surjective }\}\) is not a subspace of \(\Hom(V,W)\).
-% \end{problem}
+% \end{exercise}
 
 % \begin{proof}
 
 % \end{proof}
 
-\begin{problem}{9}
+\begin{exercise}
 Suppose \(T \in \Hom (V,W)\) is injective and \(v_1, \dots, v_n\) is linearly independent in $V$. Prove that \(Tv_1, \dots, Tv_n\) is linearly independent in $W$.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	$T$ is injective $\implies \Null T = \{0\}$.
@@ -201,9 +111,9 @@ Suppose \(T \in \Hom (V,W)\) is injective and \(v_1, \dots, v_n\) is linearly in
 	where $j \in \{1, \dots, n\}$. Since \(v_1, \dots, v_n\) are linearly independent. It follows that \(Tv_1, \dots, Tv_n\) are linearly independent.
 \end{proof}
 
-\begin{problem}{10}
+\begin{exercise}
 Suppose \(v_1, \dots, v_n\) spans $V$ and \(T \in \Hom(V,W)\). Prove that the list \(Tv_1, \dots, Tv_n\) spans $\Range T$.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	Suppose \(v_1, \dots, v_n\) spans $V$. Then \(\forall v \in V\), we have \(v = \lambda_1 v_1 + \dots + \lambda_n v_n\). Then \[
@@ -211,9 +121,9 @@ Suppose \(v_1, \dots, v_n\) spans $V$ and \(T \in \Hom(V,W)\). Prove that the li
 	This suggests that \(\Range(T) \subset \Span (Tv_1, \dots, Tv_n)\). Also, $\Span (Tv_1, \dots, Tv_n)$ is the smallest containing subspace of $W$ implying that it is a subset of $\Range W$, hence \(\Range T = \Span (Tv_1, \dots, Tv_n)\).
 \end{proof}
 
-\begin{problem}{11}
+\begin{exercise}
 Suppose $S_1, \dots, S_n$ are injective linear maps such that $S_1 S_2 \dots S_n$ makes sense. Prove that \(S_1 S_2 \dots S_n\) is injective.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	By F.T. of linear maps, we have
@@ -226,19 +136,19 @@ Suppose $S_1, \dots, S_n$ are injective linear maps such that $S_1 S_2 \dots S_n
 	Hence, $\dim \Null S_1 S_2 \dots S_n = 0 \iff S_1 S_2 \dots S_n$ is injective.
 \end{proof}
 
-\begin{problem}{12}
+\begin{exercise}
 Suppose that $V$ is finite-dimensional and that \(T \in \Hom(V,W)\). Prove that there exists a subspace $U$ of $V$ such that \(\Null T = U\) and \\ \(U \cap \Range T = \{0\}\).
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	Let $u_1, \dots, u_n$ be a basis for $\Null T$. Then $\Span(u_1, \dots, u_n)$ is a subspace of $V$. Since it is linear independent, it can be extended to a basis of V, say \(u_1, \dots, u_n, v_1, \dots, v_m \). Then $V$ is the direct sum of the spanning of \(u_1, \dots, u_n\) and \(v_1, \dots, v_m\). Take \(U = \Span(v_1, \dots, v_m)\)
 \end{proof}
 
-\begin{problem}{13}
+\begin{exercise}
 Suppose $T$ is a linear map from $\F^4$ to $\F^2$ such that\[
 	\Null T = \{(x_1, x_2, x_3, x_4) \in \F^4 : x_1 = 5x_2 \text{ and } x_3 = 7 x_4\}\]
 Prove that $T$ is surjective.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	A basis of $\Null T$ is \[
@@ -248,9 +158,9 @@ Prove that $T$ is surjective.
 	Therefore, \(\Range T = \R^2 \implies T\) is surjective.
 \end{proof}
 
-\begin{problem}{14}
+\begin{exercise}
 Suppose $U$ is a 3-dimensional subspace of $\R^8$ and that $T$ is a linear map from $\R^8$ to $\R^5$ such that \(\Null T = U \). Prove that T is surjective.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	By F.T. of linear maps, we have \[
@@ -258,10 +168,10 @@ Suppose $U$ is a 3-dimensional subspace of $\R^8$ and that $T$ is a linear map f
 	This suggests that \(\Range T = \R^5 \implies T\) is surjective.
 \end{proof}
 
-\begin{problem}{15}
+\begin{exercise}
 Prove that there does not exist a linear map from $\F^5$ to $\F^2$ whose null space equals \[
 	\{ (x_1, x_2, x_3, x_4, x_5) \in \F^5 : x_1 = 3 x_2 \text{ and } x_3 = x_4 = x_5\}.\]
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	Suppose there exists such a linear map, then, by F.T. of linear maps, we have \[
@@ -269,18 +179,18 @@ Prove that there does not exist a linear map from $\F^5$ to $\F^2$ whose null sp
 	Contradicts!
 \end{proof}
 
-\begin{problem}{16}
+\begin{exercise}
 Suppose there exists a linear map on $V$ whose null space and range are both finite-dimensional. Prove that $V$ is finite dimensional.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	WLOG, let $\dim \Null T = m$ and $\dim \Range T = n$. Then by F.T. of linear maps, we have \[
 		\dim V = \dim \Null T + \dim \Range T = m + n < \oo\]
 \end{proof}
 
-\begin{problem}{17}
+\begin{exercise}
 Suppose $V$ and $W$ are both finite-dimensional. Prove that there exists an injective linear map from $V$ to $W$ if and only if \(\dim V \leq \dim W\).
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	($\implies$) Suppose there is an injective linear map $T: V \mapsto W$. By F.T. of linear maps, we have
@@ -292,9 +202,9 @@ Suppose $V$ and $W$ are both finite-dimensional. Prove that there exists an inje
 	($\impliedby$) Suppose \(\dim V \leq \dim W\). Then there exists a basis of $V$ that can be extended to a basis of $W$. Let $v_1, \dots, v_n$ be a basis of $V$ and $w_1, \dots, w_n$ be a basis of $W$. Define $T: V \mapsto W$ by \(T(v_i) = w_i\). Then $T$ is injective.
 \end{proof}
 
-\begin{problem}{19}
+\begin{exercise}
 Suppose $V$ and $W$ are finite-dimensional and that $U$ is a subspace of $V$. Prove that there exists \[T \in \Hom(V,W)\] such that \(\Null T = U\) if and only if \(\dim U \geq \dim V - \dim W\).
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	($\implies$) Suppose there exists \(T \in \Hom(V,W)\) such that \(\Null T = U\). Since \(\Range T\) is a subspace of $W$, we have \(\dim Range \leq \dim W\). The rest of the proof follows by the F.T. of linear maps.
@@ -306,9 +216,9 @@ Suppose $V$ and $W$ are finite-dimensional and that $U$ is a subspace of $V$. Pr
 	Of course we could find such a $T$.
 \end{proof}
 
-\begin{problem}{20}
+\begin{exercise}
 Suppose $W$ is finite-dimensional and \(T \in \Hom(V,W)\). Prove that $T$ is injective if and only if there exists \(S \in \Hom (W,V)\) such that $ST$ is the identity map on $V$.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	($\implies$) T is injective $\iff$ \(\dim \Null T = 0\). Then there exists a basis of $V$ that can be extended to a basis of $W$. Let $v_1, \dots, v_n$ be a basis of $V$ and $w_1, \dots, w_n$ be a basis of $W$. Define $S: W \mapsto V$ by \(S(w_i) = v_i\) and \(T: V \mapsto W\) by \(T(v_k) = w_k\) Then
@@ -325,10 +235,10 @@ Suppose $W$ is finite-dimensional and \(T \in \Hom(V,W)\). Prove that $T$ is inj
 
 \section{Matrix}
 
-\begin{problem}{1}
+\begin{exercise}
 Suppose $V$ and $W$ are finite-dimensional and $T \in \mathcal{L}(V,W)$. Show that
 with respect to each choice of bases of $V$ and $W$, the matrix of $T$ has at least $\operatorname{dim} \Range T$ nonzero entries.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	Follows from the F.T. of linear maps, we have \(\dim \Range T = \dim W - \dim \Null T\).
@@ -336,20 +246,20 @@ with respect to each choice of bases of $V$ and $W$, the matrix of $T$ has at le
 	the matrix of $T$ has at least $\dim \Range T$ nonzero entries.
 \end{proof}
 
-\begin{problem}{2}
+\begin{exercise}
 Suppose $D \in \mathcal{L}(\mathcal{P}_3(\mathbb{R}), \mathcal{P}_2(\mathbb{R}))$ is the differentiation map defined by $Dp = p\prime$. Find a basis of $\mathcal{P}_3(\mathbb{R})$
 and a basis of $\mathcal{P}_2(\mathbb{R})$ such that the matrix of $D$ with respect to these bases is
 \[
 	\begin{pmatrix} 1 & 0 & 0 & 1 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\\end{pmatrix}\]
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Easy to verify that $\frac{1}{3}x^3, \frac{1}{2}x^2, x, 1$ is a list of basis
 	of $\mathcal{P}_3(\mathbb{R})$, and its derivative is $x^2, x, 1$ which is a basis of $\mathcal{P}_2(\mathbb{R})$.
 \end{proof}
 
-\begin{problem}{3}
+\begin{exercise}
 Suppose $V$ and $W$ are finite-dimensional and $T \in \mathcal{L}(V,W)$. Prove that there exists a basis of $V$ and a basis of $W$ such that with respect to these bases, all entries of $\mathcal{M}(T)$ are zero except for the entries in row $j$, column $j$, equal 1 for $1 \le j \le \operatorname{dim}\Range T$.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	Let $v_1, \ldots , v_n$ be a basis of $V$ such that $\forall i \in {1, \ldots, k}, Tv_i = 1$,
@@ -357,39 +267,39 @@ Suppose $V$ and $W$ are finite-dimensional and $T \in \mathcal{L}(V,W)$. Prove t
 	Of course, it is a basis of $\Range T$. Expressing this as a matrix gives the desired result.
 \end{proof}
 
-\begin{problem}{4}
+\begin{exercise}
 Suppose $v_1, \ldots ,v_m$ is a basis of $V$ and $W$ is finite-dimensional.
 Suppose $T \in \mathcal{L}(V,W)$. Prove that there exists a basis $w_1, \ldots ,w_n$
 of $W$ such that all entries in the first column of $\mathcal{M}(T)$ (with respect to
 the bases $v_1, \ldots ,v_m$ and $w_1, \ldots ,w_n$) are 0 except for possibly a 1 in
 the first column.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Let $v_1 , \ldots , v_m$ be the trivial basis of $V$. Then $Tv_1, \ldots , Tv_m$ spans $\Range T$. After finite steps of procedure, we can obtain a list, $Tv_1, \ldots ,Tv_m$ which is a basis of $W$, say $w_1, \ldots , w_m$. Then the first column of $\mathcal{M}(T)$ is the desired result.
 \end{proof}
 
-\begin{problem}{5}
+\begin{exercise}
 Suppose $w_1, \ldots ,w_n$ is a basis of $W$ and $V$ is finite-dimensional. Suppose $T \in \mathcal{L}(V,W)$. Prove that there exists a basis $v_1, \ldots ,v_m$ of $V$ such that all entries in the first row of $\mathcal{M}(T)$ (with respect to the bases $v_1, \ldots ,v_m$ and $w_1, \ldots ,w_n$) are 0 except for possibly a 1 in the first row.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	We could always find a basis of $V$ such that $\exists i \in \{1, \ldots ,n\}, v_i = (1, \ldots ,0)$
 	For list $v_1, \ldots ,v_m$, if $m \le n$, we obtain the desired result. Otherwise, we could let the $v_{m+1}, \ldots , v_n$ be the basis of $\Null T$.
 \end{proof}
 
-\begin{problem}{6}
+\begin{exercise}
 Suppose $V$ and $W$ are finite-dimensional and $T \in \mathcal{L}(V,W)$. Prove that $\operatorname{dim}\Range T = 1$ if and only if there exists a basis of $V$ and a basis of $W$ such that with respect to these bases, all entries of $\mathcal{M}(T)$ equal 1.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	($\implies$) Suppose $\operatorname{dim}\Range T = 1$, then for $v_1, \ldots ,v_n$, a basis of $V$, $Tv_1, \ldots ,Tv_n \in \Range T$ suggests that they are linearly dependent to each other. Hence, we could obtain the desire by letting $Tv_1, \ldots ,Tv_n = (1, \ldots ,1)$
 
 	$(\impliedby)$ Suppose there exists a basis of $V$ and a basis of $W$ such that with respect to these bases, all entries of $\mathcal{M}(T)$ equal 1. Then, $\operatorname{dim}\Range T = 1$.
 \end{proof}
 
-\begin{problem}{10}
+\begin{exercise}
 Suppose $A$ is an m-by-n matrix and $C $ is an n by p matrix. Prove that \[
 	(AC)_{j,\cdot} = A_{j, \cdot }C\]
 for $1 \le j \le m$. In other words, show that row $j$ of $AC$ equals (row $j$ of $A$) times $C$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	\begin{align*}
 		(AC)_{j,i} = \sum_{k=1}^n A_{j,k}C_{k,i} = (A_{j, \cdot}C)_{i}
@@ -400,33 +310,33 @@ for $1 \le j \le m$. In other words, show that row $j$ of $AC$ equals (row $j$ o
 
 \section{Invertibility and Isomorphic Vector spaces}
 
-\begin{problem}{1}
+\begin{exercise}
 Suppose $T \in \mathcal{L}(U,V)$ and $S \in \mathcal{L}(V,W)$ are both invertible linear maps. Prove that $ST$ is invertible and that \((ST)^{-1} = T^{-1}S^{-1}\).
-\end{problem}
+\end{exercise}
 \begin{proof}
 	The proof for the invertibility is trivial, since $U, V, W$ are bijective to each other. Then we only have to prove the equation.
 	It follows from the fact that $ST T^{-1}S^{-1} = I = T^{-1}S^{-1} ST$
 \end{proof}
 
-\begin{problem}{2}
+\begin{exercise}
 Suppose $V$ is finite-dimensional and $\operatorname{dim}V > 1$. Prove that the set of non-invertible operators on $V$ is not a subspace of $\mathcal{L}(V)$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Suppose $T, S$ are non-invertible operators on $V$. Then $\Null T \neq \{0\}$ and $\Null S \neq \{0\}$. Then $\Null T + \Null S \neq \{0\}$, which suggests that $T + S$ is not invertible.
 \end{proof}
 
-\begin{problem}{3}
+\begin{exercise}
 Suppose $V$ is finite-dimensional, $U $ is a subspace of $V$, and $S \in \mathcal{L}(U,V)$. Prove there exists an invertible operator $T \in \mathcal{L}(V)$ such that $Tu = Su$ for ever $u \in U$ if and only if $S$ is injective.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	($\implies$) This is obvious since T is bijective.
 
 	($\impliedby$) Suppose $S$ is injective. Then we could extend $u_1, \ldots , u_n$ to a basis of $V$. Then we could define $T$ by $Tu_i = Su_i$ for $i = 1, \ldots , n$.
 \end{proof}
 
-\begin{problem}{4}
+\begin{exercise}
 Suppose $W$ is finite-dimensional and $T_1,T_2 \in \mathcal{L}(V,W)$. Prove that $\Null T_1 = \Null T_2$ if and only if there exists an invertible operator $S \in \mathcal{L}(W)$ such that $T_1 = ST_2$
-\end{problem}
+\end{exercise}
 \begin{proof}
 	($\implies$) Suppose $\Null T_1 = \Null T_2$, this implies that $\Range T_1 = \Range T_2$. Let $w_1, \ldots w_m$ be a basis of $\Range T_1$ and $\Range T_2$. Then we could define $S$ by $Sw_i = T_1v_i$ for $i = 1, \ldots , m$.
 
@@ -435,30 +345,30 @@ Suppose $W$ is finite-dimensional and $T_1,T_2 \in \mathcal{L}(V,W)$. Prove that
 
 \newpage
 
-\begin{problem}{5}
+\begin{exercise}
 Suppose $V$ is finite-dimensional and $T_1, T_2 \in \mathcal{L}(V,W)$. Prove that $\Range T_1 = \Range T_2$ if and only if there exists an invertible operator $S \in \mathcal{L}(V)$ such that $T_1 = T_2S$
-\end{problem}
+\end{exercise}
 \begin{proof}
 	$(\implies)$ Suppose $\Range T_1 = \Range T_2$. This suggests that there exists a basis $w_1, \ldots ,w_n$of $\Range T_1$ and $\Range T_2$. For such a basis, we could always find a corresponding list $v_1, \ldots ,v_m$ with which $T_2$ maps onto $w_1, \ldots ,w_n$we could define $S$ by $Su_i = v_i$ for $i = 1, \ldots, m$.
 
 	$(\impliedby)$ Suppose there exists an invertible operator $S \in \mathcal{L}(V)$ such that $T_1 = T_2S$. Since $S$ is bijective, this implies that $\Range T_1 = \Range T_2$.
 \end{proof}
 
-\begin{problem}{6}
+\begin{exercise}
 Suppose $V$ and $W$ are finite-dimensional and $T_1, T_2 \in \mathcal{L}(V,W)$. Prove that there exist invertible operators $R \in \mathcal{L}(V)$ and $S \in \mathcal{L}(W)$ such that $T_1 = ST_2R $ if and only if $\operatorname{dim}\Null T_1 = \operatorname{dim}\Null T_2$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	The same with question 4.
 \end{proof}
 
-\begin{problem}{7}
+\begin{exercise}
 Suppose $V$ and $W$ are finite-dimensional. Let $v \in V$. Let \[
 	E = \{T \in \mathcal{L}(V,W) : Tv = 0\}.\]
 \begin{enumerate}[(a)]
 	\item Show that $E$ is a subspace of $\mathcal{L}(V,W)$.
 	\item Suppose $v \neq 0.$ What is $\operatorname{dim} E$
 \end{enumerate}
-\end{problem}
+\end{exercise}
 \begin{enumerate}[(a)]
 	\item \begin{proof}
 		      $0(v) \in E$ therefore $E$ is not empty, and $T_1v = T_2v = 0$ implies $(T_1 + T_2)v = 0$. $Tv = 0$ implies $\lambda Tv = 0$ for all $\lambda \in \F$. Hence, $E$ is a subspace of $\mathcal{L}(V,W)$.
@@ -470,100 +380,100 @@ Suppose $V$ and $W$ are finite-dimensional. Let $v \in V$. Let \[
 
 \newpage
 
-\begin{problem}{8}
+\begin{exercise}
 Suppose $V$ is finite-dimensional and $T: V \to W$ is a surjective linear map of $V$ onto $W$. Prove that there is a subspace $U $ of $V $ such that $T|_U$ is an isomorphism of $U$ onto $W$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Since $T$ is surjective, any $w \in W$ we could find a $v \in V$ such that $Tv = w$. Define $x_1 \sim  x_2 :\iff T(x_1) = T(x_2)$. We could define $U = \{[v]: \forall v \in $V$\}$. As such $T|_U$ is bijective, henceforth an isomorphism.
 \end{proof}
 
-\begin{problem}{9}
+\begin{exercise}
 Suppose $V$ is finite-dimensional and $S,T \in \mathcal{L}(V).$ Prove that $ST $ is invertible if and only if both S and T are invertible.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	($\implies$) Suppose ST is invertible. Then $(ST)^{-1} = T^{-1}S^{-1}$, this suggests that $S$ and $T$ are invertible.
 
 	($\impliedby$) Suppose $S$ and $T$ are invertible. Then $S^{-1}T^{-1} = (ST)^{-1}$, this suggests that $ST$ is invertible.
 \end{proof}
 
-\begin{problem}{10}
+\begin{exercise}
 Suppose $V$ is finite-dimensional and $S,T \in \mathcal{L}(V)$. Prove that $ST = I$ if and only if $TS = I$
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Directly from the definition of inverse.
 \end{proof}
 
-\begin{problem}{11}
+\begin{exercise}
 Suppose $V$ is finite-dimensional and $S,T,U \in \mathcal{L}(V)$ and $STU = I.$ Show that $T $ is invertible and that $T^{-1} = US$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	The associativity implies that both S and U are invertible. Then $T = S^{-1}I U^{-1} = S^{-1} U^{-1}$. Hence, $T^{-1} = US$.
 \end{proof}
 
-\begin{problem}{12}
+\begin{exercise}
 Show that the result in the previous exercise can fail without the hypothesis that $V$ is finite-dimensional.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	TODO: 3.D.12 Pending.
 \end{proof}
 
-\begin{problem}{13}
+\begin{exercise}
 Suppose $V$ is a finite-dimensional vector space and $R,S,T \in \mathcal{L}(V)$ are such that $RST$ is surjective. Prove that $S$ is injective.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Since $RST$ is surjective, this suggests that $R$ is surjective. Then $R$ is injective, hence $S$ is injective.
 \end{proof}
 
-\begin{problem}{14}
+\begin{exercise}
 Suppose $v_1, \ldots ,v_n$ is a basis of $V$. Prove that the map $T: V \to \mathbb{F}^{n,1}$ defined by \[
 	Tv = \mathcal{M}(V)\]
 is an isomorphism of $V$ onto $\mathbb{F}^{n,1}$; here $\mathcal{M}(v)$ is the matrix of $v \in V$ with respect to the basis $v_1, \ldots, v_n.$
-\end{problem}
+\end{exercise}
 \begin{proof}
 	T is injective: $\forall v_i \in  V$, $Tv = 0 \iff v = 0 \iff v = (0, \ldots ,0)$ \\
 	T is surjective: $\forall (w_1, \ldots ,w_n) \in \mathbb{F}^{n,1}$, $T(a_1v_1 + \ldots + a_nv_n) = (a_1, \ldots ,a_n)$ since $v_1, \ldots ,v_n$ is a basis of $V$. \\
 	Henceforth, T is an isomorphism.
 \end{proof}
 
-\begin{problem}{15}
+\begin{exercise}
 Prove that every linear map from $\mathbb{F}^{n,1}$ to $\mathbb{F}^{m,1}$ is given by a matrix multiplication. In other words, prove that if $T \in \mathcal{L}(\mathbb{F}^{n,1}, \mathbb{F}^{m,1})$, then there exists an m-by-n matrix $A$ such that $Tx = Ax$ for every $x \in \mathbb{F}^{n,1}$
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Let $e_1, \ldots ,e_n$ be the standard basis of $\mathbb{F}^{n,1}$ and $w_1, \ldots ,w_m$ be the standard basis of $\mathbb{F}^{m,1}$. Then $T(e_i) = a_{1i}w_1 + \ldots + a_{mi}w_m$. Then $T(x) = Ax$.
 \end{proof}
 
 
-\begin{problem}{17}
+\begin{exercise}
 Suppose $V$ is finite-dimensional and $\mathcal{E}$ is a subspace of $\mathcal{L}(V)$ such that $ST \in \mathcal{E}$, $TS \in \Hom(V)$for all $S \in \mathcal{L}(V)$ and all $T \in \mathcal{E}$. Prove that $\mathcal{E} = \{0\}$ or $\mathcal{E} = \mathcal{L}(V)$
-\end{problem}
+\end{exercise}
 \begin{proof}
 \end{proof}
 
-\begin{problem}{17 variant}
+\begin{exercise}
 Suppose $V$ is finite-dimensional and $\mathcal{E}$ is a subspace of $\mathcal{L}(V)$ such that $ST \in \mathcal{E}$ for all $S \in \mathcal{L}(V)$ and all $T \in \mathcal{E}$. Prove that $\mathcal{E} = \{0\}$ or $\mathcal{E} = \mathcal{L}(V)$
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Suppose $\mathcal{E} \neq \mathcal{L}(V)$. The supposition suggests that there exists some linear mapping in $\mathcal{L}(V)$ which is not in $\mathcal{E}$. We denote it by $\varphi$. Now, note that $\varphi \in \Hom(V)$, we have $\varphi T \in \mathcal{E}$
 	\par
 	Suppose $\mathcal{E} \neq \{0\}$, we will show that $\mathcal{E} = \mathcal{L}(V).$ Suppose $\mathcal{E}$ contains the identity map, then the prove is completed, so we assume identity map is not in $\mathcal{E}$.
 \end{proof}
 
-\begin{problem}{18}
+\begin{exercise}
 Show that $V$ and $\mathcal{L}(\mathbb{F}, V)$ are isomorphic vector spaces.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	$\operatorname{dim} \mathcal{L}(\mathbb{F}, V) = \operatorname{dim} \mathbb{F} * \operatorname{dim}V = 1 * \operatorname{dim} V = \operatorname{dim} V$
 \end{proof}
 
 \newpage
 
-\begin{problem}{19}
+\begin{exercise}
 Suppose $T \in \mathcal{L}(\mathcal{P}(\mathbb{R}))$ is such that $T$ is injective and $\operatorname{deg} Tp \le \operatorname{deg} p$ for every nonzero polynomial $p \in \mathcal{P}(\mathbb{R})$.
 \begin{enumerate}[(a)]
 	\item Prove that $T$ is surjective.
 	\item Prove that $\operatorname{deg}Tp = \operatorname{deg}p$ for every nonzero $p \in \mathcal{P}(\mathbb{R})$
 \end{enumerate}
-\end{problem}
+\end{exercise}
 \begin{enumerate}[(a)]
 	\item \begin{proof}
 		      $\operatorname{deg}Tp = \operatorname{deg}p$ implies that $\operatorname{dim} T = \operatorname{dim} \mathcal{P}(\mathbb{R})$. Hence, $T$ is surjective.
@@ -575,32 +485,32 @@ Suppose $T \in \mathcal{L}(\mathcal{P}(\mathbb{R}))$ is such that $T$ is injecti
 
 \section{Products and Quotients of Vector Spaces}
 
-\begin{problem}{1}
+\begin{exercise}
 Suppose $T $ is a function from $V $ to $W $. The \textbf{graph} of $T $ is the subset of $V \times W$ defined by \[
 	\operatorname{graph} T = \{(v, Tv) : v \in V\}.\]
 Prove that $T$ is a linear map if and only if the graph of $T$ is a subspace of $V \times W$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Since $T$ is a well-defined function, the graph of $T$ is not empty. Then, due to the properties of linear maps and vector space, T is also a subspace of $V \times W$. Hence, the graph of $T$ is a subspace of $V \times W$.
 \end{proof}
 
-\begin{problem}{2}
+\begin{exercise}
 Suppose $V_1, \ldots , V_m$ are vector spaces such that $V_1 \times \cdots \times V_m$ is finite-dimensional. Prove that each $V_i$ is finite-dimensional.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Suppose $\exists \operatorname{dim} V_i = \infty (i \in \{1, \ldots , m\})$. Then it follows that $\operatorname{dim} (V_1\times \cdots\times V_m) = \sum \operatorname{dim}V_i = \infty$. This is a contradiction. Hence, each $V_i$ is finite-dimensional.
 \end{proof}
 
-\begin{problem}{3}
+\begin{exercise}
 Give an example of a vector space $V$ and subspaces $U_1, U_2$ of $V$ such that $U_1 \times U_2$ is isomorphic to $U_1 + U_2$ but $U_1 + U_2$ is not a direct sum.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	TODO: 3.E.3 Give an example Pending.
 \end{proof}
 
-\begin{problem}{4}
+\begin{exercise}
 Suppose $V_1, \ldots , V_m$ are vector spaces. Prove that $\mathcal{L}(V_1 \times \cdots\times V_m, W)$ and $\mathcal{L}(V_1, W) \times \cdots \times \mathcal{L}(V_m, W)$ are isomorphic.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Clearly, for all $T(v_1, \ldots ,v_m) = w (w\in W)$, $T \in \mathcal{L}(V_1 \times \cdots \times V_m, W)$. Then we could define a map $S: \mathcal{L}(V_1 \times \cdots \times V_m, W) \to \mathcal{L}(V_1, W) \times \cdots \times \mathcal{L}(V_m, W)$ by $S(T) = (T_1, \ldots ,T_m)$ where $T_i(v_i) = T(0, \ldots ,v_i , \ldots , 0)$. We will verify that $S$ is an isomorphism. \par
 	First we show that $S$ is injective: Suppose $S(T) = 0$, then $T_i = 0$ for all $i \in \{1, \ldots ,m\}$. Then $T = 0$. \par
@@ -608,26 +518,27 @@ Suppose $V_1, \ldots , V_m$ are vector spaces. Prove that $\mathcal{L}(V_1 \time
 	Hence, $S$ is an isomorphism and $\mathcal{L}(V_1 \times \cdots\times V_m, W)$ is isomorphic to $\mathcal{L}(V_1, W) \times \cdots\times \mathcal{L}(V_m, W)$.
 \end{proof}
 
-\begin{problem}{5}
+\begin{exercise}
 Suppose $W_1, \ldots , W_m$ are vector spaces. Prove that $\mathcal{L}(V, W_1 \times \cdots \times W_m)$ is isomorphic to $\mathcal{L}(V, W_1) \times \cdots \times \mathcal{L}(V, W_m)$.
-\end{problem}
+\end{exercise}
 \begin{proof}
-	Define $S: \mathcal{L}(V, W_1\times \cdots\times W_m) \mapsto \mathcal{L}(V,W_m)$ by $S(T) = (T_1, \ldots ,T_m)$ where $T_i(v) = (0, \ldots ,T(v), \ldots ,0)$. We will verify that $S$ is an isomorphism by constructing an inverse function of $S$: define
+	Define $S: \mathcal{L}(V, W_1\times \cdots\times W_m) \mapsto \mathcal{L}(V,W_m)$ by $S(T) = (T_1, \ldots ,T_m)$ where $T_i(v) = (0, \ldots ,T(v), \ldots ,0)$. 
+  \par We will verify that $S$ is an isomorphism by constructing an inverse function of $S$: define
 	$S^{-1} (T_1(v), \ldots , T_m(v)) = T_1(v) + \cdots + T_m(v)$. $S \circ S^{-1} = \operatorname{id}(T)$
 \end{proof}
 
-\begin{problem}{6}
+\begin{exercise}
 For $n $ a positive integer, define $V_n $ by \[
 	V^n = \underbrace{ V \times \cdots \times V }_{n}\]
 Prove that $V^n$ and $\mathcal{L}(\mathbb{F}^n, V)$ are isomorphic vector spaces.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Define $S(v_1, \ldots ,v_n) = T(\lambda_1, \ldots , \lambda_n)$ where $T \in \mathcal{L}(\mathbb{F}^n, V)$, we will show that $S$ is an isomorphism by constructing an inverse function of $S$. Let $S^{-1} (T(\lambda_1, \ldots ,\lambda_n)) = (T_1(\lambda), \ldots , T_n(\lambda))$ where $T_i(\lambda) = (0, \ldots, T(\lambda), \ldots , 0)$. $S \circ S^{-1} = \operatorname{id}$. Hence, They are isomorphic.
 \end{proof}
 
-\begin{problem}{7}
+\begin{exercise}
 Suppose $v,x$ are vectors in $V$ and $U, W$ are subspaces of $V$ such that $v + U = x + W$. Prove that $U = W$
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Rearrange the equation,
 	\begin{align*}
@@ -637,10 +548,10 @@ Suppose $v,x$ are vectors in $V$ and $U, W$ are subspaces of $V$ such that $v + 
 	This implies that $U = W$.
 \end{proof}
 
-\begin{problem}{8}
+\begin{exercise}
 Prove that a nonempty subset $A $ of $V$ is an affine subset of $V$ if and only if
 $\lambda v + (1 - \lambda)w \in A$ for all $v, w \in A$ and all $\lambda \in \mathbb{F}$
-\end{problem}
+\end{exercise}
 \begin{proof}
 	$(\implies)$ For all affine subset in the form $t + S$, every element can be expressed as $t + s$. Then for all $t + s_1, t + s_2 \in t + S$, $\lambda (t + s_1) + (1 - \lambda)(t + s_2) = t + \lambda s_1 + (1 - \lambda)s_2 \in t + S$ for all $t, s_1, s_2 \in t + S$ and all $\lambda \in \mathbb{F}$ since $S $ is a subspace. \par
 	$(\impliedby$) If $\lambda v + (1 - \lambda)w \in A$ holds for all $v, w \in A$ and all $\lambda \in \mathbb{F}$. Rearrange the formula we get $\lambda v + (1 - \lambda)w = v + (1 - \lambda)(v+w)$. This implies that $A$ is an affine subset.
@@ -648,51 +559,51 @@ $\lambda v + (1 - \lambda)w \in A$ for all $v, w \in A$ and all $\lambda \in \ma
 
 \section{Duality}
 
-\begin{problem}{1}
+\begin{exercise}
 Explain why every linear functional is either surjective or the zero map.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Suppose $f$ is not surjective, the $\operatorname{dim} \Range f < \operatorname{dim} \mathbb{F}$ which could only be 0. Therefore, $f$ is the zero map. \par
 	Suppose $f$ is not the zero map, then $\operatorname{dim} \Range f = \operatorname{dim} \mathbb{F}$, which implies that $f$ is surjective.
 \end{proof}
 
-\begin{problem}{2}
+\begin{exercise}
 Give three distinct examples of linear functional on $\mathbb{R}^{[0,1]}$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	TODO: 3.F.2 Give three distinct examples Pending.
 \end{proof}
 
 \newpage
-\begin{problem}{3}
+\begin{exercise}
 Suppose $V $ is finite-dimensional and $v \in V$ with $v \neq 0.$ Prove that there exists $\varphi \in V'$ such that $\varphi(v) = 1$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Since $v \neq 0$, we could extend $v$ to a basis $v_1, \ldots ,v_n$ of $V$. Define $\varphi(v) = 1$ and $\varphi(v_i) = 0$ for $i \neq 1$. Then $\varphi$ is a linear functional.
 \end{proof}
 
-\begin{problem}{4}
+\begin{exercise}
 Suppose $V $ is finite-dimensional and $U$ is a subspace of $V$ such that $U \neq V$. Prove that there exists $\varphi \in V'$ such that $\varphi(u) = 0$ for every $u \in U$ but $\varphi \neq 0$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Let $u_1, \ldots , u_m$ be a basis of $U$ and extend to $u_1, \ldots, u_m, v_1, \ldots , v_n$ a basis of $V$. Define $\varphi(u_i) = 0$ for $i = 1, \ldots , m$ and $\varphi(v_i) = 1$ for $i = 1, \ldots , n$. Then $\varphi$ is a linear functional.
 \end{proof}
 
-\begin{problem}{5}
+\begin{exercise}
 Suppose $V_1 , \ldots , V_m$ are vector spaces. Prove that $(V_1 \times \cdots\times V_m)'$ and $V_1' \times  \cdots \times V_m'$ are isomorphic vector spaces.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Define $S(f) = (f_1, \ldots , f_m)$ where $f_i(v_1, \ldots ,v_m) = (0, \ldots , f_i, \ldots ,0)$. And let $S^{-1} (f_1, \ldots ,f_m)= f_1 + \cdots + f_m$. Then $S$ is an isomorphism.
 \end{proof}
 
-\begin{problem}{6}
+\begin{exercise}
 Suppose $V$ is finite-dimensional and $v_1, \ldots , v_m \in V$. Define a linear map $\Gamma : V' \mapsto \mathbb{F}^{m}$ by \[
 	\Gamma(\varphi) = (\varphi(v_1), \ldots , \varphi(v_m)).\]
 \begin{enumerate}[(a)]
 	\item Prove that $v_1, \ldots , v_m$ spans $V$ if and only if $\Gamma$ is injective.
 	\item Prove that $v_1, \ldots , v_m$ is linearly independent if and only if $\Gamma$ is surjective.
 \end{enumerate}
-\end{problem}
+\end{exercise}
 \begin{enumerate}[(a)]
 	\item \begin{proof}
 		      $(\implies)$ Suppose $v_1, \ldots, v_m$ spans $V$, then for all $\varphi \in V'$, $\Gamma(\varphi) = 0$ implies that $\varphi(v_1) = \cdots = \varphi(v_m) = 0$, that is, $\varphi = 0$. Hence, $\Gamma$ is injective. \par
@@ -704,19 +615,19 @@ Suppose $V$ is finite-dimensional and $v_1, \ldots , v_m \in V$. Define a linear
 	      \end{proof}
 \end{enumerate}
 
-\begin{problem}{7}
+\begin{exercise}
 Suppose $m$ is a positive integer. Show that the dual basis of the basis $1, x, \ldots,x^m$ of $\mathcal{P}_m(\R)$ is $\varphi_0, \varphi_1,\ldots, \varphi_{m}$, where $\varphi_j(p)$ = $\frac{p^{(j)}(0)}{j!}$. Here $p^{(j)}$ denotes the $j^{\text{th}}$ derivative of $p$, with the understanding that the $0^{\mathit{th}}$ derivative of $p$ is $p$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Since $1, x, \ldots ,x^m$ is a basis of $\mathcal{P}_m(\mathbb{R})$, let $p = a_1 + a_2 x + \cdots + a_m x_m$. Note that $\frac{p^{j}(0)}{j!} = a_j$, then $\varphi_j(p) = a_j$ if and only if $i = j$. Hence, $\varphi_0, \varphi_1, \ldots, \varphi_m$ is the dual basis of $1, x, \ldots, x^m$.
 \end{proof}
-\begin{problem}{8}
+\begin{exercise}
 Suppose $m$ is a positive integer.
 \begin{enumerate}[(a)]
 	\item Show that $1, x-5, \ldots , (x-5)^m$ is a basis of $\mathcal{P}_m(\mathbb{R})$.
 	\item What is the dual basis of the basis in part(a)?
 \end{enumerate}
-\end{problem}
+\end{exercise}
 \begin{enumerate}[(a)]
 	\item \begin{proof}
 		      This is obvious since we can generate an upper-triangle matrix with $1, x-5, \ldots , (x-5)^m$
@@ -726,10 +637,10 @@ Suppose $m$ is a positive integer.
 	      \end{proof}
 \end{enumerate}
 
-\begin{problem}{9}
+\begin{exercise}
 Suppose $v_1, \ldots ,v_n$ is a basis of $V$ and $\varphi_1, \ldots , \varphi_n$ is the corresponding dual basis of $V'$. Suppose $\psi \in V'$. Prove that \[
 	\psi = \psi(v_1)\varphi_1 + \cdots + \psi(v_n)\varphi_n\]
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Notice that
 	\begin{align*}
@@ -739,9 +650,9 @@ Suppose $v_1, \ldots ,v_n$ is a basis of $V$ and $\varphi_1, \ldots , \varphi_n$
 	\end{align*}
 	Therefore, $\psi = \psi(v_1)\varphi_1 + \cdots + \psi(v_n)\varphi_n$ as they coincide at a basis of $V$.
 \end{proof}
-\begin{problem}{11}
+\begin{exercise}
 Suppose $A $ is an m-by-n matrix with $A \neq 0$. Prove that the rank of $A$ is 1 if and only if there exist $(c_1, \ldots ,c_m) \in \mathbb{F}^m$ and $(d_1, \ldots d_n) \in \mathbb{F}^n$ such that $A_{j,k} = c_{j}d_{k}$ for every $j = 1, \ldots ,m$ and every $k = 1, \ldots ,n$
-\end{problem}
+\end{exercise}
 \begin{proof}
 	\begin{comment}
 	TODO: 3.G.11 Pending.
@@ -749,71 +660,70 @@ Suppose $A $ is an m-by-n matrix with $A \neq 0$. Prove that the rank of $A$ is 
 	$(\implies)$ Suppose the rank of $A$ is 1. Then there exists a
 \end{proof}
 
-\begin{problem}{12}
+\begin{exercise}
 Show that the dual map of the identity map on $V$ is the identity map on $V'$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Let $\id_V : V \mapsto V$ be the identity map on $V$. Then the dual map of $\id_V$ is the linear map $\id'_{V}(\varphi) := \varphi \circ \id_V = \varphi$ where $\varphi \in \mathcal{L}(V, \mathbb{F})$. Hence, the dual map of the identity map on $V$ is the identity map on $V'$.
 \end{proof}
 
-\begin{problem}{15}
+\begin{exercise}
 Suppose $W$ is finite-dimensional and $T \in \mathcal{L}(V,W)$. Prove that $T' = 0$ if and only if $T = 0$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	$(\implies)$ Suppose $T' = 0$. By definition, it suggests that $T'(\varphi) = \varphi(T(v)) = 0$ for all $\varphi \in \mathcal{L}(V,\mathbb{F})$ and $v \in V$. Therefore, it implies that $T = 0$. \par
 	$(\impliedby)$ Suppose $T = 0$. By definition and with the fact that all linear maps map 0 to 0, it suggests that $T' = 0$.
 \end{proof}
 
-\begin{problem}{16}
+\begin{exercise}
 Suppose $V$ and $W$ are finite-dimensional. Prove that the map that takes $T \in \mathcal{L}(V,W)$ to $T' \in \mathcal{L}(W',V')$ is an isomorphism.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Since $\operatorname{dim} \mathcal{L}(V,W) = \operatorname{dim}(W',V')$, the identity map is bijective. Hence, the map is an isomorphism.
 \end{proof}
 
-\begin{problem}{17}
+\begin{exercise}
 Suppose $U \subset V$. Explain why $U^0 = \left\{\varphi \in V' : U \subset \Null \varphi \right\}$
-\end{problem}
+\end{exercise}
 \begin{proof}
 	By definition, of course that the zero map $0$ is in null space.
 \end{proof}
 
 \newpage
-\begin{problem}{18}
+\begin{exercise}
 Suppose $V$ is finite-dimensional and $U \subset V$. Show that $U = \left\{0\right\} $ if and only if $U^0 = V'$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	$(\implies)$ Suppose $U = \left\{0\right\}$. Then it suggests that $\forall \varphi \in \mathcal{L}(U, \mathbb{F}), \varphi(u) = 0$. That is, $U^0 = V'$. \par
 	$(\impliedby)$ Directly came from the definition.
 \end{proof}
 
-\begin{problem}{19}
+\begin{exercise}
 Suppose $V$ is finite-dimensional and $U$ is a subspace of $V$. Show that $U = V$ if and only if $U^0 = \left\{0\right\}$
-\end{problem}
+\end{exercise}
 \begin{proof}
 	$(\implies)$ Suppose $U = V$. Then $U^0 = V^0 := \mathcal{L}(V, \mathbb{F})$. For a vector space, this could only happen when $V = \left\{0\right\} $ \par
 	$(\impliedby)$ $U^0 = \left\{0\right\} $ suggests that $\operatorname{dim} U = \operatorname{dim} V$. That is, $U = V$
 \end{proof}
 
-\begin{problem}{20}
+\begin{exercise}
 Suppose $U$ and $W$ are subsets of $V$ with $U \subset W$. Prove that $W^0 \subset U^0$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Since $U \subset W$, this suggests that $\forall \varphi \in W^0, \varphi(u) = 0$ for all $u \in U$. Hence, $W^0 \subset U^0$.
 \end{proof}
 
-\begin{problem}{21}
+\begin{exercise}
 Suppose $V$ is finite-dimensional and $U$ and $W$ are subspaces of $V$ with $W^0 \subset U^{0}$. Prove that $U \subset W$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Following from $W^0 \subset U^{0}$, it suggests that $\operatorname{dim} U > \operatorname{dim} W$. Henceforth, $U \subset W$.
 \end{proof}
 
-\begin{problem}{22}
+\begin{exercise}
 Suppose $U, W$ are subspaces of $V$. Show that $(U+W)^{0}$ = $U^{0} \cap W^{0}$
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Let $u_1, \ldots , u_m$ be a basis of $U$ and $u_1, \ldots ,u_m, w_1, \ldots ,w_n$ be a basis of $W$. Then
 \end{proof}
-%End
-\end{document}
+

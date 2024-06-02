@@ -1,96 +1,12 @@
-\documentclass{article}
-\sloppy
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PACKAGES            																						  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[dvipsnames]{xcolor}
-% \usepackage[10pt]{extsizes}
-\usepackage{amsfonts}
-\usepackage{amsthm}
-\usepackage{amssymb}
-\usepackage[shortlabels]{enumitem}
-\usepackage{microtype}
-\usepackage{amsmath}
-\usepackage{mathtools}
-\usepackage{commath}
-\usepackage{hyperref}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PROBLEM ENVIRONMENT         																			           %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{tcolorbox}
-\tcbuselibrary{theorems, breakable, skins}
-\newtcbtheorem{prob}% environment name
-              {Problem}% Title text
-	{% tcolorbox styles
-	enhanced,
-	colback=Emerald!10,colframe=cyan!40!black,
-	fonttitle=\bfseries,
-  }%
-  {}
-
-\newenvironment{problem}[1]{\begin{prob*}{#1}{}}{\end{prob*}}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% THEOREMS/LEMMAS/ETC.         																			  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \newtheorem{innerproblem}{Problem}
-% \newenvironment{problem}[1]{\itshape\renewcommand\theinnerproblem{#1}\innerproblem}{\endinnerproblem}
-\newtheorem{thm}{Theorem}
-\newtheorem*{thm-non}{Theorem}
-\newtheorem{lemma}[thm]{Lemma}
-\newtheorem{corollary}[thm]{Corollary}
-\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% MY COMMANDS   																						  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\F}{\mathbb{F}}
-\newcommand{\oo}{\infty}
-\newcommand{\bigO}{\mathcal{O}}
-\newcommand{\Real}{\mathcal{Re}}
-\newcommand{\poly}{\mathcal{P}}
-\newcommand{\mat}{\mathcal{M}}
-\DeclareMathOperator{\Span}{span}
-\newcommand{\Hom}{\mathcal{L}}
-\DeclareMathOperator{\Null}{null}
-\DeclareMathOperator{\Range}{range}
-\newcommand{\defeq}{\vcentcolon=}
-\newcommand{\restr}[1]{|_{#1}}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% SECTION NUMBERING																				           %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\renewcommand{\thesection}{\Alph{section}:}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% DOCUMENT START              																			           %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{\vspace{-2em}Chapter 5: Eigenvalues, Eigenvectors, and invariant subspaces}
-\author{Zelong Kuang}
-
-\begin{document}
-\maketitle
-
-\newpage
-\tableofcontents
-\newpage
-
 \section{Invariant Subspaces}
 
-\begin{problem}{1}
+\begin{exercise}
 Suppose $T \in \mathcal{L}(V)$ and $U$ is a subspace of $V$.
 \begin{enumerate}[(a)]
 	\item Prove that if $U \subset \Null T$, then $U$ is invariant under $T$.
 	\item Prove that if $\Range T \subset U$, then $U$ is invariant under $T$.
 \end{enumerate}
-\end{problem}
+\end{exercise}
 \begin{proof}
 	\begin{enumerate}[(a)]
 		\item Let $u \in U$. Then $T(u) \in \Null T$ because $u \in \Null T$. Therefore, $T(u) \in U$.
@@ -98,26 +14,26 @@ Suppose $T \in \mathcal{L}(V)$ and $U$ is a subspace of $V$.
 	\end{enumerate}
 \end{proof}
 
-\begin{problem}{2}
+\begin{exercise}
 Suppose $S,T \in \mathcal{L}(V)$ are such that $ST = TS$. Prove that $\Null S$ is invariant under $T$.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	We have $ST(\Null S) = T(S(\Null S)) = T(0) = 0$. This implies that $T(\Null S) \subset \Null S$.
 \end{proof}
 
-\begin{problem}{3}
+\begin{exercise}
 Suppose $S,T \in \mathcal{L}(V)$ are such that $ST = TS$. Prove that $\Range S$ is invariant under $T$.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	TODO: 5.A.12 Pending.
 	% From $ST = TS$, we have $S(T(\Range S)) = T(S(\Range S))$.
 \end{proof}
 
-\begin{problem}{4}
+\begin{exercise}
 Suppose that $T \in \mathcal{L}(V)$ and $U_1, \ldots U_m$ are subspaces of $V$ invariant under $T$. Prove that $U_1 + \cdots + U_m$ is invariant under $T$.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	\begin{align*}
@@ -131,17 +47,17 @@ Suppose that $T \in \mathcal{L}(V)$ and $U_1, \ldots U_m$ are subspaces of $V$ i
 
 \newpage
 
-\begin{problem}{5}
+\begin{exercise}
 Suppose $T \in \mathcal{L}(V)$. Prove that the intersection of every collection of subspaces of $V$ that are invariant under $T$ is invariant under $T$.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	Every invariant subspace contains $\{0\}$, and also which is the smallest one. Hence, the intersection is $\{0\}$ and is trivially invariant under $T$.
 \end{proof}
 
-\begin{problem}{6}
+\begin{exercise}
 Prove or give a counterexample: if $V$ is a finite-dimensional vector space and $U$ is a subspace of $V$ that is invariant under every operator on $V$, then $U = \{0\}$ or $U = V$.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	Because every operator on $V$ leaves $\{0\}$ invariant, the question turns to prove the existence of an operator under which only $\{0\}$ and $V$ is invariant.
@@ -150,14 +66,14 @@ Prove or give a counterexample: if $V$ is a finite-dimensional vector space and 
 	Suppose $\operatorname{dim} V \ge 2$. We could always construct such an operator $U$. Suppose there exists an invariant subspace $U_1$ of $V$ under an operator $T$ that is neither $\{0\}$ nor $V$ for which $\operatorname{dim} U_1 < \operatorname{dim} V$. Define $T$ which rotates $U_1$ to $W$, where $W \oplus U_1 = V$. $\forall u \in U_1, T(u)$ have some component in $W$, which is not in $U_1$. Thus, $U$ is not invariant under $U$, which is a contradiction. Therefore, $U = \{0\}$ or $U = V$.
 \end{proof}
 
-\begin{problem}{10}
+\begin{exercise}
 Define $T \in \mathcal{L}(\mathbb{F}^n)$ by \[
 	T(x_1,x_2,x_3, \ldots ,x_n) = (x_1,2x_2,3x_3, \ldots ,n x_n)\]
 \begin{enumerate}[(a)]
 	\item Find all Eigenvalues and eigenvectors of $T$.
 	\item Find all invariant subspaces of $T$.
 \end{enumerate}
-\end{problem}
+\end{exercise}
 \begin{proof}
 	\begin{enumerate}[(a)]
 		\item
@@ -171,11 +87,11 @@ Define $T \in \mathcal{L}(\mathbb{F}^n)$ by \[
 \end{proof}
 
 \newpage
-\begin{problem}{12}
+\begin{exercise}
 Define $T \in \mathcal{L}(\mathcal{P}_4(\mathbb{R}))$ by \[
 	(Tp)(x) = x p'(x)\]
 for all $x \in \mathbb{R}$. Find all eigenvalues and eigenvectors of $T$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	\begin{align*}
 		\lambda p(x) & = Tp(x)                            \\
@@ -186,28 +102,28 @@ for all $x \in \mathbb{R}$. Find all eigenvalues and eigenvectors of $T$.
 	The eigenvalues and eigenvectors are $i$ and $ix^i$ respectively.
 \end{proof}
 
-\begin{problem}{13}
+\begin{exercise}
 Suppose $V$ is finite-dimensional, $T \in \mathcal{L}(V)$, and $\lambda \in F$. Prove that there exists $\alpha \in \mathbb{F}$ such that $\left\vert \alpha - \lambda \right\vert < \frac{1}{1000}$ and $T - \alpha I$ is invertible.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	We only need to make $\alpha$ not be an eigenvalue of $T$. We could achieve this by the following procedure:
 	suppose $\lambda$ is an eigenvalue of $T$, then $T - \lambda I$ is not invertible. We could then choose $\alpha = \lambda + \frac{1}{1000 + i}$, where $i \in \left\{1, \ldots ,\operatorname{dim}V + 1\right\}$, which is not an eigenvalue of $T$.
 \end{proof}
 
-\begin{problem}{14}
+\begin{exercise}
 Suppose $V = U \oplus W$, where $U$ and $W$ are nonzero subspaces of $V$. Define $P \in \mathcal{L}(V)$ by $P(u + w) = u$ for $u \in U$ and $w \in W$. Find all eigenvalues and eigenvectors of $P$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	The eigenvalues are 1 and 0, and the eigenvectors are $u$ and $w$ respectively.
 \end{proof}
 
-\begin{problem}{15}
+\begin{exercise}
 Suppose $T \in \mathcal{L}(V)$. Suppose $S \in \mathcal{L}(V)$ is invertible.
 \begin{enumerate}[(a)]
 	\item Prove that $T$ and $S^{-1}TS$ have the same eigenvalues.
 	\item What is the relationship between the eigenvectors of $T$ and those of $S^{-1}TS$?
 \end{enumerate}
-\end{problem}
+\end{exercise}
 \begin{enumerate}[(a)]
 	\item \begin{proof}
 		      Let $\lambda$ be a eigenvalue of $T$ and $v$ be the corresponding eigenvector. Then $T(v) = \lambda v$. Now we will verify that $\lambda$ is also an eigenvalue of $S^{-1}TS$. \par
@@ -219,27 +135,27 @@ Suppose $T \in \mathcal{L}(V)$. Suppose $S \in \mathcal{L}(V)$ is invertible.
 	      \end{proof}
 \end{enumerate}
 
-\begin{problem}{16}
+\begin{exercise}
 Suppose $V$ is a complex vector space, $T \in \mathcal{L}(V)$, and the matrix of $T$ with respect to some basis of $V$ contains only real entries. Show that if $\lambda$ is an eigenvalue of $T$, then so is $\bar{\lambda}$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Suppose $\lambda$ is an eigenvalue of $T$,
 \end{proof}
 
-\begin{problem}{18}
+\begin{exercise}
 Show that the operator $T \in \mathcal{L}(\mathbb{C}^\infty)$ defined by \[
 	T(z_1,z_2, \ldots ) = (0, z_1, z_2, \ldots )\]
 has no eigenvalues.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Suppose $\lambda$ is an eigenvalue of $T$, and $(0, z_1, z_2, \ldots )$ be the corresponding eigenvector. Then $T(z_1,z_2, \ldots ) = \lambda (0, z_1, z_2, \ldots )$. This implies that $z_1 = 0$, and $z_2 = \lambda z_1 = 0$, and so on. Therefore, the eigenvector is $(0,0,0, \ldots )$, which is not an eigenvector.
 \end{proof}
 
-\begin{problem}{19}
+\begin{exercise}
 Suppose $n$ is a positive integer and $T \in \mathcal{L}(\mathbb{F}^n)$ is defined by \[
 	T(x_1, \ldots ,x_n) = (x_1 + \cdots + x_n, \ldots , x_1 + \cdots + x_n)\]
 in other words, $T$ is the operator whose matrix (with respect to the standard basis) consists of all 1's. Find all eigenvalues and eigenvectors of $T$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	The eigenvalues are $n$ and $0$, and the eigenvectors are $(1, \ldots ,1)$, and $\left\{(x_1, \ldots ,x_n) \in \mathbb{F}^n / \left\{0\right\} : x_1 + \cdots +x_n = 0 \right\} $ respectively.
 \end{proof}
@@ -248,14 +164,14 @@ TODO: Sec.A 20 and beyond
 
 \section{Eigenvectors and Upper-Triangular Matrices}
 
-\begin{problem}{1}
+\begin{exercise}
 Suppose $T \in \mathcal{L}(V)$ and there exists a positive integer $n$ such that $T^{n} = 0$
 \begin{enumerate}[(a)]
 	\item Prove that $I - T$ is invertible and that \[
 		      (I - T)^{-1} = I + T + \cdots + T^{n-1}.\]
 	\item Explain how you would guess the formula above.
 \end{enumerate}
-\end{problem}
+\end{exercise}
 \begin{enumerate}[(a)]
 	\item \begin{proof}
 		      Notice that \[
@@ -265,33 +181,33 @@ Suppose $T \in \mathcal{L}(V)$ and there exists a positive integer $n$ such that
 	      \end{proof}
 \end{enumerate}
 
-\begin{problem}{2}
+\begin{exercise}
 Suppose $T \in \mathcal{L}(V)$ and $(T-2I)(T-3I)(T-4I) = 0$. Suppose $\lambda$ is an eigenvalue of $T$. Prove that $\lambda = 2$ or $\lambda = 3$ or $\lambda = 4$
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Suppose $(T-2I)(T-3I)(T-4I) = 0$, this implies that $T$ is upper triangular. Therefore, the eigenvalues are either 2, 3, or 4.
 \end{proof}
 
-\begin{problem}{3}
+\begin{exercise}
 Suppose $T \in \mathcal{L}(V)$ and $T^{2} = I$ and -1 is not an eigenvalue of $T$. Prove that $T = I$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Suppose $T^{2} = I$. Following from $T^{2}* T = T$, we have $T^{2n} = I$. Now if $T \neq I$, then a matrix of $T$ with respect to some basis which is upper triangular has eigenvalues 1 and -1. This is a contradiction.
 \end{proof}
 
-\begin{problem}{4}
+\begin{exercise}
 Suppose $P \in \mathcal{L}(V)$ and $P^{2} = P$. Prove that $V = \Null P \oplus \operatorname{Range} P$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	$P^{2} = P$ implies that $P$ is invariant under $V$. Therefore, $V = \Null P \oplus \operatorname{Range} P$.
 \end{proof}
 
-\begin{problem}{5}
+\begin{exercise}
 Suppose $S,T \in \mathcal{L}(V)$ and $S$ is
 invertible. Suppose $p \in \mathcal{P}(\mathbb{F})$
 is a polynomial. Prove that\[
 	p(STS^{-1}) = Sp(T)S^{-1}\]
-\end{problem}
+\end{exercise}
 \begin{proof}
 	From the properties of polynomials, we have
 	\begin{equation*}
@@ -304,9 +220,9 @@ is a polynomial. Prove that\[
 	\end{equation*}
 \end{proof}
 
-\begin{problem}{6}
+\begin{exercise}
 Suppose $T \in \mathcal{L}(V)$ and $U$ is a subspace of $V$ invariant under $T$. Prove that $U$ is invariant under $p(T)$ for every polynomial $p \in \mathcal{P}(\mathbb{F})$
-\end{problem}
+\end{exercise}
 \begin{proof}
 	From the properties of polynomials, we have
 	\begin{equation*}
@@ -318,20 +234,20 @@ Suppose $T \in \mathcal{L}(V)$ and $U$ is a subspace of $V$ invariant under $T$.
 	\end{equation*}
 \end{proof}
 
-\begin{problem}{7}
+\begin{exercise}
 Suppose $T \in \mathcal{L}(V)$. Prove that 9 is an eigenvalue of $T^{2}$ if and only if 3 or -3 is an
 eigenvalue of $T$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	The upper triangle matrix of $T^{2}$ with respect to
 	some basis has $9$ on the diagonal, namely eigenvalue,
 	therefore, the eigenvalues of $T$ are $\sqrt{9} = \pm 3$
 \end{proof}
 
-\begin{problem}{8}
+\begin{exercise}
 Give an example of $T \in \mathcal{L}(\mathbb{R}^{2})$
 such that $T^{4} = -1$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	\begin{comment}
 	TODO: 5.B.8 Pending. Give an example.
@@ -339,16 +255,16 @@ such that $T^{4} = -1$.
 \end{proof}
 
 \newpage
-\begin{problem}{9}
+\begin{exercise}
 Suppose $V$ is finite-dimensional, $T \in \mathcal{L}(V)$, and $v \in V$ with $v \neq  0$. Let $p$ be a nonzero polynomial of smallest degree such that $p(T)v = 0$. Prove that every zero of $p$ is an eigenvalue of $T$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Suppose $\lambda \in \mathbb{F}$ is a zero of $p$. Then by the fundamental theorem of algebra, we have $p(x) = (x - \lambda)q(x)$, where $q(x)$ is a polynomial of degree $n - 1$. Therefore, $p(T)v = (T - \lambda I)q(T)v = 0$. Since $p$ is of smallest degree, $q(T)v \neq 0$. Hence, $\lambda$ is an eigenvalue of $T$.
 \end{proof}
 
-\begin{problem}{10}
+\begin{exercise}
 Suppose $T \in \mathcal{L}(V)$ and $v$ is an eigenvetor of $T$ with eigenvalue $\lambda$. Suppose $p \in \mathcal{P}(\mathbb{F})$. Prove that $p(T)v = p(\lambda)v$
-\end{problem}
+\end{exercise}
 \begin{proof}
 	\begin{equation*}
 		\begin{aligned}
@@ -359,9 +275,9 @@ Suppose $T \in \mathcal{L}(V)$ and $v$ is an eigenvetor of $T$ with eigenvalue $
 	\end{equation*}
 \end{proof}
 
-\begin{problem}{11}
+\begin{exercise}
 Suppose $\mathbb{F} = \mathbb{C}$, $T \in \mathcal{L}(V)$, $p \in \mathcal{P}(\mathbb{C})$ is a polynomial, and $\alpha \in \mathbb{C}$. Prove that $\alpha$ is an eigenvalue of $p(T)$ if and only if $\alpha = p(\lambda)$ for some eigenvalue $\lambda$ of $T$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Suppose $\alpha$ is an eigenvalue of $p(T)$,
 	we have $p(T) = (T-\lambda I)q(T)$.
@@ -369,24 +285,24 @@ Suppose $\mathbb{F} = \mathbb{C}$, $T \in \mathcal{L}(V)$, $p \in \mathcal{P}(\m
 
 \section{Eigenspaces and Diagonal Matrices}
 
-\begin{problem}{1}
+\begin{exercise}
 Suppose $T \in \mathcal{L}(V)$ is diagonalizable. Prove that $V = \Null T \oplus \operatorname{Range} T$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Since $T$ is diagonalizable, $V$ has a basis of eigenvectors of $T$.
 	Therefore, $V = \Null T \oplus \operatorname{Range} T$.
 \end{proof}
 
-\begin{problem}{2}
+\begin{exercise}
 Prove the converse of the statement in the exercise above
 or give a counterexample to the converse.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	% TODO: 5.C.2 Pending. Give a counterexample.
 \end{proof}
 
-\begin{problem}{3}
+\begin{exercise}
 Suppose $V$ is finite-dimensional and $T \in \mathcal{L}(V)$.
 Prove that the following are equivalent:
 \begin{enumerate}[(a)]
@@ -394,7 +310,7 @@ Prove that the following are equivalent:
 	\item $V = \Null T + \Range T$
 	\item $\Null T \cap \Range T = \{0\}$
 \end{enumerate}
-\end{problem}
+\end{exercise}
 \begin{proof}
 	(a) $\iff$ (b): This is trivial. \\
 	(b) $\to$ (c): Suppose $V = \Null T + \Range T$. By Theorem, we have
@@ -404,41 +320,41 @@ Prove that the following are equivalent:
 	\end{align*}
 \end{proof}
 
-\begin{problem}{4}
+\begin{exercise}
 Give an example to show that the exercise above is false without
 the hypothesis that $V$ is finite-dimensional.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	% TODO  5.C.4 Pending. Give an example.
 \end{proof}
 
-\begin{problem}{5}
+\begin{exercise}
 Suppose $V$ is a 1finite-dimensional complex vector space and
 $T \in \mathcal{L}(V)$. Prove that $T$ is diagonalizable if and only if \[
 	V = \Null (T - \lambda I) \oplus \Range (T - \lambda I)\]
 for every $\lambda \in \mathbb{C}$
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Suppose $T$ is diagonalizable, the eigenvectors of
 	$T$ form a basis of $V$. This impiles that $T - \lambda I$
 	has same dimension to $V$. That is, $V = \Null (T - \lambda I) \oplus \Range (T - \lambda I)$.
 \end{proof}
 
-\begin{problem}{6}
+\begin{exercise}
 Suppose $V$ is finite-dimensional, $T \in \mathcal{L}(V)$ has $\dim V$ distinct
 eigenvalues, and $S \in \mathcal{L}(V)$ has the same eigenvectors as $T$
 (not necessarily with the same eigenvalues). Prove that $ST = TS$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Since $S$ and $T$ have the same eigenvectors.
 	Then $S$ and $T$ are diagonalizable, and this implies that $ST = TS$.
 \end{proof}
 
-\begin{problem}{7}
+\begin{exercise}
 Suppose $T \in \mathcal{L}(\mathbb{F}^5)$ and $\dim E(8,T) = 4$.
 Prove that $T - 2I$ or $T - 6I$ is invertible.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Suppose $\dim E(8,T) = 4$, then we have 4 independent
 	eigenvectors of $T$ with eigenvalue 8. And the diagonal matrix will have 4 8's on the diagonal.
@@ -446,14 +362,9 @@ Prove that $T - 2I$ or $T - 6I$ is invertible.
 	the upper-triangular matrix of $T$ will have 2 or 6 on the diagonal since $\dim T \leq 5$, which is a contradiction.
 \end{proof}
 
-\begin{problem}{9}
+\begin{exercise}
 Suppose $T \in \mathcal{L}(V)$ is invertible. Prove that
 $E(\lambda T) = E(\frac{1}{\lambda}, T^{-1})$ for every $\lambda \in \mathbb{F}$
 with $\lambda \neq 0$.
-\end{problem}
-\begin{proof}
+\end{exercise}
 
-\end{proof}
-
-% End
-\end{document}

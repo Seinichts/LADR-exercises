@@ -1,111 +1,18 @@
-\documentclass{article}
-\sloppy
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PACKAGES            																						  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{xeCJK}
-\usepackage[dvipsnames]{xcolor}
-\usepackage[10pt]{extsizes}
-\usepackage{amsfonts}
-\usepackage{amsthm}
-\usepackage{amssymb}
-\usepackage[shortlabels]{enumitem}
-\usepackage{microtype}
-\usepackage{amsmath}
-\usepackage{mathtools}
-\usepackage{commath}
-\usepackage{hyperref}
-
-\setCJKmainfont{Noto Sans CJK SC}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PROBLEM ENVIRONMENT         																			           %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{tcolorbox}
-\tcbuselibrary{theorems, breakable, skins}
-\newtcbtheorem{prob}% environment name
-              {Problem}% Title text
-	{% tcolorbox styles
-	enhanced,
-	colback=Emerald!10,colframe=cyan!40!black,
-	fonttitle=\bfseries,
-  }%
-  {}
-
-\newenvironment{problem}[1]{\begin{prob*}{#1}{}}{\end{prob*}}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% THEOREMS/LEMMAS/ETC.         																			  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \newtheorem{innerproblem}{Problem}
-% \newenvironment{problem}[1]{\itshape\renewcommand\theinnerproblem{#1}\innerproblem}{\endinnerproblem}
-\newtheorem{thm}{Theorem}
-\newtheorem*{thm-non}{Theorem}
-\newtheorem{lemma}[thm]{Lemma}
-\newtheorem{corollary}[thm]{Corollary}
-\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% MY COMMANDS   																						  %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\F}{\mathbb{F}}
-\newcommand{\oo}{\infty}
-\newcommand{\bigO}{\mathcal{O}}
-\newcommand{\Real}{\mathcal{Re}}
-\newcommand{\poly}{\mathcal{P}}
-\newcommand{\mat}{\mathcal{M}}
-\DeclareMathOperator{\Span}{span}
-\newcommand{\Hom}{\mathcal{L}}
-\DeclareMathOperator{\Null}{null}
-\DeclareMathOperator{\Range}{range}
-\newcommand{\defeq}{\vcentcolon=}
-\newcommand{\restr}[1]{|_{#1}}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% SECTION NUMBERING																				           %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\renewcommand{\thesection}{\Alph{section}:}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% DOCUMENT START              																			           %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{\vspace{-2em}Chapter 2: Finite dimensional vector space}
-\author{\emph{Linear Algebra Done Right}, by Sheldon Axler}
-\date{}
-
-\begin{document}
-\maketitle
-
-\newpage
-\tableofcontents
-\newpage
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% SECTION A            																			           
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Span and Linear independence}
 
 \section{Bases}
 
-% Problem 1
+% exercise 1
 
-\begin{problem}{1}
+\begin{exercise}
 Find all vector spaces that have exactly one basis.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	\par Consider all lines passing through origin.
 \end{proof}
 
-\begin{problem}{3}
+\begin{exercise}
 \begin{enumerate}[(a)]
 	\item Let $U$ be the subspace of $\mathbb{R}^5$ defined by
 	      \[ U = {(x_1, x_2, x_3, x_4, x_5) \in \mathbb{R}^5 : x_1  = 3 x_2 \text{ and } x_3 = 7 x_4}\]
@@ -113,7 +20,7 @@ Find all vector spaces that have exactly one basis.
 	\item Extend the basis in part (a) to a basis of $\R^5$.
 	\item Find a subspace $W$ of $\R^5$ such that \( \R^5 = U \oplus W\).
 \end{enumerate}
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	\begin{enumerate}[(a)]
@@ -129,10 +36,10 @@ Find all vector spaces that have exactly one basis.
 	\end{enumerate}
 \end{proof}
 
-\begin{problem}{5}
+\begin{exercise}
 Prove or disprove: there exists a basis \(p_0, p_1, p_2, p_3\) of \(\mathcal{P}_3 (\F)\)
 such that none of the polynomials \(p_0, p_1, p_2, p_3\) has a degree 2.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	Consider
 	\begin{align*}
@@ -144,11 +51,11 @@ such that none of the polynomials \(p_0, p_1, p_2, p_3\) has a degree 2.
 	It is easy to verify that they are linearly independent, and span $\mathcal{P}_3(\F)$
 \end{proof}
 
-\begin{problem}{6}
+\begin{exercise}
 Suppose \(v_{1}, v_{2}, v_{3}, v_{4}\) is a basis of $V$. Prove that \[
 	v_{1} + v_{2}, v_{2} + v_{3}, v_{3} + v_{4}, v_{4}\]
 is also a basis of $V$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	We could obtain \(v_{1}, v_{2}, v_{3}\) with the following operation
 	\begin{align}
@@ -169,12 +76,12 @@ is also a basis of $V$.
 	is also linearly independent.
 \end{proof}
 
-\begin{problem}{8}
+\begin{exercise}
 Suppose $U$ and $W$ are subspaces of $V$ such that \(V = U \oplus W\).
 Suppose also that \(u_{1},\dots,u_{m}\) is a basis of $U$ and \(w_{1},\dots,w_{n}\)
 is a basis of $W$. Prove that \[u_{1},\dots,u_{m}, w_{1},\dots,w_{n}\]
 is a basis of $V$.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	The linear independency of \(u_{1},\dots,u_{m}, w_{1},\dots,w_{n}\) is directly come from the definition of direct sum since \(U \cap W = {0}\).
 	Since \(u_{1}, \dots, u_{m}\) is a basis of U. We can write any \(u \in U\) as a linear combination of \(u_{1}, \dots, u_{m}\). Similarly, we can write any \(w \in W\) as a linear combination of \(w_{1}, \dots, w_{n}\).
@@ -184,23 +91,23 @@ is a basis of $V$.
 
 \section{Dimension}
 
-\begin{problem}{1}
+\begin{exercise}
 Suppose $V$ is finite-dimensional and $U$ is a subspace of $V$ such that $ \dim U = \dim V$. Prove that $U = V$.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
 	Let \(u_1, \dots, u_n\) be a basis of $U$. Since $U$ is a subspace of $V$, we can extend the basis of $U$ to a basis of $V$.
 	Since \( \dim U = \dim V\), every independent list of right length is also a base suggests that \(u_{1}, \dots, u_{n}\) also spans $V$. Therefore, \(U = V\).
 \end{proof}
 
-\begin{problem}{2}
+\begin{exercise}
 Show that the subspaces of $\mathbb{R}^2$ are precisely the zero subspace, all lines in $\mathbb{R}^{2}$ through the origin, and $\R^2$ itself.
-\end{problem}
+\end{exercise}
 \begin{proof}
 	\( \dim \mathbb{R}^{2} = 2 \implies \dim \text{subspaces of } \mathbb{R}^{2} \leq 2\)
 
 	\begin{align}
-		\text{When} \hspace{10pt} & \dim U = 0, & U  = \set{0}.                               \\
+		\text{When} \hspace{10pt} & \dim U = 0, & U = \{0\}.                               \\
 		                          & \dim U = 1, & U \text{ is a line passing through origin.} \\
 		                          & \dim U = 2, & U = \mathbb{R}^{2}.
 	\end{align}
@@ -209,16 +116,15 @@ Show that the subspaces of $\mathbb{R}^2$ are precisely the zero subspace, all l
 
 \end{proof}
 
-% \begin{problem}{4}
+% \begin{exercise}
 % \begin{enumerate}[(a)]
 % 	\item Let $U = {p \in P_{4}(\R) : p(6) = 0}$. Find a basis of $U$.
 % 	\item Extend the basis in part (a) to a basis of $P_{4}(\R)$.
 % 	\item Find a subspace $W$ of $P_{4}(\R)$ such that \(P_{4}(\R) = U \oplus W\).
 % \end{enumerate}
-% \end{problem}
+% \end{exercise}
 %
 % \begin{proof}
 % 	Proof
 % \end{proof}
 
-\end{document}
